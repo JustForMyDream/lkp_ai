@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="../css/mui.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <title>摄影师主页</title>
+    <style>
+        body{
+            font-family: 微软雅黑;
+            background: white;
+            margin: 0px;
+            padding: 0px;
+
+        }
+        .content{
+            width: 100%;
+            /*height: 100%;!important;*/
+            padding: 0 0 52px;
+        }
+        .top{
+            width: 100%;
+            height: 44px;
+            /*height: 8%;!important;*/
+        }
+        .head-left{
+            /*float: left;*/
+            /*margin-left: 10px;*/
+            float: left;
+            padding-top: 6px;
+            padding-left: 0px;
+            width: 20%;
+        }
+        .head-right{
+            float: right;
+            padding-top: 6px;
+            margin-right: -35px;
+            padding-right: 0px;
+            width: 20%;
+        }
+        .liebiao{
+            height: 27px;
+            margin-top: 8px;
+        }
+
+        .tupianlunbo{
+            width: 100%;
+            height: 30%;!important;
+        }
+        .xiaoxilibiao{
+            width: 100%;
+            /*height: 132px;*/
+            /*height: 25%;!important;*/
+            border-bottom: 1px solid #cccccc;
+            font-size: 14px;
+            color: #cccccc;
+            padding-top: 10px;
+            /*padding-left: 30px;*/
+        }
+        .xiaoxilibiao-tixing{
+            width: 90%;
+            /*height: 26px;*/
+            font-size: 15px;
+            color: rgb(230,230,230);
+            margin-left: 5%;
+            display: inline-block;
+        }
+        .tixing{
+            font-size: 13px;
+            color: rgb(170,170,170);
+            float: left;
+            margin: 0px;
+        }
+        .xiaoxilibiao-dingdan{
+            width: 90%;
+            height: 34px;
+            margin-left: 5%;
+            padding: 7px 14px;
+            font-size: 12px;
+            color: black;
+            background-color: rgb(238,238,238);
+            border-radius: 18px;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .xiaoxilibiao-dingdan:nth-child(0){
+            margin-top: 0;
+        }
+        .time{
+            font-size: 12px;
+            color: rgb(175,175,175);
+            float: right;
+            padding-right: 5px;
+        }
+        .tongji{
+            width: 100%;
+            /*height: 75px;*/
+            text-align: center;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .tongji>img{
+            width: 33px;
+            height: 33px;
+        }
+        .font1{
+            font-size: 16px;
+            color: black;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .tongji-info{
+            width: 100%;
+            height: 110px;
+        }
+        .tongji-info-left{
+            width: 33%;
+            height: 100%;
+            float: left;
+            text-align: center;
+        }
+        .font2{
+            font-size: 12px;
+            color: red;
+        }
+        .font3{
+            font-size: 18px;
+            color: black;
+        }
+        .font4{
+            font-size: 12px;
+            color: rgb(170,170,170);
+        }
+
+        .bottom{
+            width: 100%;
+            background: black;
+            margin-bottom: 0px;
+            position: fixed;
+            bottom: 0px;
+
+        }
+        .button{
+            width: 33.33%;
+            height: 100%;
+            text-align: center;
+            background-color: black ;
+            float: left;
+            border: none;
+            border-radius: 0px;
+            /*border-left: 1px solid #cccccc;*/
+        }
+        .font6{
+            font-size: 13px;
+            color: white;
+            padding: 2px 2px 0px 2px;
+            margin: 0px;
+        }
+        .svg{
+            height: 20px;
+            width: 20px;
+            /*color: black;*/
+        }
+        .svg1{
+            height: 25px;
+            width: 25px;
+        }
+        </style>
+</head>
+<body>
+<div class="content">
+    <div class="top">
+        <header class="mui-bar mui-bar-nav" style="background-color: white;border: 0">
+            <a href="../sysPort/edit_data">
+                <img style="margin-top: 8px" src="../images/sheyingshi/user(1).svg" class="icon svg1">
+            </a>
+            <h1 class="mui-title" style="width: 80%;">我的主页</h1>
+            <a href="messagecenter.html" class="mui-pull-right">
+                <img style="margin-top: 8px" src="../images/MainInterface/bell.svg" class="icon svg1">
+            </a>
+            <!--<div class="head-right"><img src="../images/sheyingshi/xiaoxi.png"></div>-->
+
+            <!--<a href="edit_data.html" class="mui-action-menu mui-pull-left">-->
+                <!--<img style="margin-top: 7px" src="../images/sheyingshi/user(1).svg" class="icon svg">-->
+            <!--</a>-->
+            <!--<h1 class="mui-title">我的主页</h1>-->
+            <!--<a href="#" class="mui-action-menu mui-pull-right">-->
+                <!--<img style="margin-top: 7px" src="../images/sheyingshi/xiaoxi.png" class="icon">-->
+            <!--</a>-->
+        </header>
+    </div>
+<div class="tupianlunbo">
+    <div id="slider" class="mui-slider">
+        <div class="mui-slider-group mui-slider-loop" id="lunbo">
+            <!--额外增加的一个节点(循环轮播：第一个节点是最后一张轮播)-->
+            <!--<div class="mui-slider-item mui-slider-item-duplicate" id="top">-->
+            <!--<a href="#">-->
+            <!--<img src="../images/tkx/peiban.png">-->
+            <!--</a>-->
+            <!--</div>-->
+
+            <!--额外增加的一个节点(循环轮播：最后一个节点是第一张轮播)-->
+            <!--<div class="mui-slider-item mui-slider-item-duplicate" id="bottom">-->
+            <!--<a href="#">-->
+            <!--<img src="../images/fengxianghui.png">-->
+            <!--</a>-->
+            <!--</div>-->
+        </div>
+        <div class="mui-slider-indicator">
+            <!--<div class="mui-indicator mui-active"></div>-->
+            <!--<div class="mui-indicator"></div>-->
+        </div>
+    </div>
+</div>
+
+    <div class="xiaoxilibiao">
+        <div class="xiaoxilibiao-tixing">
+            <img class="svg" style="float: left;vertical-align: middle" src="../images/sheyingshi/warning(1).svg">
+            <p class="tixing"></p>
+        </div>
+        <!--<div class="xiaoxilibiao-dingdan">收到一个新的订单,请及时处理。<span class="time">2016-09-09</span></div>
+        <div class="xiaoxilibiao-dingdan">活动即将开始。<span class="time">2016-09-09</span></div>-->
+    </div>
+    <div class="tongji">
+        <img style="vertical-align: middle" src="../images/ss.png"><span class="font1">个人统计</span><img style="vertical-align: middle" src="../images/ss1.png">
+    </div>
+    <div class="tongji-info">
+        <a href="wallet.html"><div class="tongji-info-left">
+            <p class="font2">未出账</p>
+            <p class="font3" id="shengyu">132.65<span class="font4" style="color: black;">(元)</span></p>
+            <p class="font4" >总收入￥<span id="zongshouru">0</span></p>
+        </div></a>
+        <img style="float: left;width: 0.5%; height: 75%" src="../images/sheyingshi/shutiao.png">
+        <div class="tongji-info-left">
+            <p class="font2" style="color: black;">未处理</p>
+            <p class="font3" id="wclOrder">0</p>
+            <p class="font4">订单总数&nbsp;<span id="OrderAll">0</span></p>
+        </div>
+        <img style="float: left;width: 0.5%;height: 75%" src="../images/sheyingshi/shutiao.png">
+        <div class="tongji-info-left ProductNum">
+            <!--<p class="font2" style="color: green">已上线</p>-->
+            <!--<p class="font3">1</p>-->
+            <!--<p class="font4">产品总数 1</p>-->
+        </div>
+    </div>
+    <footer>
+        <div class="bottom">
+            <a href="product-list.html">
+            <button class="button">
+                <img class="svg" src="../images/sheyingshi/box(2).svg">
+                <p class="font6">产品管理</p>
+            </button>
+                </a>
+            <a href="zuoping_list.html">
+            <button class="button">
+                <img class="svg" src="../images/sheyingshi/all(1).svg">
+                <p class="font6">作品管理</p>
+            </button>
+                </a>
+            <a href="../photographer/ordercenter.html">
+            <button class="button">
+                <img class="svg" src="../images/sheyingshi/clock(1).svg">
+                <p class="font6">订单管理</p>
+            </button>
+                </a>
+        </div>
+    </footer>
+</div>
+<!--加载中-->
+<div class="mui-backdrop">
+    <div class="item-wrapper">
+        <div class="item" id="load">
+            <div class="ball">
+                <div></div>
+                <div></div>
+            </div>
+            <div id="txt" style="margin-top: 10px;">loading...</div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script type="text/javascript" src="../js/slider.js"></script>
+<script type="text/javascript" src="../js/getParam.js"></script>
+<script type="text/javascript" charset="utf-8">
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+    var slider = mui("#slider");
+    slider.slider({
+        interval: 2000
+    });
+    window.onload = function () {
+        lbtp();
+        getOrder();
+        getProductNum();
+        getZhangdan();
+    }
+    /*
+     * 加载轮播图片
+     * */
+    function  lbtp() {
+        var html = "";
+        $.ajax({
+            url: "../homePage/lbtp",
+            data: {},
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                html = " <div class='mui-slider-item mui-slider-item-duplicate' id='top'>" +
+                        " <a href='" + data[data.length - 1].itemTplj + "'><img src='" + imgpre + JSON.parse(data[data.length - 1].itemLbtp)[0].path + "'></a>" +
+                        " </div>";
+                $("#lunbo").append(html);
+                for (var i = 0; i < data.length; i++) {
+                      (i);
+                    var img = JSON.parse(data[i].itemLbtp);
+                    var imgpath = img[0].path;
+                    var id = data[i].id;
+                    html = "<div class='mui-slider-item'><a href='" + data[i].itemTplj + "'><img src='" + imgpre + imgpath + "'></a></div>"
+                    $("#lunbo").append(html);
+                }
+
+                $(".mui-slider-indicator").append('<div class="mui-indicator mui-active"></div>');
+                for (var i = 1; i < data.length; i++) {
+                    $(".mui-slider-indicator").append('<div class="mui-indicator"></div>');
+                }
+                html = " <div class='mui-slider-item mui-slider-item-duplicate' id='bottom'>" +
+                        " <a href='" + data[0].itemTplj + "'><img src='" + imgpre + JSON.parse(data[0].itemLbtp)[0].path + "'></a>" +
+                        " </div>";
+                $("#lunbo").append(html);
+                var slider = mui("#slider");
+                slider.slider({
+                    interval: 2000
+                });
+            }
+        });
+    }
+
+    function  getProductNum() {
+        $.ajax({
+            url: "../product/ProductNum",
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+                console.log(data);
+                if (data.errorCode == '200') {
+                    var Productnum = data.productNum[0];
+                    var zongshu;
+                    var shangxian;
+
+                    if(Productnum[1]){
+                        shangxian= Productnum[1];
+                    }
+                    else{
+                        shangxian= 0;
+                    }
+                    if( Productnum[0]){
+                        zongshu= Productnum[0];
+                    }
+                    else{
+                        zongshu= 0;
+                    }
+
+                    var html = ' <p class="font2" style="color: green">已上线</p>\
+                       <p class="font3">' + shangxian + '</p>\
+                        <p class="font4">' + "产品总数 " + zongshu + '</p>';
+                    $(".ProductNum").append(html);
+                }
+            }
+    });
+    }
+
+
+    function getZhangdan() {
+        $.ajax({
+            url: "../sysPort/getZhangdan",
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+                console.log(data);
+                if (data.errorCode == '200') {
+                   $("#zongshouru").text(data.zongshouru);
+                }
+            }
+        });
+    }
+
+
+
+
+
+    function  getOrder() {
+        $.ajax({
+            url: "../sysPort/getOrderCount",
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+
+                    $("#wclOrder").text(data.jiaofu+data.youji+data.queren);
+//                }else{
+//                    $("#wclOrder").text("0");
+//                }
+                $("#OrderAll").text(data.jiaofu+data.youji+data.queren+data.wancheng);
+
+                $.ajax({
+                    url: "../msgPort/getAllMsg",
+                    data: {},
+                    type: "post",
+                    dataType: "json",
+                    success: function (data) {
+                        var msg =data.msg;
+                        console.log(msg.length);
+                        if(msg.length > 0){
+                            if(msg.length == 1){
+                                $(".tixing").text("您有新消息提醒,请注意查看!");
+                                $(".xiaoxilibiao").append('<div class="xiaoxilibiao-dingdan">'+msg[0].itemXxnr+'<span class="time">'+msg[0].itemFssj+'</span></div>\
+                                    <div style="width:100%;height: 34px;"></div>');
+                                /*    <div class="xiaoxilibiao-dingdan">活动即将开始。<span class="time">2016-09-09</span></div>*/
+                            }else{
+                                $(".tixing").text("您有新消息提醒,请注意查收!")
+                                $(".xiaoxilibiao").append('<div class="xiaoxilibiao-dingdan">'+msg[0].itemXxnr+'<span class="time">'+msg[0].itemFssj+'</span></div>\
+                                <div class="xiaoxilibiao-dingdan">'+msg[1].itemXxnr+'<span class="time">'+msg[1].itemFssj+'</span></div>');
+                            }
+                        }else{
+                            $(".tixing").text("暂无消息!");
+                            $(".xiaoxilibiao").append('<div class="xiaoxilibiao-dingdan">暂无新的消息需要处理。<span class="time"></span></div>');
+                        }
+
+                        $(".xiaoxilibiao-dingdan").on('tap',function () {
+                            window.location.href = "messagecenter.html";
+                        });
+                        /*加载中*/
+                        $(".mui-backdrop").hide();
+                    },
+                    error: function (e) {
+                        mui.toast(e);
+                    }
+                });
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+
+    }
+
+</script>
+</html>

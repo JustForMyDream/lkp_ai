@@ -1,0 +1,138 @@
+body{
+    font-family: "Microsoft YaHei";
+    background: #ffffff;
+}
+.blur {
+    -webkit-filter: blur(10px); /* Chrome, Opera */
+    -moz-filter: blur(10px);
+    -ms-filter: blur(10px);
+    filter: blur(10px);
+}
+.header-content{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.bottom-img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+}
+.bottom-img img{
+    position: absolute;
+    display: block;
+    z-index: -1;
+}
+#poster{
+    width: 100%;
+}
+.content{
+    padding:17px 17px;
+}
+.content>div>div{
+    background: rgb(238,238,238);
+}
+.input-list,.input-list-extend{
+    padding: 10px 0;
+    background: rgb(238,238,238);
+}
+.input-row{
+    position: relative;
+    padding: 7px 30px;
+}
+.input-row > label,.input-row > input,.input-row > select{
+    display: inline-block;
+    margin: -2px;
+    height:30px;
+    font-size: 13px;
+    line-height: 13px;
+    padding: 8px;
+}
+.input-row > label{
+    width: 60px;
+    text-align: center;
+    padding: 8px 8px 8px 0;
+    font-weight: 500;
+}
+.input-row > input,.input-row > select{
+    width: calc(100% - 60px);
+    border: 1px solid rgba(0,0,0,.2)!important;
+    padding: 7px;
+    font-family: "Microsoft YaHei";
+}
+.input-row.select{
+    font-family: "Microsoft YaHei";
+}
+.input-row.select:after{
+    font-family: Muiicons;
+    content: "\e583";/
+    padding: 5px;
+    display: block;
+    position: absolute;
+    line-height: 20px;
+    top: 5px;
+    right: 30px;
+    color: #090909;
+    font-size: 20px;
+    vertical-align: top;
+}
+.title{
+    padding: 10px 38px;
+    background:rgb(238,238,238);
+    margin: 0 auto 7px;
+    text-align: center;
+    font-family: "Microsoft YaHei" ;
+    font-weight: bold;
+}
+.button-row{
+    text-align: center;
+}
+a.button{
+    display: inline-block;
+    text-align: center;
+    color: #000000;
+}
+.button{
+    display: block;
+    border: 0;
+    font-size: 13px;
+    line-height: 13px;
+    border-radius: 5px;
+    margin:21px auto;
+    padding:12px 15px;
+    background:rgb(255,227,62);
+}
+.activity-info-row{
+    background: #FFFFFF;
+}
+.activity-info-row .activity-info-key,.activity-info-row .activity-info-value{
+    background-color: inherit;
+    color:rgb(151,151,151);
+    font-size: 12px;
+    display: inline-block;
+}
+.activity-divider{
+    padding: 17px;
+    background: #EEEEEE;
+    height: 35px;
+    margin-top: 20px;
+}
+.activity-divider p{
+    line-height: 0px;
+    font-size: 15px;
+    color: black;
+    margin-left: 22px;
+    margin-top: -10px;
+}
+.content>P{
+    //padding-bottom: 15px;
+    margin: 0;
+    font-size: 13px;
+    color:rgb(1,1,1)
+}
+.content>img{
+    margin: 15px 0 0;
+    width: 100%;
+}

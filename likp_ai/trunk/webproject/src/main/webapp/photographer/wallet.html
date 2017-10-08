@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>资金统计</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        .mui-title {
+            font-family: "微软雅黑";
+        }
+
+        .content_up {
+            background-color: #FFE43E;
+            width: 100%;
+            height: 220px;
+        }
+
+        .yue {
+            height: 85px;
+            width: 100%;
+        }
+
+        .money_biaoti {
+            font-family: "微软雅黑";
+            color: black;
+            font-size: 15px;
+            padding-top: 20px;
+            padding-left: 20px;
+        }
+
+        .money_yue {
+            font-family: "微软雅黑";
+            color: black;
+            font-size: 30px;
+            padding-left: 20px;
+            font-weight: bold;
+        }
+
+        .shouru_money, .history_money {
+            font-family: "微软雅黑";
+            color: black;
+            font-size: 20px;
+            padding-left: 20px;
+            font-weight: bold;
+        }
+
+        .shouru_right {
+            width: 45%;
+            float: right;
+            margin-top: -110px;
+        }
+
+        .shouru_left {
+            width: 55%;
+        }
+
+        .shouru_left img {
+            margin-top: -75px;
+            padding-left: 90%;
+            height: 100px;
+        }
+
+        .mingxi {
+            width: 100%;
+            height: 40px;
+            background-color: #EEEEEE;
+        }
+
+        .mingxi p {
+            font-family: "微软雅黑";
+            font-size: 14px;
+            padding-left: 20px;
+            padding-top: 10px;
+        }
+
+        .zhangdan {
+            width: 100%;
+        }
+
+        .zujl {
+            width: 100%;
+            height: 60px;
+            border-bottom: 2px solid #EEEEEE;
+            color: #AAAAAA;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .zhangdan_list {
+            width: 100%;
+            height: 60px;
+            border-bottom: 2px solid #EEEEEE;
+        }
+
+        .dingdan_name {
+            color: black;
+            font-family: "微软雅黑";
+            font-size: 15px;
+            font-weight: bold;
+            padding-top: 5px;
+            padding-left: 20px;
+        }
+
+        .dingdan_time {
+            font-family: "微软雅黑";
+            font-size: 15px;
+            padding-left: 20px;
+            margin-top: -5px;
+            color: #AAAAAA;
+        }
+
+        .dingdan_money {
+            font-family: "微软雅黑";
+            color: #21AF20;
+            padding-left: 85%;
+            margin-top: -50px;
+            font-size: 15px;
+        }
+
+        .dingdan_state {
+            font-family: "微软雅黑";
+            padding-left: 88%;
+            margin-top: -11px;
+            color: #AAAAAA;
+        }
+
+    </style>
+</head>
+
+<body>
+<!--<header class="mui-bar mui-bar-nav">-->
+<!--<a><span class="mui-icon mui-icon-arrowleft mui-action-back"></span></a>-->
+<!--<h1 class="mui-title">我的钱包</h1>-->
+<!--</header>-->
+<header class="mui-bar mui-bar-nav" style="border-bottom: 1px solid #dcdcdc;color:black;background-color: white;">
+    <a class="mui-icon mui-action-back mui-icon-arrowleft" style="color:black;">
+    </a>
+    <h1 class="mui-title" style="width: 80%">我的钱包</h1>
+</header>
+<div class="mui-content">
+    <div class="content_up">
+        <div class="yue">
+            <p class="money_biaoti">账户余额（元）</p>
+            <p class="money_yue"></p>
+        </div>
+        <div><!--style="clear:both;"-->
+            <div class="shouru_left">
+                <p class="money_biaoti">历史转账（元）</p>
+                <p class="history_money"></p>
+                <img src="../img/0.png"/>
+            </div>
+            <div class="shouru_right">
+                <p class="money_biaoti">累计收入（元）</p>
+                <p class="shouru_money"></p>
+            </div>
+        </div>
+        <div class="zhangdan">
+            <div class="mingxi">
+                <p>账单明细</p>
+            </div>
+            <div id="lszz">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script src="../js/date.js"></script>
+<script type="text/javascript">
+    $(function () {
+        mui.toast("加载中...")
+        $.ajax({
+            url: "../sysPort/SelectSysZZXX",
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+                console.log(data);
+                var lszzje = data.lszzje;
+                var ljsr = data.ljsr;
+                var zhye = (parseFloat(ljsr) - parseFloat(lszzje)).toString();
+                $(".money_yue").text(chulinum(zhye) + "元");
+                $(".history_money").text(chulinum(lszzje) + "元");
+                $(".shouru_money").text(chulinum(ljsr) + "元");
+                var html = "";
+                var orders = data.orders;
+                if (orders.length == 0) {
+                    $("#lszz").html('<div class="zujl">暂无记录</div>');
+                } else {
+                    for (var i in orders) {
+                        if (orders[i].itemZzje) {
+                            html += ' <div class="zhangdan_list">\
+                                <p class="dingdan_name">' + orders[i].itemUserid.itemName + '的订单转入</p>\
+                                <p class="dingdan_time">' + new Date(orders[i].itemZzsj).format("yyyy-MM-dd hh:mm") + '</p>\
+                                <p class="dingdan_money">+' + orders[i].itemZzje.substring(0, orders[i].itemZzje.indexOf(".") + 3) + '</p>\
+                                <p class="dingdan_state">成功</p>\
+                                </div>'
+                        }
+                        $("#lszz").html(html);
+                    }
+                }
+            },
+            error: function (e) {
+                (e)
+            }
+        });
+    })
+    function chulinum(data) {
+        data = data.toString();
+        console.log(data.length)
+        if (data.length > 4) {
+            return data.substring(0, data.indexOf(".") + 3);
+        } else {
+            return data;
+        }
+    }
+
+</script>
+</body>
+
+</html>

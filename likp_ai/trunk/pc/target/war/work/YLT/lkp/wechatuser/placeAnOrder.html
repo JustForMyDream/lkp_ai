@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>立可拍</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/mui.picker.css" rel="stylesheet"/>
+    <link href="../css/mui.poppicker.css" rel="stylesheet"/>
+    <link href="../css/base.css" rel="stylesheet">
+    <style>
+        img {
+            width: 100%;
+            vertical-align: middle;
+        }
+
+        .mui-bar-nav.mui-bar .mui-icon {
+            color: #cccccc;
+        }
+
+        .mui-table-view-divider, .mui-input-row label {
+            font-family: '微软雅黑';
+        }
+
+        .mui-input-row label {
+            font-size: 16px;
+        }
+
+        .mui-table-view-divider {
+            font-size: 14px;
+        }
+
+        .product-info {
+            position: relative;
+            width: 100%;
+        }
+
+        .product-info > .product-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 22px;
+            line-height: 22px;
+            color: #FFF;
+            font-weight: 800;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .mui-table-view-cell > a:not(.mui-btn) {
+            padding: initial;
+        }
+
+        .mui-table-view-cell:after {
+            left: 0;
+        }
+
+        input, select, textarea {
+            font-size: 16px;
+        }
+
+        .mui-input-row label, input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea {
+            padding: 15px;
+            height: inherit;
+        }
+
+        input[type=checkbox], input[type=radio], .radio-sex {
+            width: 20px !important;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: normal;
+            display: inline-block;
+            margin-bottom: 0;
+            padding: 15px;
+            padding-left: 0;
+            float: left !important;
+        }
+
+        .radio-sex:before {
+            float: left;
+            height: 20px;
+            width: 25px;
+            font-size: 14px;
+            display: inline-block;
+            content: '';
+            background: url("../images/unselect.png") no-repeat left center;
+            background-size: contain;
+        }
+
+        .radio-sex:checked:before {
+            height: 25px;
+            margin-top: -3px;
+            background-image: url("../images/selected.png");
+        }
+
+        .radio-sex:after {
+            content: '';
+            width: 0;
+            height: 0;
+            clear: both;
+        }
+
+        .radio-sex-span {
+            width: auto;
+            display: inline-block;
+            padding: 15px 15px 15px 10px;
+            float: left;
+        }
+
+        .mui-table-view-cell > a:not(.mui-btn).mui-active {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+<header class="mui-bar mui-bar-nav" style="box-shadow:none;-webkit-box-shadow:none;">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">预约</h1>
+</header>
+<div class="mui-content" style="padding-bottom: 50px">
+    <div class="product-info">
+        <div style="max-height:200px;overflow: hidden; width: 100%;"><img id="imgtop"></div>
+        <!--<div class="product-title">陪伴</div>-->
+    </div>
+    <ul class="mui-table-view">
+        <li class="mui-table-view-divider">
+            地址和时间
+        </li>
+        <li class="mui-table-view-cell">
+            <a class="mui-navigate-right">
+                <div class="mui-input-row">
+                    <label>拍摄时间</label>
+                    <input id="orderDate" type="datetime-local">
+                </div>
+            </a>
+        </li>
+        <li class="mui-table-view-cell">
+            <a class="mui-navigate-right">
+                <div class="mui-input-row">
+                    <label>拍摄地点</label>
+                    <button id='showCityPicker3' class="mui-btn mui-btn-block" type='button' style="    width: 65%;
+    padding: 15px;
+        padding-left: 0;
+    border: 0;
+    margin: 0;
+    text-align: left;
+    font-size: 16px;color: #999">请选择地点</button>
+                </div>
+            </a>
+        </li>
+        <li class="mui-table-view-cell">
+            <a class="">
+                <div class="mui-input-row">
+                    <label>详细地址</label>
+                    <input id="detailposition" type="text" placeholder="填写详细地址">
+                </div>
+            </a>
+        </li>
+        <li class="mui-table-view-divider">
+            预约人信息
+        </li>
+        <li class="mui-table-view-cell">
+            <a class="">
+                <div class="mui-input-row">
+                    <label>预约姓名</label>
+                    <input id="username" type="text"  placeholder="请填写姓名">
+                </div>
+            </a>
+        </li>
+        <li class="mui-table-view-cell">
+            <a class="mui-navigate-right">
+                <div class="mui-input-row">
+                    <label>性别</label>
+                    <input class="radio-sex" type="radio" name="sex" value="女" checked/>
+                    <span class="radio-sex-span">女</span>
+                    <input class="radio-sex" type="radio" name="sex" value="男"/>
+                    <span class="radio-sex-span">男</span>
+                </div>
+            </a>
+        </li>
+        <li class="mui-table-view-cell">
+            <a class="">
+                <div class="mui-input-row">
+                    <label>联系方式</label>
+                    <input id="phone" type="number"  placeholder="填写联系方式">
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="dtbottom">
+    立即下单：¥
+</div>
+<div id="map" style="width: 100%;height: 100px;display: none"></div>
+<script src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+<!--<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>-->
+<script src="../js/mui.picker.js"></script>
+<script src="../js/mui.poppicker.js"></script>
+<script src="../js/getParam.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script src="../js/city.data.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Hc7QMTt5b5treV5Q4KsCYSni"></script>
+<script type="text/javascript">
+    mui.init();
+    //    var productId = "CPBH1610180001";
+    var Id = GetQuery("id");
+    var cityPicker3 = new mui.PopPicker({
+        layer: 3
+    });
+    cityPicker3.setData(cityData3);
+    var showCityPickerButton = document.getElementById('showCityPicker3');
+    showCityPickerButton.addEventListener('tap', function (event) {
+        showCityPickerButton.style.color="black";
+        cityPicker3.show(function (items) {
+            showCityPickerButton.innerText = (items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text;
+            //返回 false 可以阻止选择框的关闭
+            //return false;
+        });
+    }, false);
+    $(function () {
+        //加载顶部图片
+        $.ajax({
+            url: "../common/index/productDetail",
+            data: {id: Id},
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+                var imgtop = imgpre + JSON.parse(data.itemCover)[0].path;
+                $("#imgtop").attr("src", imgtop);
+                $(".dtbottom").append(data.itemPrice);
+
+                //产品加载完才能下单
+                jiazaicanping(data.itemCpbh);
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+        weizhi();
+
+
+        /*var $title = $(".product-info>.product-title");
+         $title.css({
+         "margin-top": "-" + parseFloat($title.height()) / 2 + "px",
+         "margin-left": "-" + parseFloat($title.width()) / 2 + "px"
+         });*/
+        //radio事件 以后可封装
+        $(".radio-sex").on("tap", function (e) {
+            var $target = $(e.target);
+            var name = $target.attr("name");
+            $(".radio-sex[name=" + name + "]").removeClass("selected");
+            $target.addClass("selected");
+        });
+
+    });
+    function jiazaicanping(productId) {
+        $(".dtbottom").on("tap", function () {
+            var address = $("#showCityPicker3").text();
+            var orderDate = $("#orderDate").val();
+            var username = $("#username").val();
+            var detailposition = $("#detailposition").val();
+            var phone = $("#phone").val();
+            var sex = $(".radio-sex[name='sex']:checked").val();
+            if (address == null || address == '' || address == '请选择地点') {
+                mui.toast("请选择地点");
+                return false;
+            }
+            if (orderDate == null || orderDate == '') {
+                mui.toast("请选择预约时间");
+                return false;
+            }
+            if (username == null || username == '') {
+                mui.toast("请输入用户姓名");
+                return false;
+            }
+            if (detailposition == null || detailposition == '') {
+                mui.toast("请输入详细地址");
+                return false;
+            }
+            if (phone == null || phone == "") {
+                mui.toast("请输入预约电话");
+                return false;
+            } else {
+                var phone = document.getElementById('phone').value;
+                if (!(/^1(3|4|5|7|8)\d{9}$/.test(phone))) {
+                    alert("手机号码有误，请重填!");
+                    return false;
+                }
+            }
+            if (sex == null || sex == "") {
+                mui.toast("请选择性别");
+                return false;
+            }
+            mui.toast("正在努力为你下单中");
+            $.get("../userPort/palceAnOrder", {
+                productId: productId,
+                orderDate: orderDate,
+                username: username,
+                phone: phone,
+                address: address,
+                sex: sex,
+                detailposition: detailposition
+            }, function (data) {
+                if (data.errorCode == 200) {
+                    window.location.href = "orderPay.html?id=" + data.id;
+                } else {
+                    mui.toast(data.errorMsg);
+                }
+            }, "json");
+        });
+    }
+    function weizhi() {              //获取位置信息
+        // 百度地图API功能
+        var map = new BMap.Map("map");
+        var point = new BMap.Point(103.962722, 30.782822);
+        map.centerAndZoom(point, 12);
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function (r) {
+            if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                var mk = new BMap.Marker(r.point);
+                map.addOverlay(mk);
+                map.panTo(r.point);
+                var geoc = new BMap.Geocoder();
+                geoc.getLocation(r.point, function (rs) {
+                    var addComp = rs.addressComponents;
+                    var positionstr = addComp.province + "," + addComp.city + "," + addComp.district;
+                    var postions = positionstr.split(",");
+                    for (var i in cityData3) {
+                        if (cityData3[i].text == postions[0]) {
+                            cityPicker3.pickers[0].setSelectedIndex(i);
+                            var childrens = cityData3[i].children;
+                            for (var j in childrens) {
+                                if (childrens[j].text == postions[1]) {
+                                    cityPicker3.pickers[1].setSelectedIndex(j);
+                                    var childrens2 = childrens[j].children;
+                                    for (var k in childrens2) {
+                                        if (childrens2[k].text == postions[2]) {
+                                            cityPicker3.pickers[2].setSelectedIndex(k);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+//                    $("#car_tongzhi1").append("你现在的位置是:" + addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
+                });
+            }
+            else {
+                mui.toast('获取位置信息failed:' + this.getStatus());
+            }
+        }, {enableHighAccuracy: true})
+    }
+</script>
+</body>
+</html>

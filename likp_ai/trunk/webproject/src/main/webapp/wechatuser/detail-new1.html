@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试跳转</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <!--App自定义的css-->
+    <style type="text/css">
+        body {
+            font-family: Microsoft YaHei;
+            height: 100%;
+            overflow: hidden;
+        }
+        .mui-content{
+            width: 100%;
+            height: auto;
+            background-color: #ffffff;
+        }
+        .mui-bar-nav img{
+            margin-top: 12px;
+        }
+        .mui-bar{
+            background-color: white;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+
+        .product-show-cover {
+            font-size: 17px;
+            line-height: 36px;
+            letter-spacing: 0.2px;
+        }
+
+        .product-detail-text {
+            padding: 15px;
+        }
+
+        .product-show-title {
+            font-weight: bold;
+        }
+
+        .product-detail-price {
+            color: rgb(244,81,85);
+            font-size: 14px;
+        }
+
+        .product-detail-price > span {
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        #sliderSegmentedControl {
+            border-top: 1px solid rgb(205, 205, 205);
+            border-bottom: 1px solid rgb(205, 205, 205);
+            background-color: white;
+        }
+
+        #slider {
+            height: 100%;
+            padding-top: 78px;
+        }
+
+        #slider .mui-slider-group {
+            height: calc(100% - 41px);
+            /*top: 92px;*/
+        }
+
+        #sliderProgressBar {
+            background-color: #ffffff;
+        }
+
+        #sliderProgressBar:before {
+            content: '';
+            display: block;
+            width: 62px;
+            height: 0;
+            border-top: 2px solid #000000;
+            margin: 0 50%;
+            top: -6px;
+            left: -32px;
+            position: absolute;
+        }
+        #sliderProgressBar:after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid rgb(205, 205, 205);
+            margin: 0 50%;
+            left: -10px;
+            top: 2px;
+            position: absolute;
+        }
+
+        a.mui-control-item.mui-active {
+            color: #000000;
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+            color: #000000;
+            border-bottom: none;
+        }
+        .mui-bar .mui-segmented-control {
+            top: 0px;
+        }
+
+        .mui-slider-item.mui-control-content .mui-scroll {
+            padding-top: 15px;
+            padding-bottom: 64px;
+        }
+        .mui-slider{
+            position: absolute;
+        }
+
+        .product-example {
+            text-align: center;
+            color: rgb(98, 98, 98);
+            padding: 10px;
+        }
+
+        .product-show-des {
+            line-height: 20px;
+            padding-bottom: 10px;
+            text-align: left;
+            color: black;
+        }
+
+        .product-show-pic span {
+            display: block;
+            line-height: 20px;
+            padding: 10px 0;
+            text-align: left;
+            font-size: 12px;
+            color: black;
+        }
+
+        .divide-title {
+            width: 100%;
+            background-color: rgb(244,244,244);
+            /*background-color: white;*/
+            position: relative;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .divide-title > div:nth-child(1) {
+            width: 100%;
+            height: 50%;
+            box-sizing: border-box;
+            border-bottom: 1px solid rgb(205, 205, 205);
+            position: absolute;
+            padding: 0;
+            background-color: rgb(244,244,244);
+            z-index: -1;
+        }
+        .divide-title > div:nth-child(3) {
+            width: 100%;
+            height: 50%;
+            box-sizing: border-box;
+            /*border-bottom: 1px solid rgb(205, 205, 205);*/
+            position: absolute;
+            padding: 0;
+            background-color: rgb(244,244,244);
+            z-index: -1;
+        }
+
+        .divide-title > div:nth-child(2) {
+            font-size: 15px;
+            text-align: center;
+            line-height: 15px;
+            padding: 10px;
+            background-color: rgb(244,244,244);
+            /*background-color: white;*/
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        .product-yingji-cover {
+            position: relative;
+            padding: 10px;
+        }
+
+        .product-yingji-cover > img:nth-child(1) {
+            position: absolute;
+            width: 94px !important;
+            height: 94px;
+            border-radius: 100%;
+            left: 50%;
+            top: 50%;
+            margin: -47px;
+        }
+
+        .product-yingji-cover > img:nth-child(2) {
+            border-radius: 5px;
+        }
+
+        .recommend-item {
+            width: 33.3%;
+            padding: 5px 10px;
+            display: inline-block;
+            margin: -1.5px;
+        }
+
+        .recommend-item .reconmmend-title {
+            color: black;
+            font-size: 12px;
+            padding: 5px 0 0;
+        }
+
+        .recommend-item .reconmmend-title > span {
+            font-size: 15px;
+        }
+
+        .recommend-item .reconmmend-des {
+            color: #000000;
+            font-size: 12px;
+        }
+        .recommend-list{
+            margin: 10px;
+        }
+
+        .product-service-name {
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 20px;
+        }
+
+        .product-service-price {
+            font-size: 12px;
+            color: rgb(244, 81, 85);
+            line-height: 20px;
+        }
+
+        .product-service-list {
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        .product-service-imglist {
+            padding-top: 10px;
+        }
+
+        .product-service-imglist-item {
+            width: 33.333333%;
+            display: inline-block;
+            margin: -1.5px;
+            text-align: center;
+        }
+
+        .product-service-imglist-item > img {
+            max-width: 22px;
+        }
+
+        .product-service-imglist-item > div {
+            padding: 10px;
+            color: black;
+            font-size: 12px;
+        }
+
+        .divider {
+            display: block;
+            width: 100%;
+            height: 0;
+            margin: 10px 0;
+            border-bottom: 1px solid #c8c7cc;
+        }
+
+        .product-service-other {
+
+            padding: 0 10px;
+            text-align: center;
+            color: rgb(147, 147, 147);
+        }
+
+        .product-album, .product-calendar {
+            color: rgb(147, 147, 147);
+            font-size: 13px;
+            line-height: 20px;
+        }
+
+        .product-service-other-title, .product-handover-title {
+            padding: 10px 0 5px;
+            color: #000000;
+        }
+
+        .product-album-item {
+            width: 50%;
+            padding: 10px;
+            display: inline-block;
+            margin: -1.5px;
+        }
+
+        .product-album-item > img {
+
+        }
+
+        .product-calendar {
+            padding: 10px 10px 0;
+        }
+
+        .product-calendar-item {
+
+        }
+
+        .product-album-des {
+            padding: 10px 10px 0;
+        }
+
+        .bottom {
+            height: 64px;
+            position: fixed;
+            z-index: 2;
+            width: 100%;
+            background-color: #ffffff;
+            bottom: -1px;
+            padding: 14px;
+        }
+
+        .bottom > div {
+            text-align: center;
+            float: left;
+        }
+
+        .bottom .item-1 {
+            width: 25%;
+        }
+
+        .bottom .item-2 {
+            width: 50%;
+        }
+
+        .item-1 {
+            height: 40px;
+        }
+
+        .item-1 > img {
+            width: 23px;
+            height: 23px;
+        }
+
+        .item-1 > div {
+            font-size: 10px;
+            color: #999999;
+        }
+
+        .bottom .item-2 > button {
+            width: 100%;
+            color: black;
+            background-color: #ffe33e;
+            line-height: 24px;
+            border: 0;
+            box-shadow: 0 1.5px 1px 0 rgba(41, 51, 43, 0.43);
+        }
+
+        .mui-scroll-wrapper {
+            overflow-y: auto;
+            position: absolute;
+            z-index: 2;
+        }
+
+        #sharepic p {
+            color: #FFF;
+        }
+
+        .mui-backdrop {
+            display: none;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .mui-backdrop > div {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .product-detail-info {
+            height: auto;
+            transition: height 1s;
+            -moz-transition: height 1s; /* Firefox 4 */
+            -webkit-transition: height 1s; /* Safari 和 Chrome */
+            -o-transition: height 1s;
+        }
+        .product-service-content1 {
+            width: 100%;
+            color:white;
+            height: auto;
+            /*display: inline-block;*/
+            padding: 10px 10%;
+            border-bottom: 1px solid rgb(205, 205, 205);
+        }
+        .product-service-content2{
+            width: 100%;
+            background-color:white;
+            height: auto;
+            padding: 15px 0px;
+        }
+        .photographer{
+            width: 100%;
+            height: auto;
+            text-align: center;
+            padding: 6px;
+        }
+        .photographer img{
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+        }
+        .photographer button{
+            width: 92px;
+            height: 29px;
+            padding: 0px;
+            padding: 0px;
+            margin-top: 5px;
+        }
+        li{
+            border-top: none;
+            height: auto;
+        }
+        li >img{
+            max-width: 20px;
+            /*height: 20px;*/
+        }
+        li >span{
+            font-size: 12px;
+            color: black;
+        }
+        li >div{
+            font-size: 12px;
+            color: black;
+            padding-left: 24px;
+        }
+        .mui-table-view-cell{
+            padding: 0px 35px;
+            /*border: none;*/
+        }
+        .mui-table-view-cell:after {
+            background-color: white;
+        }
+        .bottom {
+            height: 64px;
+            position: fixed;
+            z-index: 2;
+            width: 100%;
+            background-color: #ffffff;
+            bottom: -1px;
+            padding: 14px;
+            border-top: 1px solid rgb(204,204,204);
+        }
+
+        .bottom > div {
+            text-align: center;
+            float: left;
+        }
+
+        .bottom .item-1 {
+            width: 25%;
+        }
+
+        .bottom .item-2 {
+            width: 50%;
+        }
+
+        .item-1 {
+            height: 40px;
+        }
+
+        .item-1 > img {
+            width: 23px;
+            height: 23px;
+        }
+
+        .item-1 > div {
+            font-size: 10px;
+            color: #999999;
+        }
+
+        .bottom .item-2 > button {
+            width: 100%;
+            color: black;
+            background-color: #ffe33e;
+            line-height: 24px;
+            border: 0;
+            box-shadow: 0 1.5px 1px 0 rgba(41, 51, 43, 0.43);
+        }
+
+    </style>
+</head>
+<body>
+<div class="mui-content">
+    <div id="slider" class="mui-slider" style="background-color: #ffffff">
+    <!--标题-->
+    <div class="mui-bar mui-bar-nav" style="box-shadow: none;padding: 0px">
+        <a href="detail-new.html"><span class="mui-icon mui-icon-arrowleft" style="color: rgb(218,218,218);margin-left: 0px"></span></a>
+        <img src="../images/product-show/shopping.svg" style="width: 20px;height: 20px;margin-right: 10px" class="mui-btn-link mui-pull-right">
+        <h1 class="mui-title">爱您在心耳在听</h1>
+        <div id="sliderSegmentedControl"
+             class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+            <div class="scorll" style="color: rgb(133,131,131);">
+                <a class="mui-control-item mui-active" id="title0" href="#product1">
+                    套餐样片
+                    <img src="../images/product-show/shutiao.png" style="width:5px;height:38px;float: right;margin-top: 0px" >
+                </a>
+                <a class="mui-control-item" id="title1" href="#product2">
+                    服务详情
+                </a>
+            </div>
+        </div>
+        <!--选择条-->
+        <div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-6"></div>
+    </div>
+    <!--图片-->
+    <div class="mui-slider-group">
+        <div id="product1" class="mui-slider-item mui-control-content mui-active product-service-content1">
+            <div id="scroll1" class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+                    <div class="product-example">
+                        <div class="product-show-des" style="font-size: 12px">从前不喜欢你们口味清淡，如今我做菜习惯少放些盐。</div>
+
+                        <div class="product-show-pics"><div class="product-show-pic"><img src="http://localhost:8080/Z22629/uploads/item/2016/df910c34-8559-432f-bacb-dda82329e6de.jpg"><span>从前总想去世界各地看看，现在回过头只想抓紧你们的手</span></div><div class="product-show-pic"><img src="http://localhost:8080/Z22629/uploads/item/2016/50971db8-973c-4252-aea9-b6debf25e432.jpg"><span>从前你们是帅小伙和漂亮姑娘，现在拍起照来还是很搭</span></div><div class="product-show-pic"><img src="http://localhost:8080/Z22629/uploads/item/2016/b72a981e-3744-4983-a2c3-b40983c2d191.jpg"><span>从前总以为有的是时间，现在我愿意花光时间陪你们聊天</span></div><div class="product-show-pic"><img src="http://localhost:8080/Z22629/uploads/item/2016/03a3d60a-4978-4663-889c-9e3cdeaee5ad.jpg"><span>从前和朋友吃饭总晒照片，现在我只为你们洗手做羹汤</span></div><div class="product-show-pic"><img src="http://localhost:8080/Z22629/uploads/item/2016/a244c68f-f27a-47b8-b262-e7e48c3e56df.jpg"><span>我的童年，是在你们的呵护下，无忧无虑地度过
+<br>阳光灿烂的日子，你们送我一片明媚的晴空
+落雨飘雪的时节，你们为我撑起一把温情的伞</span></div><div class="product-show-pic"><img src="http://localhost:8080/Z22629/uploads/item/2016/489d751a-695a-4f7f-8f47-0475ec4d2f83.jpg"><span></span></div><div class="product-show-pic"><img src="http://localhost:8080/Z22629/uploads/item/2016/bf828de4-5cbd-4b5b-b50c-c5344358310b.jpg"><span>从前我彻夜狂欢不爱回家，现在你们回到家里饭已做好</span></div><div class="product-show-pic"><img src="http://localhost:8080/Z22629/uploads/item/2016/364aac59-3aa0-4f6f-b603-675cb54857b8.jpg"><span>我学会了走，学会了跑，学会了在世间翱翔
+<br>等回过头却发现
+你们的头发不再乌黑，腰板不再挺拔
+可是你们的爱却十年如一日，从未改变</span>
+                        </div>
+                            <div class="product-show-pic"><img src="http://localhost:8080/Z22629/uploads/item/2016/97d2a5ce-2bdb-4ae3-a1ee-3cbf4337e5d0.jpg"><span>从前你们总说什么都不需要，现在我懂得你们最在乎什么</span></div><div class="product-show-pic"><img src="http://localhost:8080/Z22629/uploads/item/2016/9e1db5ea-6288-43d0-956b-2002165db479.jpg"><span></span></div></div><div class="product-yingji">
+                        <div class="divide-title">
+                            <div></div>
+                            <div style="color: black">影集</div>
+                        </div>
+                        <div class="product-yingji-cover">
+                            <img src="../image/play_white_all.png"><img src="http://localhost:8080/Z22629/uploads/item/2016/ca8b4324-880e-4570-aff6-062db059b568.jpg">
+                        </div>
+                    </div>
+                        <div class="photographer">
+                            <img src="../images/sheyingshi/1.jpg" style="width: 80px">
+                            <p style="margin-top: 10px;margin-bottom: 0px;color: black">鲁西西</p>
+                            <p style="font-size: 12px">自由摄影师<span>/小孩</span></p>
+                            <button>查看摄影师</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
+            <div id="product2" class="mui-slider-item mui-control-content">
+                <div class="mui-scroll-wrapper">
+                    <div class="mui-scroll">
+                        <!--<div id="product-service">-->
+                            <!--<div class="product-service-list">-->
+                                <div class="product-service-content1">
+                                    <div class="product-service-imglist">
+                                        <div class="product-service-imglist-item">
+                                            <img src="../images/product-show/pic.svg">
+                                            <div>80张原片</div>
+                                        </div>
+                                        <div class="product-service-imglist-item">
+                                            <img src="../images/product-show/jingxiu.svg">
+                                            <div> 20张精修</div>
+                                        </div>
+                                        <div class="product-service-imglist-item">
+                                            <img src="../images/product-show/time.svg">
+                                            <div> 2小时</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!--</div>-->
+                        <!--</div>-->
+                <div class="product-service-content2" style="background-color: white;border: none">
+                    <ul class="mui-table-view" style="border: none">
+                        <li class="mui-table-view-cell" style="border: none">
+                            <img src="../images/product-show/time.svg" align="absbottom">
+                            <span>拍摄时长</span>
+                            <span style="float: right">3小时</span>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <img src="../images/product-show/pic.svg" align="absbottom">
+                            <span>精选原片</span>
+                            <span style="float: right">80张</span>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <img src="../images/product-show/jingxiu.svg" align="absbottom">
+                            <span>精选修片</span>
+                            <span style="float: right">20张</span>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <img src="../images/product-show/man.svg" align="absbottom">
+                            <span>拍摄人数</span>
+                            <span style="float: right">主拍父母，辅拍可拍若干人</span>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <img src="../images/product-show/scene.svg" align="absbottom">
+                            <span>拍摄场景</span>
+                            <span style="float: right">室外/室内</span>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <img src="../images/product-show/mark.svg" align="absbottom">
+                            <span>备注说明</span>
+                            <div>主拍父母，辅拍可拍若干人哈哈哈哈哈哈哈哈</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="recommend">
+                    <div class="divide-title">
+                    <div></div>
+                    <div>相关推荐</div>
+                    <!--<div></div>-->
+                    </div>
+                    <div class="recommend-list">
+                        <div class="recommend-item" data-id="11e6-a0c7-ce1b2407-ad8b-11472dfbd6fd">
+                            <img src="http://localhost:8080/Z22629/uploads/item/2017/3d4e2194-4701-4a8e-a9b7-e117996cac20.jpg">
+                            <div class="reconmmend-title"><span>￥699.00</span></div>
+                            <div class="reconmmend-des">爱之午餐</div>
+                        </div>
+                        <div class="recommend-item" data-id="11e6-b061-5a0c4a9d-ad8b-11472dfbd6fd">
+                            <img src="http://localhost:8080/Z22629/uploads/item/2016/c76a72f9-b860-453f-baae-c9333e19f8bc.png">
+                            <div class="reconmmend-title"><span>￥699.00</span></div>
+                            <div class="reconmmend-des">爱在一蔬一菜</div>
+                        </div>
+                        <div class="recommend-item" data-id="11e6-b061-5a0c4a9d-ad8b-11472dfbd6fd">
+                            <img src="http://localhost:8080/Z22629/uploads/item/2016/c76a72f9-b860-453f-baae-c9333e19f8bc.png">
+                            <div class="reconmmend-title"><span>￥699.00</span></div>
+                            <div class="reconmmend-des">爱在一蔬一菜</div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+                </div>
+
+</div>
+    </div>
+<div class="bottom mui-row">
+    <div class="item-1" id="fenxiang1">
+        <img src="../image/fenxiang.png"/>
+        <div>分享</div>
+    </div>
+    <div class="item-1" id="collection">
+        <img src="../image/shoucang.png"/>
+        <div>收藏</div>
+    </div>
+    <div class="item-2">
+        <button>即刻约拍</button>
+    </div>
+</div>
+<script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/getParam.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script>
+
+</script>
+</body>
+
+</html>

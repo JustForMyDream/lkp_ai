@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <title>立可拍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="../css/mui.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            background-color: #FFFFFF;
+            width: 100%;
+        }
+
+        p {
+            text-indent: 22px;
+        }
+
+        span.mui-icon {
+            font-size: 14px;
+            color: #007aff;
+            margin-left: -15px;
+            padding-right: 10px;
+        }
+
+        .mui-off-canvas-left {
+            color: #fff;
+        }
+
+        .title {
+            margin: 35px 15px 10px;
+        }
+
+        .title + .content {
+            margin: 10px 15px 35px;
+            color: #bbb;
+            text-indent: 1em;
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        input {
+            color: #000;
+        }
+
+        .scorll {
+            width: 100%;
+        }
+
+        .mui-control-item {
+            width: 25%;
+        }
+
+        .mui-card {
+            margin-bottom: 48px;
+            background-color: #f8f8f8;
+        }
+
+        .cp_title {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .mui-card-media {
+            padding: 10px;
+        }
+
+        .mui-card-media img {
+            width: 100%;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .mui-slider .mui-slider-group .mui-slider-item img {
+            height: 40%;
+        }
+
+        .screen {
+            height: 100%;
+        }
+
+        .tip {
+            padding-left: 10px;
+        }
+
+        .tip img {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+        .screen .mui-table-view {
+            /*margin-top:120%;*/
+            background-color: #EFEFF4;
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+        }
+
+        span.mui-icon {
+            font-size: 20px;
+            color: #007aff;
+            margin-left: 0px;
+            padding-right: 10px;
+        }
+
+        table {
+            width: 100%;
+            height: 200px;
+        }
+
+        tr {
+            width: 50%;
+            margin-left: 15px;
+        }
+
+        .banner {
+            float: left;
+            margin-top: -10px;
+        }
+
+        .cen {
+            margin-top: 25px;
+        }
+
+        .right {
+            float: right;
+        }
+
+        a {
+            color: #000000;
+        }
+
+        /*a:hover{
+            color: #000000;
+        }*/
+        /*.mui-scroll{
+            background-color: #FFFFFF;
+        }*/
+        .bg {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+            color: rgb(235, 185, 125);
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-progress-bar {
+            background-color: rgb(235, 185, 125);
+        }
+
+        .mui-col-xs-2 {
+            width: 20%;
+        }
+
+        span.mui-icon {
+            color: black;
+        }
+
+        .xxlist {
+            width: 100%;
+            background-color: white;
+            margin-top: 5px;
+            padding: 0px 12px;
+        }
+
+        .xxlist1 {
+            height: 35px;
+            line-height: 35px;
+            width: 100%;
+            border-bottom: 1px solid rgb(237, 237, 237);
+        }
+
+        .xxlist11 {
+            font-weight: bold;
+            font-size: 16px;
+
+        }
+
+        .xxlist12 {
+            color: rgb(143, 143, 143);
+            font-size: 13px;
+        }
+
+        .xxlist2 {
+            position: relative;
+            line-height: 25px;
+            padding: 4px 2px;
+            font-size: 12px;
+            color: rgb(143, 143, 143);
+            /*white-space: nowrap;*/
+            /*text-overflow: ellipsis;*/
+            /*overflow: hidden;*/
+        }
+
+        .titleright {
+            margin-top: 13px;
+            font-size: 16px;
+        }
+
+        .empty {
+            text-align: center;
+            width: 100%;
+            height: 20%;
+            margin-top: 10px;
+            background-color: white;
+        }
+
+        .emptydetail {
+            padding-top: 10%;
+            font-size: 15px;
+        }
+
+        .view-cell {
+            position: relative;
+            display: none;
+            overflow: hidden;
+            margin: 11px -15px -11px;
+            padding: 8px 15px;
+            -webkit-transition: height .35s ease;
+            -o-transition: height .35s ease;
+            transition: height .35s ease;
+            background: #fff;
+        }
+
+        .xxtck {
+            padding: 0px 10px;
+            /*display: none;*/
+            font-size: 18px;
+            visibility:hidden;
+            top: 0px;
+            background-color: white;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            z-index: 999;
+        }
+
+        html, body {
+            height: 100%;
+        }
+        .kong{
+            font-size: 15px;
+            padding-top: 29px;
+            text-align: center;
+            color: #9f9f9f;
+        }
+    </style>
+</head>
+
+<body>
+<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+
+    <!--主界面部分-->
+    <div class="mui-inner-wrap">
+        <header class="mui-bar mui-bar-nav" style="border-bottom: 1px solid #dcdcdc;    background-color: white;">
+            <a class="mui-icon mui-action-back mui-icon-arrowleft">
+            </a>
+            <h1 class="mui-title" style="width: 80%">消息</h1>
+            <a class="mui-pull-right titleright" id="empty">清空</a>
+
+        </header>
+        <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+            <div id="slider">
+                <!--标题-->
+
+            </div>
+        </div>
+
+        <div class="mui-off-canvas-backdrop"></div>
+    </div>
+</div>
+<div class="xxtck">
+    <div class="xxtck1" style="height: auto;width: 100%">
+        这是一个消息,类别大家快点发垃圾可浪费大数据库拉对方手机可浪费大数据库拉风撒旦法烦烦烦烦烦烦烦烦烦烦烦快乐撒开了束带结发水电费达索福锁单撒大多数范德萨发
+    </div>
+</div>
+<!--<div class="dtbottom black">-->
+    <!--<div class="photo-btn-item-text active">-->
+        <!--<a href="messagecenter.html">-->
+            <!--<div class="img-content messgage" >-->
+
+            <!--</div>-->
+            <!--<span>消息</span>-->
+        <!--</a>-->
+    <!--</div>-->
+    <!--<div class="photo-btn-item-img">-->
+        <!--<a href="../YINGJI/set">-->
+            <!--<img src="../image/add-yelow.png"/>-->
+        <!--</a>-->
+    <!--</div>-->
+    <!--<div class="photo-btn-item-text">-->
+        <!--<a href="ordercenter.html">-->
+        <!--<div class="img-content order"></div>-->
+        <!--<span>订单</span>-->
+            <!--</a>-->
+    <!--</div>-->
+<!--</div>-->
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script src="../js/date.js"></script>
+<script type="text/javascript" src="../js/getParam.js"></script>
+<script src="../js/mui.zoom.js"></script>
+<script src="../js/mui.previewimage1.js"></script>
+
+<script>
+    mui('.mui-scroll-wrapper').scroll({deceleration: 0.0005});
+    mui.init({
+        gestureConfig: {
+            swipeBack: false,
+            tap: true, //默认为true
+            doubletap: true, //默认为false
+            longtap: true, //默认为false
+            swipe: false, //默认为true
+            drag: true, //默认为true
+            hold: false,//默认为false，不监听
+            release: false//默认为false，不监听
+        }
+    });
+    var id=4;
+    mui.init();
+    //addSlide(id);
+    $('#show').hide();
+
+
+
+    window.onload = function () {
+        loadMsg();
+    }
+    var emptyhtml = '<div class="kong">暂无消息记录</div>';
+
+    function loadMsg() {
+        $.ajax({
+            url: "../sysPort/getAllMsg",
+            data: {},
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                //加载消息列表
+                var d = data.msg;
+                if (d.length == 0) {
+                    $('#slider').append(emptyhtml);
+                    $(".mui-backdrop").hide();
+                    return;
+                }
+                for (var i = 0; i < d.length; i++) {
+                    var ht = '<div class="xxlist" id="' + d[i].id + '">\
+                                <div class="xxlist1">\
+                                    <span class="xxlist11 left">' + msgtype(d[i].itemXxlx) + '</span>\
+                                    <span class="xxlist12 right">' + new Date(d[i].itemFssj).format("yyyy-MM-dd hh:mm:ss") + '</span>\
+                                </div>\
+                                <div class="xxlist2" data-dwd="'+d[i].itemXxzt+'">' + d[i].itemXxnr + '</div>\
+                                 ';
+                    if (d[i].itemXxzt == "0") {
+                        ht += '<div class="zt" data-id="'+d[i].id+'" style="width: 100%;height: 21px"><span  style="font-size: 12px;background-color: rgb(254,44,45);color: white;padding: 0px 2px;float: right">' + msgstate(d[i].itemXxzt) + '</span></div>';
+                    } else {
+                        ht += '<div class="zt" style="height: 0px"><span style="font-size: 12px;background-color: rgb(254,44,45);color: white;padding: 0px 2px;float: right"></span></div>';
+                    }
+                    ht += '</div>';
+                    $("#slider").append(ht);
+                }
+
+                $(".xxlist").on('longtap',function (e) {
+                    var dao;
+                    if($(e.target).hasClass("left") == true|| $(e.target).hasClass("right") == true){
+                        dao = $(e.target).parent().parent(".xxlist");
+                    }
+                    else {
+                        dao = $(e.target).parent(".xxlist");
+                    }
+                    var id = dao.attr("id")
+                      ("longtap");
+                    var btnArray = ['否', '是'];
+                    mui.confirm('确认删除该条消息吗？', '立可拍', btnArray, function (e) {
+                          (id);
+                        if (e.index == 1) {
+                            $.ajax({
+                                url: "../msgPort/delMsg",
+                                data: {id:id},
+                                type: "post",
+                                dataType: "json",
+                                success: function (data) {
+                                    if (data.code == "200") {
+                                        dao.remove();
+                                        mui.toast(data.msg);
+                                    }
+                                },
+                                error: function (e) {
+                                    mui.toast(e);
+                                }
+                            });
+                        } else {
+                            return;
+                        }
+                    })
+                })
+
+                $(".xxlist2").on('tap', function () {
+                    var $this = $(this);
+                    if ($(".xxtck").css("visibility") == "hidden") {
+                        $(".xxtck1").text($this.text());
+                        var xxtck1 = $(".xxtck1").height();
+                        var xxtck = $(".xxtck").height();
+                        $(".xxtck1").css("margin-top", ((xxtck - xxtck1) / 2-20) + "px");
+                        $(".xxtck").css("visibility","inherit");
+                    }
+                    if($this.attr("data-dwd") == "0"){
+                        var thisd = $this.next();
+                        $.ajax({
+                            url: "../msgPort/updateState",
+                            data: {"id": thisd.attr("data-id")},
+                            type: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.code == "200") {
+                                    thisd.html('');
+                                    $this.attr("data-dwd","1");
+                                    thisd.css("height","0px");
+                                }
+                            },
+                            error: function (e) {
+                                mui.toast(e);
+                            }
+
+                        })
+                    }
+                });
+                $(".zt").on('tap', function () {
+                    var thisd =  $(this);
+                    var $this = $(this).prev();
+                    if ($(".xxtck").css("visibility") == "hidden") {
+                        $(".xxtck1").text($this.text());
+                        var xxtck1 = $(".xxtck1").height();
+                        var xxtck = $(".xxtck").height();
+                        $(".xxtck1").css("margin-top", (xxtck - xxtck1) / 2 + "px");
+                        $(".xxtck").css("visibility","inherit");
+                    }
+                    $.ajax({
+                        url: "../msgPort/updateState",
+                        data: {"id": thisd.attr("data-id")},
+                        type: "post",
+                        dataType: "json",
+                        success: function (data) {
+                            if (data.code == "200") {
+                                thisd.html('');
+                                thisd.css("height","0px");
+                            }
+                        },
+                        error: function (e) {
+                            mui.toast(e);
+                        }
+
+                    })
+
+                });
+                $(".xxtck").on("tap", function () {
+                    $(".xxtck").css("visibility","hidden");
+                })
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    }
+
+    function msgtype(kind) {
+        var k = "";
+        switch (kind) {
+            case "1":
+                k = "系统消息";
+                break;
+            case "2":
+                k = "订单消息";
+                break;
+        }
+        return k;
+    }
+
+    function msgstate(kind) {
+        var k = "";
+        switch (kind) {
+            case "0":
+                k = "未读";
+                break;
+            case "1":
+                k = "已读";
+                break;
+        }
+        return k;
+    }
+
+    //清空消息
+    document.getElementById("empty").addEventListener('tap', function () {
+        var btnArray = ['否', '是'];
+        mui.confirm('确认清空所有消息列表吗？', '立可拍', btnArray, function (e) {
+            if (e.index == 1) {
+                $.ajax({
+                    url: "../msgPort/delAllMsg",
+                    data: {},
+                    type: "post",
+                    dataType: "json",
+                    success: function (data) {
+                        $("#slider").empty();
+                        if (data.code == "200") {
+                            $('#slider').append(emptyhtml);
+                            mui.toast(data.msg);
+                        }
+                    },
+                    error: function (e) {
+                        mui.toast(e);
+                    }
+                });
+            } else {
+                return;
+            }
+        })
+
+    });
+    //点击处理为已读
+    mui("#slider").on('tap', '.xxlist', function () {
+        var id = this.id;
+        var thisd = $(this);
+
+    });
+
+
+</script>
+</body>
+
+</html>

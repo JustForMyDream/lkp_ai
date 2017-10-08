@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>立可拍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="../css/mui.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+
+
+    <style>
+        html,
+        body {
+            background-color: #FFFFFF;
+            width: 100%;
+        }
+
+        p {
+            text-indent: 22px;
+        }
+
+        span.mui-icon {
+            font-size: 14px;
+            color: #007aff;
+            margin-left: -15px;
+            padding-right: 10px;
+        }
+
+        .mui-off-canvas-left {
+            color: #fff;
+        }
+
+        .title {
+            margin: 35px 15px 10px;
+        }
+
+        .title + .content {
+            margin: 10px 15px 35px;
+            color: #bbb;
+            text-indent: 1em;
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        input {
+            color: #000;
+        }
+
+        .scorll {
+            width: 100%;
+        }
+
+        .mui-control-item {
+            width: 25%;
+        }
+
+        .mui-card {
+            margin-bottom: 48px;
+            background-color: #f8f8f8;
+        }
+
+        .cp_title {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .mui-card-media {
+            padding: 10px;
+        }
+
+        .mui-card-media img {
+            width: 100%;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .mui-slider .mui-slider-group .mui-slider-item img {
+            height: 40%;
+        }
+
+        .screen {
+
+            height: 100%;
+        }
+
+        .tip {
+            padding-left: 10px;
+        }
+
+        .tip img {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+        .screen .mui-table-view {
+            /*margin-top:120%;*/
+            background-color: #EFEFF4;
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+        }
+
+        span.mui-icon {
+            font-size: 20px;
+            color: #007aff;
+            margin-left: 0px;
+            padding-right: 10px;
+        }
+
+        table {
+            width: 100%;
+            height: 200px;
+        }
+
+        tr {
+            width: 50%;
+            margin-left: 15px;
+        }
+
+        .banner {
+            float: left;
+            margin-top: -10px;
+        }
+
+        .cen {
+            margin-top: 25px;
+        }
+
+        .right {
+            float: right;
+        }
+
+        a {
+            color: #000000;
+        }
+
+        /*a:hover{
+            color: #000000;
+        }*/
+        /*.mui-scroll{
+            background-color: #FFFFFF;
+        }*/
+        .bg {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+            color: rgb(235, 185, 125);
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-progress-bar {
+            background-color: rgb(235, 185, 125);
+        }
+
+        .mui-col-xs-2 {
+            width: 20%;
+        }
+
+        span.mui-icon {
+            color: black;
+        }
+
+        .xxlist {
+            width: 100%;
+            background-color: white;
+            margin-top: 10px;
+            padding: 0px 12px;
+        }
+
+        .xxlist1 {
+            height: 35px;
+            line-height: 35px;
+            width: 100%;
+            border-bottom: 1px solid rgb(237, 237, 237);
+        }
+
+        .xxlist11 {
+            font-weight: bold;
+            font-size: 16px;
+
+        }
+
+        .xxlist12 {
+            color: rgb(143, 143, 143);
+            font-size: 13px;
+        }
+
+        .xxlist2 {
+            line-height: 25px;
+            padding: 4px 2px;
+            font-size: 14px;
+            color: rgb(143, 143, 143);
+        }
+
+        .grlist {
+            padding-right: 12px;
+            margin-left: 4%;
+            border-bottom: 1px solid rgb(225, 225, 225);
+            margin-right: 4%;
+            width: 96%;
+            line-height: 80px;
+            height: 80px;
+        }
+
+        html, body, .mui-content {
+            background-color: white;
+        }
+
+        .left {
+            font-size: 16px;
+        }
+
+        .grlist .mui-icon {
+            font-size: 30px;
+            margin-top: 25px;
+            color: rgb(143, 143, 143);
+            padding-right: 0;
+
+        }
+
+        .right {
+            color: rgb(143, 143, 143);
+        }
+
+        .grtox {
+            width: 60px;
+            height: 60px;
+            margin-top: 10px;
+            float: right;
+            border-radius: 6px;
+        }
+
+        input {
+            height: 40px !important;
+            padding-top: 30px;
+            text-align: right;
+            width: 150px !important;
+            border: none !important;
+            float: right;
+            font-family: "微软雅黑";
+            font-size: 16px;
+            margin-right: -10px;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+    <!--侧滑菜单部分-->
+    <aside id="offCanvasSide" class="mui-off-canvas-left">
+
+    </aside>
+    <!--主界面部分-->
+    <div class="mui-inner-wrap">
+        <header class="mui-bar mui-bar-nav" style="border-bottom: 1px solid #dcdcdc;background-color: white;">
+            <a href="#offCanvasSide" class="mui-action-menu mui-pull-left">
+                <img src="../images/MainInterface/list2.svg" class="liebiao">
+            </a>
+            <h1 class="mui-title">个人资料</h1>
+            <a class="mui-pull-right titleright" id="save" style="color:black; margin-top: 10px;font-size: 15px;">保存</a>
+        </header>
+        <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+            <div id="slider" class="mui-slider screen">
+                <div style="border-bottom: 1px solid rgb(237, 237, 237);
+            border-top: 1px solid rgb(237, 237, 237);">
+                    <div class="grlist">
+                        <span class="left">头像</span>
+                        <img class="grtox" src="" id="touxiang">
+                    </div>
+                    <div class="grlist">
+                        <span class="left">姓名</span>
+                        <span class="mui-icon-arrowright mui-icon right"></span>
+                        <span class="right" style="margin-top: 19px;"><input id="yhnc" type="text" placeholder="请输入您的姓名"
+                                                                             maxlength="10"></span>
+                    </div>
+                    <div class="grlist">
+                        <span class="left">性别</span>
+                        <!--<span class="mui-icon-arrowright mui-icon right"></span>-->
+                        <span class="right" id="yhxb" style="margin-right: 29px"></span>
+                    </div>
+                    <div class="grlist">
+                        <span class="left">电话</span>
+                        <span class="mui-icon-arrowright mui-icon right"></span>
+                        <span class="right" style="margin-top: 19px;"><input id="yhdh" type="text"
+                                                                             placeholder="请输入您的电话"
+                                                                             maxlength="11"></span>
+                    </div>
+                    <div class="grlist" style="border: 0">
+                        <span class="left">地区</span>
+                        <!--<span class="mui-icon-arrowright mui-icon right"></span>-->
+                        <span class="right" id="yhdq" style="margin-right: 29px"></span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="mui-off-canvas-backdrop"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script type="text/javascript" src="../js/slider.js"></script>
+<script type="text/javascript" src="../js/getParam.js"></script>
+
+<script>
+    var id = 4;
+    mui.init();
+    addSlide(id);
+    var qjdh = ""
+    $(function () {
+        $.ajax({
+            url: "../userPort/getUserInfo",
+//            data: {},
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+                  (data);
+                if (data.errorCode == "200") {
+                    $("#touxiang").attr("src", data.userinfo.wechatInfo[0].tlkWechatuserEntity.headimgurl);
+                    if (data.userinfo.itemName) {
+                        $("#yhnc").val(data.userinfo.itemName);
+                    } else {
+                        $("#yhnc").val(data.userinfo.wechatInfo[0].tlkWechatuserEntity.nickname);
+                    }
+
+                    var itemxb = "";
+                    if (data.userinfo.wechatInfo[0].tlkWechatuserEntity.itemSex) {
+                        itemxb = data.userinfo.wechatInfo[0].tlkWechatuserEntity.itemSex;
+                    }
+                    if (itemxb == "1") {
+                        itemxb = "男";
+                    } else if (itemxb == "2") {
+                        itemxb = "女";
+                    } else {
+                        itemxb = "未知";
+                    }
+                    $("#yhxb").text(itemxb);
+                    var yhdq = "";
+                    if (data.userinfo.wechatInfo[0].tlkWechatuserEntity.province) {
+                        yhdq += data.userinfo.wechatInfo[0].tlkWechatuserEntity.province;
+                    }
+                    if (data.userinfo.wechatInfo[0].tlkWechatuserEntity.city) {
+                        yhdq += data.userinfo.wechatInfo[0].tlkWechatuserEntity.city;
+                    }
+                    if (yhdq == "") {
+                        yhdq = "未知";
+                    }
+                    $("#yhdq").text(yhdq);
+                    var yhdh = "";
+                    if (data.userinfo.itemPhone) {
+                        yhdh += data.userinfo.itemPhone;
+                    } else {
+                        if (data.userinfo.wechatInfo[0].tlkWechatuserEntity.itemPhone) {
+                            yhdh += data.userinfo.wechatInfo[0].tlkWechatuserEntity.itemPhone;
+                        } else {
+                            yhdh = "未知";
+                        }
+                    }
+                    qjdh = yhdh;
+                    $("#yhdh").val(yhdh)
+
+                    $("#save").on('tap', function () {
+                        updateInfo();
+                    })
+                } else {
+                    mui.toast(data.errorMsg);
+                }
+
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    })
+
+    function updateInfo() {
+        var yhdhhm = $("#yhdh").val();
+        if (yhdhhm != qjdh) {
+            if (!DhhmCheck(yhdhhm)) {
+                mui.toast("请输入正确的电话")
+                return;
+            }
+        }
+        mui.toast("正在为你保存信息")
+        $.ajax({
+            url: "../userPort/UpdateUserInfo",
+            data: {
+                username: $("#yhnc").val(),
+                phone: yhdhhm
+            },
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+                if (data.errorCode == "200") {
+                    mui.toast("保存成功");
+                } else {
+                    mui.toast("保存失败");
+                }
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    }
+    /**
+     * 检查电话号码
+     * @param parm
+     * @constructor
+     */
+    function DhhmCheck(parm) {
+        var dhhm = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+        return dhhm.test(parm);
+    }
+
+</script>
+</body>
+</html>

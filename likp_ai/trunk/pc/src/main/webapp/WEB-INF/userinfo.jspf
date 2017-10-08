@@ -1,0 +1,8 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
+<ul class="nav navbar-nav navbar-right">
+    <a class="navbar-brand"><img
+            src="${sys_user.itemOpenid.headimgurl}"
+            style="height: 42px;
+    border-radius: 50%;"></a>
+    <li><a href="<%=path%>/quite">${sys_user.itemOpenid.nickname}|退出</a></li>
+</ul>

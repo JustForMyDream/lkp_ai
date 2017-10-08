@@ -1,0 +1,258 @@
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+body, html {
+    font-family: 微软雅黑;
+}
+
+.line {
+    height: 1px;
+    width: 100%;
+    background-color: black;
+}
+
+.font12 {
+    font-size: 12px;
+}
+
+.font13 {
+    font-size: 13px;
+}
+
+.font14 {
+    font-size: 14px;
+}
+
+.font15 {
+    font-size: 15px;
+}
+
+.font16 {
+    font-size: 16px;
+}
+
+.font17 {
+    font-size: 17px;
+}
+
+.width10 {
+    width: 10%;
+}
+
+.width20 {
+    width: 20%;
+}
+
+.width30 {
+    width: 30%;
+}
+
+.width40 {
+    width: 40%;
+}
+
+.width50 {
+    width: 50%;
+}
+
+.width60 {
+    width: 60%;
+}
+
+.width70 {
+    width: 70%;
+}
+
+.width80 {
+    width: 80%;
+}
+
+.width90 {
+    width: 90%;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.comwh {
+    width: 100%;
+    height: auto;
+}
+
+.lcbtn {
+    color: white;
+    line-height: 1.42;
+    padding: 4px;
+    height: auto;
+    font-size: 14px;
+    width: auto;
+    background-color: rgb(234, 184, 124);
+    border-radius: 4px;
+}
+
+.dtbottom {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    color: black;
+    font-size: 16px;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    background-color: #ffe33e;
+}
+
+.mui-off-canvas-left {
+    width: 55%;
+}
+.cehuye .mui-navigate-right:after{
+    color: rgba(255,255,255,0);
+}
+.item-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(34, 35, 40);
+}
+
+.item {
+    text-align: center;
+    top: 50%;
+    margin-top: -52px;
+    width: 100%;
+    position: absolute;
+    color: rgb(141, 139, 139);
+}
+.ball > div {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    display: inline-block;
+}
+
+.ball > div:nth-child(1) {
+    animation: movetoright 1s infinite;
+    -webkit-animation: movetoright 1s infinite;
+    background-color: rgb(235, 185, 125);
+}
+
+.ball > div:nth-child(2) {
+    animation: movetoleft 1s infinite;
+    -webkit-animation: movetoleft 1s infinite;
+    background-color: rgb(255, 255, 255);
+}
+@-webkit-keyframes movetoleft {
+    0% {
+
+    }
+    50% {
+        -webkit-transform: translate(-100%, 0%);
+    }
+    100% {
+        -webkit-transform: translate(0%, 0%);
+    }
+}
+
+@keyframes movetoleft {
+    0% {
+
+    }
+    50% {
+        transform: translate(-100%, 0%);
+    }
+    100% {
+        transform: translate(0%, 0%);
+    }
+}
+
+@-webkit-keyframes movetoright {
+    0% {
+
+    }
+    50% {
+        -webkit-transform: translate(100%, 0%);
+    }
+    100% {
+        -webkit-transform: translate(0%, 0%);
+    }
+}
+
+@keyframes movetoright {
+    0% {
+
+    }
+    50% {
+        transform: translate(100%, 0%);
+    }
+    100% {
+        transform: translate(0%, 0%);
+    }
+}
+.mui-off-canvas-wrap .mui-bar{
+    border-bottom: 1px solid #dcdcdc;
+    background-color: white;
+}
+.dtbottom.black{
+    padding: 10px 0;
+    z-index: 1;
+    background-color: #080808;
+}
+.dtbottom>.photo-btn-item-text,.dtbottom>.photo-btn-item-img{
+    display: inline-block;
+    width:33.333%;
+    height:50px;
+    overflow:hidden;
+    margin: 0 -2px;
+}
+.dtbottom>.photo-btn-item-text .img-content,.dtbottom>.photo-btn-item-img img{
+    display:block;
+    margin: 0 auto;
+}
+.dtbottom>.photo-btn-item-text .img-content{
+    height:20px;
+    width:20px;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+.dtbottom>.photo-btn-item-text .img-content.messgage{
+    background-image: url('../image/message-empty-gray.png');
+}
+.dtbottom>.photo-btn-item-text.active .img-content.messgage{
+    background-image: url('../image/message-empty-yellow.png');
+}
+.dtbottom>.photo-btn-item-text .img-content.order{
+    background-image: url('../image/orderlist-gray-empty.png');
+}
+.dtbottom>.photo-btn-item-text.active .img-content.order{
+    background-image: url('../image/orderlist-yellow-empty.png');
+}
+.dtbottom>.photo-btn-item-text>a{
+    position: absolute;
+}
+.dtbottom>.photo-btn-item-img img{
+    height: 30px;
+}
+.dtbottom>.photo-btn-item-text span{
+    color:rgb(141, 139, 139);
+    font-size: 10px;
+    display: block;
+    vertical-align: top;
+    line-height: 10px;
+    height: 10px;
+}
+.dtbottom>.photo-btn-item-text.active span{
+    color: #ffe33e;
+}
+.liebiao{
+    height: 27px;
+    margin-top: 8px;
+}

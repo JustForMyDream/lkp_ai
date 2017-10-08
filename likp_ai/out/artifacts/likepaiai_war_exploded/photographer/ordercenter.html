@@ -1,0 +1,555 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>订单中心</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/base.css" rel="stylesheet"/>
+
+    <style>
+        .bottom1_wid {
+            line-height: 40px;
+            float: left;
+            width: 50%;
+            height: 40px;
+            text-align: center;
+        }
+
+        .bottom1 {
+            background-color: rgb(207, 204, 207);
+        }
+
+        .bottom2 {
+
+        }
+
+        .bottom {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+        }
+
+        .mui-control-content {
+            /*min-height: 215px;*/
+        }
+
+        .mui-control-content .mui-loading {
+            margin-top: 50px;
+        }
+
+        .ordermain1 {
+            border-radius: 15px;
+            text-align: center;
+            padding: 6px;
+            width: 28%;
+            height: 73px;
+            overflow: hidden;
+        }
+
+        .ordermain2 {
+            width: 42%;
+        }
+
+        .ordermain3 {
+            margin-top: 10px;
+            color: RGB(255, 152, 0);
+            width: 30%;
+            text-align: right;
+            padding-right: 14px;
+            font-size: 13px;
+        }
+
+        .ordermain {
+            width: 96%;
+            margin-left: 2%;
+            margin-top: 10px;
+            background-color: white;
+            height: 80px;
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+            color: rgb(235, 185, 125);
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-progress-bar {
+            background-color: rgb(235, 185, 125);
+        }
+
+        .mui-slider .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-group .mui-slider-item {
+            border-bottom: 0;
+        }
+
+        .ordermainimg {
+            height: auto;
+            border-radius: 5px;
+            max-width: 85px;
+        }
+
+        html,
+        body {
+            background-color: #FFFFFF;
+            width: 100%;
+        }
+
+        p {
+            text-indent: 22px;
+        }
+
+
+        .mui-off-canvas-left {
+            color: #fff;
+        }
+
+        .title {
+            margin: 35px 15px 10px;
+        }
+
+        .title + .content {
+            margin: 10px 15px 35px;
+            color: #bbb;
+            text-indent: 1em;
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        input {
+            color: #000;
+        }
+
+        .scorll {
+            width: 100%;
+        }
+
+        .mui-control-item {
+            width: 25%;
+        }
+
+        .mui-card-media img {
+            width: 100%;
+        }
+
+
+        /*.mui-slider .mui-slider-group .mui-slider-item img {*/
+        /*height: 40%;*/
+        /*}*/
+
+        .screen {
+            height: 100%;
+        }
+
+
+        .tip img {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+        .screen .mui-table-view {
+            /*margin-top:120%;*/
+            background-color: #EFEFF4;
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+        }
+
+        span.mui-icon {
+            font-size: 20px;
+            color: black;
+            margin-left: 0px;
+            padding-right: 10px;
+        }
+
+        table {
+            width: 100%;
+            height: 200px;
+        }
+
+        tr {
+            width: 50%;
+            margin-left: 15px;
+        }
+
+        a {
+            color: #000000;
+        }
+        .bg {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+            color: #000000;
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-progress-bar {
+            background-color: #000000;
+            border: 31px solid #FFFFFF;
+            border-top: 0;
+            border-bottom: 0;
+        }
+
+        html, body {
+            height: 100%
+        }
+        .item-wrapper {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: rgb(34, 35, 40);
+        }
+
+        .item {
+            text-align: center;
+            top: 50%;
+            margin-top: -52px;
+            width: 100%;
+            position: absolute;
+            color: rgb(141, 139, 139);
+        }
+        .ball > div {
+            width: 15px;
+            height: 15px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        .ball > div:nth-child(1) {
+            animation: movetoright 1s infinite;
+            -webkit-animation: movetoright 1s infinite;
+            background-color: rgb(235, 185, 125);
+        }
+
+        .ball > div:nth-child(2) {
+            animation: movetoleft 1s infinite;
+            -webkit-animation: movetoleft 1s infinite;
+            background-color: rgb(255, 255, 255);
+        }
+        @-webkit-keyframes movetoleft {
+            0% {
+
+            }
+            50% {
+                -webkit-transform: translate(-100%, 0%);
+            }
+            100% {
+                -webkit-transform: translate(0%, 0%);
+            }
+        }
+
+        @keyframes movetoleft {
+            0% {
+
+            }
+            50% {
+                transform: translate(-100%, 0%);
+            }
+            100% {
+                transform: translate(0%, 0%);
+            }
+        }
+
+        @-webkit-keyframes movetoright {
+            0% {
+
+            }
+            50% {
+                -webkit-transform: translate(100%, 0%);
+            }
+            100% {
+                -webkit-transform: translate(0%, 0%);
+            }
+        }
+
+        @keyframes movetoright {
+            0% {
+
+            }
+            50% {
+                transform: translate(100%, 0%);
+            }
+            100% {
+                transform: translate(0%, 0%);
+            }
+        }
+        @-webkit-keyframes cricle {
+            0% {
+            }
+            50% {
+                -webkit-transform: rotate(180deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes cricle {
+            0% {
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @-webkit-keyframes action {
+            0% {
+                opacity: 0;
+                -webkit-transform-origin: 100% 50%;
+                -webkit-transform: scale(.2) translate(200%, 0%);
+            }
+            20% {
+                opacity: 1;
+                -webkit-transform-origin: 100% 50%;
+                -webkit-transform: scale(1) translate(0%, 0%);
+            }
+            80% {
+                opacity: 1;
+                -webkit-transform-origin: 0% 50%;
+                -webkit-transform: scale(1) translate(0%, 0%);
+            }
+            100% {
+                opacity: 0;
+                -webkit-transform-origin: 0% 50%;
+                -webkit-transform: scale(.2) translate(-200%, 0%);
+            }
+
+        }
+
+        @keyframes action {
+            0% {
+                opacity: 0;
+                transform-origin: 100% 50%;
+                transform: scale(.2) translate(200%, 0%);
+            }
+            20% {
+                opacity: 1;
+                transform-origin: 100% 50%;
+                transform: scale(1) translate(0%, 0%);
+            }
+            80% {
+                opacity: 1;
+                transform-origin: 0% 50%;
+                transform: scale(1) translate(0%, 0%);
+            }
+            100% {
+                opacity: 0;
+                transform-origin: 0% 50%;
+                transform: scale(.2) translate(-200%, 0%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+    <!--侧滑菜单部分-->
+    <aside id="offCanvasSide" class="mui-off-canvas-left">
+        <div id="offCanvasSideScroll" class="mui-scroll-wrapper bg">
+            <div class="mui-scroll">
+
+            </div>
+        </div>
+    </aside>
+    <!--主界面部分-->
+    <div class="mui-inner-wrap">
+        <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper" style="background-color: white">
+            <div id="slider" class="mui-slider screen">
+                <!--标题-->
+                <div id="sliderSegmentedControl"
+                     class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                    <div class="scorll" style="color: rgb(133,131,131);">
+                        <a class="mui-control-item mui-active" id="title0" href="#product1">
+                            进行中
+                        </a>
+                        <a class="mui-control-item" id="title1" href="#product2">
+                            已完成
+                        </a>
+                        <a class="mui-control-item" id="title2" href="#product3">
+                            已取消
+                        </a>
+                    </div>
+                </div>
+                <!--选择条-->
+                <div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div>
+                <!--图片-->
+                <div class="mui-slider-group">
+                    <div id="product1" class="mui-slider-item mui-control-content mui-active">
+                        <div id="scroll1" class="mui-scroll-wrapper" style="background-color:#f7f7f7 ">
+                            <div class="mui-scroll">
+                                <div id="item1mobile">
+                                    <img src="../images/jiazaizhong.gif" style="width: 100%;margin-top: 100px"/>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="product2" class="mui-slider-item mui-control-content" style="background-color:#f7f7f7 ">
+                        <div class="mui-scroll-wrapper">
+                            <div class="mui-scroll">
+                                <div id="item2mobile">
+                                    <img src="../images/jiazaizhong.gif" style="width: 100%;margin-top: 100px"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="product3" class="mui-slider-item mui-control-content" style="background-color:#f7f7f7 ">
+                        <div class="mui-scroll-wrapper">
+                            <div class="mui-scroll">
+                                <div id="item3mobile">
+                                    <img src="../images/jiazaizhong.gif" style="width: 100%;margin-top: 100px"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mui-off-canvas-backdrop"></div>
+    </div>
+</div>
+<div class="mui-backdrop">
+    <div class="item-wrapper">
+        <div class="item" id="load">
+            <div class="ball">
+                <div></div>
+                <div></div>
+            </div>
+            <div id="txt" style="margin-top: 10px;">loading...</div>
+        </div>
+    </div>
+</div>
+<div class="dtbottom black">
+    <div class="photo-btn-item-text">
+        <a href="messagecenter.html">
+            <div class="img-content messgage" >
+
+            </div>
+            <span>消息</span>
+        </a>
+    </div>
+    <div class="photo-btn-item-img">
+        <a href="../YINGJI/set">
+        <img src="../image/add-yelow.png"/>
+            </a>
+    </div>
+    <div class="photo-btn-item-text active">
+        <a href="ordercenter.html">
+        <div class="img-content order"></div>
+        <span>订单</span>
+            </a>
+    </div>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/server.js"></script>
+<script src="../js/date.js"></script>
+<script src="../js/commen.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    mui.init();
+    mui(".mui-scroll-wrapper").scroll();
+    //侧滑容器父节点
+    var offCanvasWrapper = mui('#offCanvasWrapper');
+    //主界面容器
+    var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+    //菜单容器
+    var offCanvasSide = document.getElementById("offCanvasSide");
+    //移动效果是否为整体移动
+    var moveTogether = false;
+    //侧滑容器的class列表，增加.mui-slide-in即可实现菜单移动、主界面不动的效果；
+    var classList = offCanvasWrapper[0].classList;
+
+    //主界面和侧滑菜单界面均支持区域滚动；
+    mui('#offCanvasSideScroll').scroll();
+    mui('#offCanvasContentScroll').scroll();
+
+    var $mask = $(".mui-backdrop");
+
+    $(function () {
+        $.ajax({
+            url: "../sysPort/orderlist",
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+                console.log(data);
+                $("#item1mobile").html("");
+                $("#item2mobile").html("");
+                $("#item3mobile").html("");
+                if (data.errorCode == "200") {
+                    jiazai(data.unfinished, 1);
+                    jiazai(data.finished, 2);
+                    jiazai(data.canceled, 3);
+                } else {
+                    $("#item1mobile").append('<div style="text-align: center;margin-top: 20px">' + data.errorMsg + '</div>');
+                    $("#item2mobile").append('<div style="text-align: center;margin-top: 20px">' + data.errorMsg + '</div>');
+                    $("#item3mobile").append('<div style="text-align: center;margin-top: 20px">' + data.errorMsg + '</div>');
+                }
+                $mask.hide();
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    })
+
+
+    function jiazai(data, id) {
+        if (data.length == 0) {
+            $("#item" + id + "mobile").append('<div style="text-align: center;margin-top: 20px">暂无记录</div>');
+        } else {
+            var ht = '';
+            for (var i in data) {
+                ht += '<div class="ordermain" data-id="' + data[i].id + '" data-state="' + data[i].itemState + '">\
+                        <div class="ordermain1 left"><img src="' + imgpre + JSON.parse(data[i].itemProductid.itemCover)[0].path + '" class="ordermainimg"></div>\
+                        <div class="ordermain2 left">\
+                        <div class="font15" style="line-height: 30px;margin-top: 5px;color: black">' + data[i].itemProductid.itemName + '</div>\
+                        <div class="font12" style="color: rgb(157,157,157)">' + new Date(data[i].itemXdrq).format("yyyy-MM-dd") + '</div>\
+                </div>\
+                <div class="ordermain3 left">' + zhuangtai(data[i].itemState) + '</div>\
+                        </div>';
+            }
+            $("#item" + id + "mobile").append(ht);
+            $(".ordermain").on('tap',function () {
+//                if($(this).attr("data-state") == "WAITE_TO_PAY") {
+                    window.location.href = "orderdetail.html?id=" + $(this).attr("data-id");
+//                }else {
+//                    window.location.href = "orderStateShow.html?id=" + $(this).attr("data-id");
+//                }
+            })
+        }
+    }
+    function zhuangtai(zt) {
+        var fhzt = "";
+        switch (zt) {
+            case "WAITE_TO_PAY":
+                fhzt = "待支付";
+                break;
+            case "PAYED_WAITE_SET_PHOTOGRAPHER":
+                fhzt = "待分配摄影师";
+                break;
+            case "WAITE_TO_UPLOADIMG":
+                fhzt = "待上传图片";
+                break;
+            case "WAITE_TO_CONFIRM":
+                fhzt = "待用户确认";
+                break;
+            case "FINISHED":
+                fhzt = "用户已确认";
+                break;
+            case "CANCELED":
+                fhzt = "已取消";
+                break;
+        }
+        return fhzt;
+    }
+</script>
+</body>
+
+</html>

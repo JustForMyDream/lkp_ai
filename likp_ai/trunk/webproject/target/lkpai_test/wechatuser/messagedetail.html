@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>消息详情</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/base.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+
+<body>
+<div class="mui-content">
+    <div style="clear: both;height: 20px"></div>
+    <div><span class="left">系统通知</span><span class="right">2016-10-11 20:22</span></div>
+    <div style="clear: both;height: 20px"></div>
+    <p>金秋十月,立可拍"爱是陪伴"家庭主题纪实跟拍活动</p>
+    <p>啦啦啦啦啦</p>
+    <p>啦啦啦啦啦</p>
+    <p>啦啦啦啦啦</p>
+    <p>啦啦啦啦啦</p>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/getParam.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    mui.init();
+    var id = GetQuery("id");
+    window.onload = function () {
+        initpage();
+    }
+
+    function  initpage() {
+        $.ajax({
+            url: "../msgPort/getMsgInfo",
+            data: {"id":id},
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                  (data.msginfo);
+                //加载消息列表
+                var d  = data.msginfo;
+//                for( var i =0; i<d.length;i++){
+                    var ht = '<a href="messagedetail.html?id="'+d[0].id+'">\
+                              <div class="xxlist">\
+                                <div class="xxlist1">\
+                                    <span class="xxlist11 left">'+d[i].itemXxlx+'</span>\
+                                    <span class="xxlist12 right">'+d[i].itemFssj+'</span>\
+                                </div>\
+                                <div class="xxlist2">'+d[i].itemXxnr+'</div>\
+                                <div style="width: 100%;height: 25px">\
+                                    <span style="font-size: 12px;background-color: rgb(254,44,45);color: white;padding: 0px 2px;float: right">'+d[i].itemXxzt+'</span>\
+                                </div>\
+                           </div></a>';
+                    $("#slider").append(ht);
+//                }
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    }
+
+</script>
+</body>
+
+</html>

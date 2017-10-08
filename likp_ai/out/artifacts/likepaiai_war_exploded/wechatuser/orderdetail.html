@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/base.css" rel="stylesheet">
+    <style>
+        .top {
+
+        }
+
+        .top img {
+            width: 100%;
+            height: auto;
+        }
+
+        .detail1 {
+            height: 32px;
+            line-height: 30px;
+            padding-left: 10px;
+        }
+
+        .botton {
+            border-top: 1px solid #000000;
+            height: 50px;
+            line-height: 50px;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            text-align: center;
+
+        }
+
+        .odcenter {
+            padding: 0px 20px 0px 30px;
+            font-size: 15px;
+            height: 60px;
+            line-height: 60px;
+        }
+
+        html, body, .mui-content {
+            background-color: rgb(242, 242, 242);
+        }
+
+        .odlist {
+            border-radius: 4px;
+            line-height: 38px;
+            border: 1px solid rgb(224, 224, 224);
+            background-color: rgb(255, 255, 255);
+            padding: 10px 15px;
+            font-size: 15px;
+            color: rgb(171, 171, 171);
+            width: 94%;
+            margin-left: 3%;
+        }
+    </style>
+</head>
+
+<body>
+<header class="mui-bar mui-bar-nav" style="box-shadow:none;-webkit-box-shadow:none;background-color: rgb(255,255,255);">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: black;"></a>
+    <h1 class="mui-title">订单详情</h1>
+</header>
+<div class="mui-content">
+    <div class="top">
+        <img src="../images/imgexam.png">
+    </div>
+    <div class="odcenter">
+        订单状态:<span style="color: rgb(234,184,124)" id="ddzt"></span>
+        <span class="lcbtn right" style="margin-top: 14px;">取消订单</span>
+    </div>
+    <div class="odlist">
+
+    </div>
+
+    <!--<div class="lcbtn" id="zhifu">支付订单</div>-->
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/getParam.js"></script>
+<script src="../js/date.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    mui.init();
+    var id = GetQuery("id");
+    $(function () {
+        $.ajax({
+            url: "../userPort/getOrderInfoById",
+            data: {id: id},
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+                console.log(data);
+                if (data.itemState == "WAITE_TO_PAY") {
+                    $("#ddzt").text("待支付");
+                }
+                var html = '<div>订单编号:' + data.itemOrderid + '</div>\
+                        <div>下单时间:' + new Date(data.itemXdrq).format("yyyy-MM-dd") + '</div>\
+                        <div>拍摄地址:' + data.itemPosition + '</div>';
+                $(".odlist").append(html);
+                $("#zhifu").click(function () {
+                    window.location.href = "../userPort/payOrderDirect?id="+id;
+                })
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    })
+</script>
+</body>
+
+</html>

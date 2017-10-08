@@ -1,0 +1,96 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+        http://www.springframework.org/schema/task
+        http://www.springframework.org/schema/task/spring-task.xsd">
+    <!--自动扫描-->
+    <context:annotation-config/>
+    <context:component-scan base-package="com"/>
+    <!-- 任务定时执行 -->
+    <task:executor id="executor" pool-size="5" />
+    <task:scheduler id="qbScheduler" pool-size="10"/>
+    <task:annotation-driven executor="executor" scheduler="qbScheduler" mode="proxy"/>
+    <!--<task:annotation-driven executor="executor" scheduler="qbScheduler" />-->
+
+
+
+    <!--配置文件读取-->
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:config.properties</value>
+            </list>
+        </property>
+    </bean>
+    <!--数据源配置-->
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <!--sessionFactory-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="datasource"/>
+        <property name="mappingDirectoryLocations">
+            <list>
+                <value>classpath*:com/lkp/entity/hbm</value>
+            </list>
+        </property>
+        <property name="packagesToScan" value="com.lkp.entity"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <!-- 开启二级缓存 -->
+                <prop key="hibernate.cache.use_second_level_cache">false</prop>
+                <!-- 开启查询缓存 -->
+                <prop key="hibernate.cache.use_query_cache">false</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3307/lkp</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+                <!--<prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/lkp_local</prop>-->
+                <!--<prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>-->
+                <!--<prop key="hibernate.connection.url">jdbc:mysql://localhost:3307/lkp</prop>-->
+                <!--<prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>-->
+            </props>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>com.lkp.entity.TlkFwzEntity</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--事务注解配置-->
+    <bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="txManager"/>
+
+    <!--微信配置bean-->
+    <bean id="wechatcfg" class="com.lkp.bean.WeChatCfg">
+        <property name="appId" value="${weChat.AppID}"/>
+        <property name="appSecret" value="${weChat.AppSecret}"/>
+        <property name="domain" value="${weChat.Domain}"/>
+        <property name="eventToken" value="${weChat.EventToken}"/>
+        <property name="key" value="${weChat.Key}"/>
+        <property name="user" value="${weChat.User}"/>
+        <property name="mic_id" value="${weChat.Mic_id}"/>
+    </bean>
+</beans>

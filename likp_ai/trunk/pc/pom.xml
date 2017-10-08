@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>YLT</groupId>
+    <artifactId>lkp_pc</artifactId>
+    <version>ai_1.0</version>
+    <packaging>war</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <springframework.version>4.2.3.RELEASE</springframework.version>
+        <mysql.version>5.1.21</mysql.version>
+        <hibernate.version>4.3.8.Final</hibernate.version>
+        <junit.version>4.12</junit.version>
+        <gson.version>2.7</gson.version>
+        <commons.io.version>2.4</commons.io.version>
+        <commons.fileupload>1.2.2</commons.fileupload>
+        <httpclient.version>4.5</httpclient.version>
+        <maven.resources.plugin>2.3</maven.resources.plugin>
+        <servlet.version>7.0.37</servlet.version>
+        <log4j.version>2.6.1</log4j.version>
+        <jstl.version>1.2</jstl.version>
+        <maven.war.plugin.version>2.1.1</maven.war.plugin.version>
+    </properties>
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>Public Repositories</name>
+            <url>http://120.77.14.89:8081/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <build>
+
+        <finalName>pc</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${maven.war.plugin.version}</version>
+                <configuration>
+                    <overlays>
+                        <overlay>
+                            <groupId>YLT</groupId>
+                            <artifactId>lkp</artifactId>
+                            <includes>
+                                <include>WEB-INF/classes/**</include>
+                                <include>WEB-INF/lib/*</include>
+                            </includes>
+                            <excludes>
+                                <exclude>*</exclude>
+                                <exclude>WEB-INF/classes/com/lkp/controller/**</exclude>
+                                <exclude>WEB-INF/classes/*.xml</exclude>
+                                <exclude>WEB-INF/classes/*.properties</exclude>
+                            </excludes>
+                            <!--                            <excludes>
+                                                            <exclude>*/web.xml,WEB-INF/lib/*</exclude>
+                                                        </excludes>-->
+
+                        </overlay>
+                    </overlays>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${maven.resources.plugin}</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <!-- 是否替换资源中的属性-->
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>YLT</groupId>
+            <artifactId>lkp</artifactId>
+            <version>ai_1.0</version>
+            <type>war</type>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>YLT</groupId>
+            <artifactId>lkp</artifactId>
+            <version>ai_1.0</version>
+            <classifier>classes</classifier>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>

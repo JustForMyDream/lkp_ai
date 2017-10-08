@@ -1,0 +1,237 @@
+body{
+    font-family:"Microsoft YaHei UI", "Microsoft YaHei UI Light";
+    min-height: 100%;
+    background-color: #EEEEEE;
+}
+header{
+    width: 100%;
+    position:relative;
+    height: 80px;
+    padding-top: 39px;
+}
+div{
+    text-align: center;
+    margin: 0 auto;
+}
+img{
+    width: 100%;
+}
+p{
+    margin:0;
+}
+.dialog button{
+    display: block;
+    width: 200px;
+    border-radius: 20px;
+    margin: 0 auto;
+    border: 0;
+}
+
+button.red,#agree.red{
+    background-color: #C1001D;
+    color: #FFFFFF;
+}
+.activity-line{
+    height: 2px;
+    width: 100%;
+    background-color: #C1001D;
+
+}
+.activity-pic{
+    display: inline-block;
+    position: absolute;
+    width: 60px;
+    top: 50%;
+    right: 30px;
+    margin: -10px;
+    background-color: #EEEEEE;
+}
+.font2{
+}
+.font3{
+    font-family: 宋体;
+    font-size: 35px;
+    line-height: 40px;
+    padding: 10px 10px 20px;
+    font-weight: 600;
+}
+.font3.space{
+    text-indent: 20px;
+    letter-spacing: 20px;
+}
+.font4{
+    display: inline-block;
+    padding: 5px 5px 10px;
+    font-weight: bold;
+}
+.red {
+    color: #C1001D;
+}
+.space{
+    text-indent: 20px;
+    letter-spacing: 20px;
+}
+.space10{
+    text-indent: 10px;
+    letter-spacing: 10px;
+}
+.paddinged{
+    margin: 15px;
+}
+.font5{
+    font-size: 25px;
+    line-height: 1;
+    font-weight: bold;
+}
+.button{
+    display: inline-block;
+    background-color: #C1001D;
+    padding: 6px 11px;
+    border-radius: 3px;
+    color: #ffffff;
+    margin: 0 auto 10px;
+}
+.button:active,.button:focus{
+    background-color: #AF1007;
+}
+.mark{
+    display: none;
+    position: fixed;
+    top:0;;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.2);
+    z-index: 999;
+}
+.mark.active{
+    display: block;
+}
+.protocol{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    background: #eeeeee;
+    width: 280px;
+    margin: -50% -140px;
+    border-radius: 5px;
+}
+.protocol_header,.protocol-bottom{
+    padding: 10px;
+}
+.protocol_body{
+    max-height: 300px;
+    overflow: auto;
+    background: #ffffff;
+    padding: 5px 10px;
+    text-align: left;
+}
+.dialog{
+    width: 270px;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.dialog>div{
+    padding: 20px 10px 10px;
+}
+.dialog .dialog-body{
+    overflow-y: auto;;
+    font-size: 12px;
+}
+.param-row{
+    padding: 5px 5px 0;
+}
+.param-row input,.param-row select{
+    height: 30px;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 3px 6px;
+    margin: 0;
+    border: 1px solid rgba(0,0,0,.2)!important;
+}
+.param-row>label{
+    float: left;
+    text-align: left;
+    line-height: 20px;
+    font-family: Microsoft YaHei Bold;
+}
+.param-row>select,.param-row>input[type='text'],.param-row>input[type='number'],.param-row>input[type='date'],.param-row>input[type='datetime'],.param-row>input[type='datetime-local'],.param-row>input[type='tel']{
+    width: 100%;
+}
+.param-row>span{
+    line-height: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: -25px 30px 0 0;
+}
+footer{
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-top{
+    height: 20px;
+/*    background: url("../images/peiban_bottom.png") repeat-x center;*/
+    background-size: contain;
+}
+.footer-body{
+   /* background: #C1001D;*/
+}
+.qrcode-content{
+    width: 130px;
+    padding:10px 40px 0;
+}
+.qrcode-content>span{
+    color: #FFFFFF;
+    letter-spacing: 9px;
+    white-space: nowrap;
+    text-align: center;
+}
+@keyframes hideUp {
+    0% {opacity: 1;transform: translate(0%, 0%)}
+    100% {opacity: 0;transform:translate(-200%,0%)}
+}
+@-webkit-keyframes hideUp {
+    0% {opacity: 1;-webkit-transform: translate(0%, 0%);}
+    100% {opacity: 0;-webkit-transform: translate(-200%,0%);}
+}
+@keyframes showOp {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+@-webkit-keyframes showOp{
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+.dialog{
+    transition:height 1s;
+}
+.dialog.hide{
+    animation: hideUp 1s;
+    -webkit-animation: hideUp 1s;
+}
+.dialog.show{
+    animation: showOp 1s;
+    -webkit-animation: showOp 1s;
+}
+.param-row>textarea{
+    margin-bottom:0;
+    font-size: 12px;
+}
+.dialog-foot{
+    /*background-color: #C1001D;*/
+}
+.dialog-foot>button{
+    margin-bottom: 10px;
+}
+.dialog-foot>button:last-child{
+    margin-bottom: 0px;
+}
+.info{
+    color: #C1001D;
+    font-size: 15px;
+    text-align: left;
+    font-family: Microsoft YaHei Regular;
+}

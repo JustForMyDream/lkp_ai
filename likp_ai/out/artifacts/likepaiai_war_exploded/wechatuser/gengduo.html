@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>更多页面</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/base.css" rel="stylesheet">
+    <style>
+        body,html{
+            background-color: #F8F6F2;
+        }
+        .beijing{
+            background-color: #F8F6F2;
+            width: 100%;
+        }
+        .list{
+            height: 110px;
+            width: 100%;
+            line-height: 10px;
+            background-color: white;
+            box-shadow: 0.3px 2px 30px 0.5px #F8F6F2;
+            margin-bottom: 7.5px;
+        }
+        .left{
+            float: left;
+            margin-top: 26.5px;
+            margin-left: 25px;
+        }
+        .right{
+            margin: 15px 12px;
+        }
+        .right img{
+            width: 116px;
+
+        }
+        .biaoti{
+
+        }
+        .jiage{
+            padding-top: 7px;
+        }
+        .biaoti p{
+            font-family: 微软雅黑;
+            color: black;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .jiage p{
+            color: #FEC975;
+            font-size: 13px;
+            font-weight: 400;
+        }
+    </style>
+</head>
+
+<body>
+<div class="beijing">
+
+    <!--<div>-->
+        <!--<div class="biaoti"></div>-->
+        <!--<div class="jiage"></div>-->
+    <!--</div>-->
+    <!--<div class="tupian">-->
+            <!---->
+    <!--</div>-->
+</div>
+
+<script src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    mui.init();
+    mui(".mui-scroll-wrapper").scroll();
+    $(function () {
+        mainLoad();
+    });
+    function mainLoad() {
+        $.ajax({
+            url: "../common/index/productList",
+            data: {},
+            type: "post",
+            dataType:'json',
+            success:function (data) {
+                console.log(data);
+                for (var i in data){
+                    var img = JSON.parse(data[i].itemCover);
+                    var imgpath = img[0].path;
+                    var name = data[i].itemName;
+                    var price = data[i].itemPrice;
+                    var productid = data[i].id;
+                    var html = "<div class='list' id='bt"+i+"'>"+"<div class='left'><div class='biaoti'><p>"+name+"</p></div>"+
+                    "<div class='jiage'><p>"+price+'/套'+"</p><span></span></div>"+"</div>"+"<div class='right'><img  src='"+imgpre+imgpath+"'></div>"+"</div>";
+                    $(".beijing").append(html);
+                    $("#bt"+i).data("id",productid);
+                    $("#bt"+i).on('tap',function () {
+                        window.location.href="detail.html?id="+$(this).data("id");
+                    })
+                }
+            },
+            error:function (e) {
+                mui.toast(e);
+            }
+        })
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,349 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>相册详情</title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link href="../css/base.css" rel="stylesheet">
+    <style>
+        .albumdet {
+            /*height: 50px;*/
+            width: 30.5%;
+            margin-left: 2%;
+            display: inline-block;
+            margin-top: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .albumdet img {
+            width: 100%;
+            height: auto;
+        }
+
+        .imgmain {
+            width: 100%;
+            height: auto;
+        }
+
+        .qurenshou {
+            position: fixed;
+            bottom: 0;
+            height: 50px;
+            width: 100%;
+            line-height: 50px;
+            background-color: #ffe33e;
+            color: black;
+            text-align: center;
+        }
+
+        .chakanyinji {
+            position: fixed;
+            bottom: 0;
+            height: 49px;
+            width: 100%;
+            line-height: 49px;
+            text-align: center;
+            font-size: 15px;
+            background-color: #F7F7F7;
+            color: black;
+        }
+
+        .chakanyinji img {
+            width: 24px;
+            height: auto;
+            position: absolute;
+            top: 18px;
+            right: 14px;
+        }
+        .mui-preview-image.mui-fullscreen {
+            position: fixed;
+            z-index: 20;
+            background-color: #000;
+        }
+        .mui-preview-header,
+        .mui-preview-footer {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            z-index: 10;
+        }
+        .mui-preview-header {
+            height: 44px;
+            top: 0;
+        }
+        .mui-preview-footer {
+            height: 50px;
+            bottom: 0px;
+        }
+        .mui-preview-header .mui-preview-indicator {
+            display: block;
+            line-height: 25px;
+            color: #fff;
+            text-align: center;
+            margin: 15px auto 4px;
+            width: 70px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            font-size: 16px;
+        }
+        .mui-preview-image {
+            display: none;
+            -webkit-animation-duration: 0.5s;
+            animation-duration: 0.5s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+        }
+        .mui-preview-image.mui-preview-in {
+            -webkit-animation-name: fadeIn;
+            animation-name: fadeIn;
+        }
+        .mui-preview-image.mui-preview-out {
+            background: none;
+            -webkit-animation-name: fadeOut;
+            animation-name: fadeOut;
+        }
+        .mui-preview-image.mui-preview-out .mui-preview-header,
+        .mui-preview-image.mui-preview-out .mui-preview-footer {
+            display: none;
+        }
+        .mui-zoom-scroller {
+            position: absolute;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            -webkit-backface-visibility: hidden;
+        }
+        .mui-zoom {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+        .mui-slider .mui-slider-group .mui-slider-item img {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+            width: 100%;
+        }
+        .mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+            display: inline-table;
+        }
+        .mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .mui-preview-loading {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .mui-preview-loading.mui-active {
+            display: block;
+        }
+        .mui-preview-loading .mui-spinner-white {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -25px;
+            margin-top: -25px;
+            height: 50px;
+            width: 50px;
+        }
+        .mui-preview-image img.mui-transitioning {
+            -webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        @-webkit-keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        p img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+<header class="mui-bar mui-bar-nav" style="border-bottom: 0.1px solid rgb(191,191,191);box-shadow: none; -webkit-box-shadow:none">
+    <a href="#offCanvasSide" class="mui-action-back mui-icon mui-action-menu mui-pull-left" style="color: rgb(151,151,151)"><img src="../image/return.png" style="height: 17.5px"></a>
+    <h1 class="mui-title" style="width: 86%;font-size: 17px"></h1>
+    <!--<p class="mui-action-back mui-btn mui-btn-link mui-pull-right" style="color: rgb(151,151,151);font-size: 13px">编辑</p>-->
+</header>
+<div class="mui-content">
+    <div class="imgmain">
+
+    </div>
+</div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/mui.zoom.js"></script>
+<script src="../js/mui.previewimage.js"></script>
+<script>
+    mui.previewImage();
+</script>
+<script src="../js/server.js"></script>
+<script src="../js/getParam.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    mui.init()
+    //userid = "297e9e79583dc67e01583dd2da5e000b";
+    var id = GetQuery("id");
+    $(function () {
+        $.ajax({
+            url: "../userPort/album/albumorder",
+            data: {id: id},
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+                  (data);
+                if (data.length == 0) {
+                    $(".imgmain").html('<img src="http://placehold.it/300x300?text=暂无图片" style="width: 100%;height: auto">')
+                } else {
+                    $(".imgmain").html("");
+                    for (var i in data) {
+                        $(".imgmain").append('<div class="albumdet"><img src="' + imgpre + JSON.parse(data[i].itemImgurl)[0].path + '" data-preview-src="" data-preview-group="1"></div>');
+                    }
+                    var imgitem = $(".albumdet");
+//                    container.append(imgitem);
+                    imgitem.css("height", imgitem.width() + "px");
+                    imgitem.children("img").on("load", function (e) {
+                        var $this = $(e.target);
+                        if ($this.width() < $this.height()) {
+                            $this.css({"width": "100%", "height": "auto", "max_height": "auto", "max_width": "auto"});
+                        } else {
+                            $this.css({"width": "auto", "height": "100%", "max_height": "auto", "max_width": "auto"});
+                        }
+                    });
+                    $(".imgmain").append('<div style="margin-top: 30px;text-align: center;font-size: 13px;" class="numyingji">' + data.length + '张照片</div>');
+                    panduanzhutai();
+                }
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    })
+    function panduanzhutai() {
+        $(function () {
+            $.ajax({
+                url: "../userPort/getOrderInfoById",
+                data: {id: id},
+                type: "post",
+                dataType: "json",
+                timeout: "10000",
+                success: function (data) {
+//                      (data);
+                    var State = data.itemState;
+                    var itemOrderid = data.itemOrderid;
+                    $(".mui-title").text(data.itemProductid.itemName);
+                    if (State == "WAITE_TO_CONFIRM") {
+                        $(".mui-content").append('<div class="qurenshou">确认收片</div>');
+                        $(".qurenshou").on('click', function () {
+                            mui.toast("正在确认订单中!");
+                            $.ajax({
+                                url: "../userPort/orderQueRen",
+                                data: {id: id},
+                                type: "post",
+                                dataType: "json",
+                                timeout: "10000",
+                                success: function (data) {
+                                      (data);
+                                    if (data.errorCode == "200") {
+                                        window.location.reload();
+                                    } else {
+                                        mui.toast(data.errorMsg);
+                                    }
+                                },
+                                error: function (e) {
+                                    mui.toast(e);
+                                }
+                            });
+                        });
+                    } else if (State == "WAITE_TO_MAIL" || State == "FINISHED") {
+
+                        $.ajax({
+                            url: "../userPort/yingji/getYinjiByOrderid",
+                            data: {id: itemOrderid},
+                            type: "post",
+                            dataType: "json",
+                            timeout: "10000",
+                            success: function (data) {
+//                                  (data);
+                                if(data!=null){
+                                    $(".numyingji").append(',1个影集');
+                                    $(".mui-content").append('<div class="chakanyinji"><div style="height: 1px;background-color: rgb(151,151,151)"></div>查看影集<img src="../image/rightArrow@3x.png"></div>');
+                                    $(".chakanyinji").on('click', function () {
+                                        window.location.href = "../YINGJI/newYingji?id="+data.id;
+                                    })
+                                }else{
+                                    $(".mui-content").append('<div class="qurenshou" style="background-color: #FAFAFA;color: black">暂无影集</div>');
+                                }
+                            },
+                            error: function (e) {
+                                mui.toast(e);
+                            }
+                        });
+                    } else {
+                        $(".mui-content").append('<div class="qurenshou">' + State + '</div>');
+                    }
+                },
+                error: function (e) {
+                    mui.toast(e);
+                }
+            });
+        })
+    }
+</script>
+</body>
+
+</html>

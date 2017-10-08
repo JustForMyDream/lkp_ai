@@ -1,0 +1,7 @@
+<script src="<%=basePath%>js/mui.min.js"></script>
+<script src="<%=basePath%>js/date.js"></script>
+<script src="<%=basePath%>js/server.js"></script>
+<script src="<%=basePath%>js/jquery-3.1.1.min.js"></script>
+<script src="<%=basePath%>js/mui.view.js"></script>
+<link href="<%=basePath%>css/mui.min.css" rel="stylesheet" />
+<link href="<%=basePath%>css/magic.min.css" rel="stylesheet" />

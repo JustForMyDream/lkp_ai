@@ -1,0 +1,43 @@
+#container{
+	display: -moz-box;
+	display: -webkit-box;
+	width: 375px;
+	height: 667px;
+	-webkit-box-orient: vertical;;
+	-moz-box-orient: vertical;
+	font-family: "微软雅黑";
+}
+.box1{
+	width: 375px;
+	height: 174px;
+	
+}
+.box2{
+	width: 375px;
+	height: 100px;
+	background-color: white;
+}
+.box3{
+	width: 375px;
+	height: 100px;
+	background-color: white;
+}
+.box4{
+	width: 375px;
+	height: 100px;
+	background-color: white;
+}
+.box5{
+	width: 375px;
+	height: 130px;
+	background-color: white;
+}
+.box6{
+	width: 375px;
+	height: 63px;
+	background-color:rgb(45,45,26);
+}
+.box1,.box2,.box3,.box4,.box5,.box6{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+}

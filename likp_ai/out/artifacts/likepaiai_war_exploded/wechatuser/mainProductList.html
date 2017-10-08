@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>立可拍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="../css/mui.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 微软雅黑;
+            font-size: 13px;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        .product-list {
+            padding: 10px 8px;
+            /*background-color: #FFFFFF;*/
+        }
+
+        .product-list .product {
+            border: 1px solid #dcdcdc;
+            margin-bottom: 10px;
+            background-color: white;
+        }
+
+        .product-list .product .product-info {
+            padding: 28px 12px 22px;
+            text-align: right;
+        }
+
+        .product-list .product .product-info .product-title {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-size: 13px;
+            line-height: 24px;
+        }
+
+        .product-list .product .product-info .product-customer {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-size: 10px;
+            line-height: 24px;
+            color: #aaaaaa;
+        }
+
+        .product-list .product .product-order {
+            padding: 10px 16px;
+        }
+
+        .product-list .product .product-order .product-price {
+            float: left;
+            font-size: 15px;
+            line-height: 41px;
+            color: black;
+        }
+
+        .product-list .product .product-order .product-price > span {
+            font-family: Microsoft YaHei;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .product-list .product .product-order .product-order-button {
+            font-size: 15px;
+            line-height: 24px;
+            float: right;
+        }
+
+        .product-list .product .product-order .product-order-button button {
+            border: 0;
+            box-shadow: 0 1.5px 1px 0 rgba(41, 51, 43, 0.43);
+            border-radius: 5px;
+            padding: 10px 20px;
+            color: black;
+            background-color: #ffe33e;
+            margin-bottom: 10px;
+        }
+
+        .divider {
+            display: block;
+            width: 100%;
+            border: 0;
+            border-bottom: 0.5px solid rgb(220, 220, 220);
+        }
+
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+<div class="mui-content">
+    <div class="main-topic">
+        <img src="http://placehold.it/400x300?text=加载中">
+    </div>
+    <div class="product-list">
+
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script type="text/javascript" src="../js/commen.js"></script>
+<script>
+
+    var id = GetQueryString("id");
+    $(function () {
+        loadMainProduct(id);
+    });
+    function loadMainProduct(id) {
+        $.ajax({
+            url: "../common/index/productMainDetail",
+            data: {
+                id: id
+            },
+            dataType: "json",
+            success: function (data) {
+                if (data.length == 0) {
+                    cosole.log("暂无数据");
+                } else {
+                    var theam = data[0];
+                    var $productContent = $(".product-list");
+                    $(".main-topic img").attr("src", imgpre + JSON.parse(theam.itemCpfm)[0].path);
+                    var productList = theam.productEntitySet;
+                    for (var i = 0; i < productList.length; i++) {
+                        var product = productList[i];
+                        var productShow = product.tlkProductshowEntities[0];
+                        if (product) {
+                            var $productItem = $("<div class=\"product\"></div>");
+                            $(".product-list").append($productItem);
+                            var $productImg = $("<div class=\"product-cover\"><img src=\"../example/02.jpg\"></div>");
+                            var $productInfo = $("<div class=\"product-info\"><div class=\"product-title\"></div><div class=\"product-customer\"></div></div>");
+                            var $divider = $("<div class=\"divider\"></div>")
+                            var $productPrice = $("<div class=\"product-order\"><div class=\"product-price\"><span>$$$</span>元/套</div><div class=\"product-order-button\"><button>下单约拍</button></div>");
+                            var $clear = $("<div class=\"clear\"></div>");
+                            $productContent.append($productItem);
+                            $productItem.data("id", product.id);
+                            $productItem.append($productImg);
+                            $productImg.children("img").attr("src", imgpre + JSON.parse(productShow.itemZpfm)[0].path);
+                            $productItem.append($productInfo);
+                            var ms = productShow.itemZpms.split("\n");
+                            $productInfo.children(".product-title").text(ms[0]);
+                            if (ms[1]) {
+                                $productInfo.children(".product-customer").text(ms[1]);
+                            } else {
+                                $productInfo.children(".product-customer").remove();
+                            }
+                            $productItem.append($divider);
+                            $productItem.append($productPrice);
+                            $productPrice.find("span").text(product.itemPrice);
+                            $productItem.append($clear);
+                            $productPrice.on("tap", ".product-order-button", function (e) {
+                                window.location.href = "detail.html?id=" + $(this).parents(".product").data("id");
+                            });
+                            $productItem.on("tap", function (e) {
+                                window.location.href = "detail.html?id=" + $(this).data("id");
+                            });
+                        }
+                    }
+                }
+            }
+        })
+    }
+</script>
+</html>

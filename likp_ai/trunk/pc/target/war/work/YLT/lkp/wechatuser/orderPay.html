@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单支付页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="../css/mui.min.css" rel="stylesheet">
+    <link href="../css/mui.picker.css" rel="stylesheet"/>
+    <link href="../css/mui.poppicker.css" rel="stylesheet"/>
+    <link href="../css/base.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+<style type="text/css">
+    html,body {
+        background-color: #FFFFFF;
+        width: 100%;
+        font-family: 微软雅黑;
+    }
+
+    .head {
+        width: 100%;
+        height: 50px;
+        background-color: #FFFFFF;
+    }
+
+    .head_left {
+        float: left;
+        padding-top: 13px;
+        padding-left: 16px;
+        width: 50%;
+    }
+    .head_left p{
+        font-size: 15px;
+        width: 50%;
+        margin-left: 18px;
+        color: black;
+    }
+
+    .head_right {
+        float: right;
+        padding-top: 15px;
+        padding-right: 12px;
+        color: #C8C8C8;
+    }
+
+    .title {
+        width: 100%;
+        height: 103px;
+    }
+    .title p{
+        width: 42%;
+        margin-left: 145px;
+        padding-top: 12px;
+        font-size: 17px;
+        font-weight: bolder;
+        color: black;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-family: 微软雅黑;
+    }
+    .content {
+        width: 90%;
+        margin: 0 auto;
+        height: 350px;
+        font-size: 13px;
+        border-bottom: 1px solid #F2F2F2;
+    }
+    .server {
+        padding-left: 11px;
+        line-height: 36px;
+    }
+    .subtitle {
+        float: left;
+        width: 30%;
+        color: #C8C8C8;
+    }
+
+    .center1,.center2,.center3,.center4 a,.center5,.center6,.center7 a {
+        float: left;
+        width: 50%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .center1 span{
+        font-size: 13px;
+        color: black;
+    }
+    .center1 p{
+        display: none;
+        font-size: 13px;
+        color: black;
+    }
+    .skip {
+        float: right;
+        width: 20%;
+        height: 28px;
+    }
+    .skip img{
+        float: right;
+        height: 26px;
+        width: 10px;
+        padding-top: 12px;
+        margin-left: 9px;
+    }
+    .skip p{
+        float: right;
+        font-size: 15px;
+        color: black;
+    }
+
+    .bottom_content {
+        width: 90%;
+        margin: 0 auto;
+        height: 148px;
+        font-size: 13px;
+        padding-left: 12px;
+        padding-top: 27px;
+        margin-bottom: 16px;
+        padding-bottom: 69px;
+    }
+    .bottom_content .left{
+        float: left;
+        width: 20%;
+        color: #C8C8C8;
+    }
+    .bottom_content .right{
+        float: right;
+        color: #C8C8C8;
+    }
+    .bottom_content .right p{
+        color: #000000;
+        font-weight: bolder;
+        font-size: 17px;
+    }
+
+    .button {
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        color: white;
+        font-size: 16px;
+        position: fixed;
+        bottom: 0;
+        text-align: center;
+        background-color: #ffe33e;
+    }
+    .button p{
+
+        color: black;
+        font-size: 15px;
+    }
+    .mui-popover {
+        height: 60px;
+    }
+    .btn-primary{
+        color: #333;
+        background-color: #fff;
+        border-color: #ccc;
+    }
+    .mui-input-row label{
+        padding: 13px 15px;
+        margin-bottom: 0;
+    }
+</style>
+<body>
+    <div class="head">
+        <div class="head_left">
+            <img src="../image/return.png" style="height: 20px;padding-top: 2px;float: left">
+            <p>待支付</p>
+        </div>
+        <div class="head_right">
+            取消订单
+        </div>
+    </div>
+    <div class="title">
+
+    </div>
+    <div class="content">
+        <div class="server">
+            <div class="subtitle">
+                服务概览
+            </div>
+            <div class="center1">
+                    <span></span>
+                    <p></p>
+            </div>
+            <div class="skip">
+                <img src="../image/skip.png">
+                <p id="xiangqi">详情</p>
+            </div>
+        </div>
+        <div class="server">
+            <div class="subtitle">
+                订单编号
+            </div>
+            <div class="center2">
+
+            </div>
+        </div>
+        <div class="server">
+            <div class="subtitle">
+                拍摄日期
+            </div>
+            <div class="center3">
+
+            </div>
+            <div class="skip">
+                <img src="../image/skip.png">
+                <p data-toggle="modal" data-target="#myModal1">修改</p>
+            </div>
+        </div>
+        <div class="server">
+            <div class="subtitle">
+                拍摄地址
+            </div>
+            <div class="center4">
+
+            </div>
+            <div class="skip">
+                <img src="../image/skip.png">
+                <p id='showCityPicker3'>修改</p>
+            </div>
+        </div>
+        <div class="server">
+            <div class="subtitle">
+                详细地址
+            </div>
+            <div class="center7">
+
+            </div>
+            <div class="skip">
+                <img src="../image/skip.png">
+                <p data-toggle="modal" data-target="#myModal2">修改</p>
+            </div>
+        </div>
+        <div class="server">
+            <div class="subtitle">
+                礼券优惠
+            </div>
+            <div class="center5">
+            </div>
+            <!--<div class="skip">
+                <img src="../image/skip.png">
+                <p>选择</p>
+            </div>-->
+        </div>
+        <div class="server">
+            <div class="subtitle">
+                下单时间
+            </div>
+            <div class="center6">
+            </div>
+        </div>
+    </div>
+    <div class="bottom_content">
+        <div class="left">原价</div>
+        <div class="right" id="yuanjia"> </div>
+        <br>
+        <div class="left">优惠</div>
+        <div class="right" id="youhui">¥0.00</div>
+        <br>
+        <div class="left">总价</div>
+        <div class="right" id="zongjia"><p> </p></div>
+    </div>
+    <div class="button">
+            <p>前往支付</p>
+    </div>
+    <!--<div id="middlePopover1" class="mui-popover" style="width: 210px;text-align: center;padding: 10px;font-size: 15px">
+
+    </div>
+    <div id="middlePopover2" class="mui-popover" style="width: 210px;text-align: center;padding: 10px;font-size: 15px">
+
+    </div>-->
+    <!-- 按钮触发模态框 -->
+    <!--<div class="" data-toggle="modal" data-target="#myModal1">
+        开始演示模态框
+    </div>-->
+    <!-- 模态框1（Modal） -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        修改拍摄日期
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="mui-input-row">
+                        <label>拍摄日期:</label>
+                        <input id="orderDate" type="datetime-local">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>-->
+                     <button type="button" class="btn btn-primary" data-dismiss="modal"  id="submit1">
+                         提交更改
+                     </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <!-- 模态框2（Modal） -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title">
+                        修改详细地址
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="mui-input-row">
+                        <label>详细地址:</label>
+                        <input id="detailposition" type="text" placeholder="填写详细地址">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">关闭-->
+                    </button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="submit2">
+                        提交更改
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    <div id="map" style="width: 100%;height: 100px;display: none"></div>
+</body>
+<script type="text/javascript" src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/getParam.js"></script>
+<script type="text/javascript" src="../js/date.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script src="../js/mui.picker.js"></script>
+<script src="../js/mui.poppicker.js"></script>
+<script src="../js/city.data.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/city.data-3.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Hc7QMTt5b5treV5Q4KsCYSni"></script>
+<script type="text/javascript">
+    mui.init();
+    var id = GetQuery("id");
+    var cityPicker3 = new mui.PopPicker({
+        layer: 3
+    });
+    cityPicker3.setData(cityData3);
+    var showCityPickerButton = document.getElementById('showCityPicker3');
+    showCityPickerButton.addEventListener('tap', function (event) {
+        cityPicker3.show(function (items) {
+            var position = (items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text;
+            $.get("../userPort/Position",{
+                productId: id,
+                position:position
+            },function (data) {
+                  (data);
+                if(data.errorCode = "200") {
+                    $(".center4 a").html(position);
+                    $(".center7 a").html("<p style='color:#C8C8C8;font-size: 13px'>请填写详细地址</p>");
+                    mui.toast("请修改详细地址");
+                }else {
+                    mui.toast(data.errorMsg);
+                }
+            },"json");
+            //showCityPickerButton.innerText = (items[0] || {}).text + " " + (items[1] || {}).text + " " + (items[2] || {}).text;
+            //返回 false 可以阻止选择框的关闭
+            //return false;
+        });
+    }, false);
+    weizhi();
+    function weizhi() {              //获取位置信息
+        // 百度地图API功能
+        var map = new BMap.Map("map");
+        var point = new BMap.Point(103.962722, 30.782822);
+        map.centerAndZoom(point, 12);
+        var geolocation = new BMap.Geolocation();
+        geolocation.getCurrentPosition(function (r) {
+            if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                var mk = new BMap.Marker(r.point);
+                map.addOverlay(mk);
+                map.panTo(r.point);
+                var geoc = new BMap.Geocoder();
+                geoc.getLocation(r.point, function (rs) {
+                    var addComp = rs.addressComponents;
+                    var positionstr = addComp.province + "," + addComp.city + "," + addComp.district;
+                    var postions = positionstr.split(",");
+                    for (var i in cityData3) {
+                        if (cityData3[i].text == postions[0]) {
+                            cityPicker3.pickers[0].setSelectedIndex(i);
+                            var childrens = cityData3[i].children;
+                            for (var j in childrens) {
+                                if (childrens[j].text == postions[1]) {
+                                    cityPicker3.pickers[1].setSelectedIndex(j);
+                                    var childrens2 = childrens[j].children;
+                                    for (var k in childrens2) {
+                                        if (childrens2[k].text == postions[2]) {
+                                            cityPicker3.pickers[2].setSelectedIndex(k);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+//                    $("#car_tongzhi1").append("你现在的位置是:" + addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber);
+                });
+            }
+            else {
+                mui.toast('获取位置信息failed:' + this.getStatus());
+            }
+        }, {enableHighAccuracy: true})
+    }
+    $(function () {
+        $.ajax({
+            url: "../userPort/getOrderInfoById",
+            data: {id: id},
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+                  (data);
+                var img = JSON.parse(data.itemProductid.itemCover);
+                var imgpath = img[0].path;
+                var itemname = data.itemProductid.itemName;
+                var tlkCpfwxq = data.itemProductid.tlkCpfwxqEntitys[0];
+                $(".title").append('<img src="'+ imgpre + imgpath+'" style="float: left; padding-left: 31px;width: 127px;">\
+                        <p>'+itemname+'</p>');
+                $(".center1 span").append(tlkCpfwxq.itemTime+"<br>");
+                $(".center1 p").append(tlkCpfwxq.itemPicturenumber+"<br>"+tlkCpfwxq.itemJingxiunumber+"<br>");
+                $(".center2").append(data.itemOrderid+"");
+                $(".center3").append(new Date(data.itemOrdertime).format("yyyy-MM-dd")+"");
+                $(".center4").append("<a href='#middlePopover1' style='color: black;text-decoration: none'>"+data.itemPosition+"</a>");
+                $(".center7").append("<a href='#middlePopover2' style='color: black;text-decoration: none'>"+data.itemDetailposition+"</a>");
+                $(".center5").append("暂无");
+                $(".center6").append(new Date(data.created).format("yyyy-MM-dd hh:mm")+"");
+                $("#yuanjia").append("¥"+data.itemPrice);
+                $("#zongjia p").append("¥"+data.itemPrice);
+                $(".button").on('tap',function () {
+                    var detailposition = $(".center7 a").text();
+                    var detailpositionp = $(".center7 a p").text();
+                    if (detailposition == null || detailposition == '' || detailpositionp == "请填写详细地址" ) {
+                        mui.toast("请填写详细地址");
+                        return false;
+                    }
+                    window.location.href = "../userPort/payOrderDirect?id="+data.id;
+                });
+                $(".head_left").on('tap',function () {
+                    history.go(-1);
+                });
+                $(".head_right").on('tap',function () {
+                    if(window.confirm("你确定要取消订单吗？")){
+                        $.ajax({
+                            url: "../userPort/cancelOrder?id="+data.id,
+                            data: {},
+                            type: "post",
+                            dataType: "json",
+                            timeout: "10000",
+                            success: function (data) {
+                                  (data);
+                                if(data.errorCode == "200"){
+                                    window.location.href = "orderStateShow.html?id="+id;
+                                }
+                            },
+                            error: function (e) {
+                                mui.toast(e);
+                            }
+                        });
+                    }
+                });
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    });
+    $("#submit1").on('tap',function () {
+        var date = $("#orderDate").val();
+        $.get("../userPort/Orderdate",{
+            productId: id,
+            orderDate: date
+        },function (data) {
+              (data);
+            /*window.location.href = "index2.html";*/
+            if(data.errorCode = "200") {
+                $(".center3").html(new Date(date).format("yyyy-MM-dd") + "");
+            }else {
+                mui.toast(data.errorMsg);
+            }
+        },"json");
+    });
+    $("#xiangqi").on('click',function () {
+        $(".center1 p").toggle();
+    });
+    $("#submit2").on('tap',function () {
+        var detailposition = $("#detailposition").val();
+        $.get("../userPort/Detailposition",{
+            productId: id,
+            detailposition: detailposition
+        },function (data) {
+              (data);
+            /*window.location.href = "index2.html";*/
+            if(data.errorCode = "200") {
+                $(".center7 a").html(detailposition+ "");
+            }else {
+                mui.toast(data.errorMsg);
+            }
+        },"json");
+    });
+</script>
+</html>

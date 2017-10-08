@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .bj {
+        width: 100%;
+        height: 900px;
+    }
+
+    .left {
+        width: 20%;
+        height: 100%;
+        background-color: #DCDCDC;
+        float: left;
+    }
+
+    .left > .content1 {
+        width: 20%;
+        height: 10%;
+        padding-top: 25%;
+        padding-left: 25%;
+    }
+
+    .left > .content2 {
+        width: 20%;
+        height: 10%;
+        padding-left: 40%;
+    }
+
+    .left > .content3 {
+        width: 10%;
+        height: 8%;
+
+    }
+
+    .left > .content3 > .bj {
+        background-color: #FFB643;
+        width: 74px;
+        height: 30px;
+        border-radius: 7px;
+        margin-left: 272%;
+    }
+
+    .left > .content3 > .bj > .wenzi {
+        padding-top: 10px;
+        padding-left: 15px;
+    }
+
+    .left > .content4 {
+        width: 20%;
+        height: 10%;
+    }
+
+    .right {
+        width: 80%;
+        height: 100%;
+        float: left;
+    }
+
+    .right > .shouji {
+        width: 45%;
+        height: 900px;
+        float: left;
+    }
+
+    .right > .shouji > .zhuti {
+        width: 203px;
+        height: 390px;
+        border: 2px solid #D4D4D4;
+        box-shadow: 0.3px 2px 3px 0px #D4D4D4;
+        border-radius: 31px;
+        float: right;
+        margin-top: 100px;
+    }
+
+    .right > .shouji > .zhuti > .content1 {
+        width: 203px;
+        height: 10%;
+    }
+
+    .right > .shouji > .zhuti > .content1 > .tuxing1 {
+        width: 6px;
+        height: 6px;
+        background: #121212;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        margin-left: 101px;
+        margin-top: 5px;
+    }
+
+    .right > .shouji > .zhuti > .content1 > .tuxing2 {
+        width: 10px;
+        height: 10px;
+        background: #121212;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        margin-left: 55px;
+        margin-top: 9px;
+        float: left;
+    }
+
+    .right > .shouji > .zhuti > .content1 > .tuxing3 {
+        width: 50px;
+        height: 10px;
+        background: #121212;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        margin-left: 80px;
+        margin-top: 9px;
+    }
+
+    .right > .shouji > .zhuti > .content2 {
+        width: 170px;
+        height: 75%;
+        margin-left: 16px;
+        background-color: #F0EFF5;
+        overflow: scroll;
+    }
+    .right > .shouji > .zhuti > .content2>.cover{
+        width: 160px;
+        height: 120px;
+        position: relative;
+    }
+    .right > .shouji > .zhuti > .content2>.cover>.in{
+        width: 15px;
+        border: 1px dashed #ffffff;
+        z-index: 10;
+        width: 140px;
+        position: absolute;
+        left: 6%;
+        top: 42%;
+        background:none
+    }
+    .right > .shouji > .zhuti > .content2>.cover>.time{
+        width: 100px;
+        height: 30px;
+        position: absolute;
+        left: 10%;
+        top: 60%;
+    }
+    .right > .shouji > .zhuti > .content2>.cover>.time p{
+        font-size: 8px;
+        color: white;
+        font-family: 微软雅黑;
+    }
+    .right > .shouji > .zhuti > .content2>.neirong{
+        width: 160px;
+        height: 120px;
+    }
+    .right > .shouji > .zhuti > .content3 {
+        margin-left: 87px;
+        margin-top: 13px;
+        width: 25px;
+        height: 25px;
+        border-radius: 15px;
+        border: 2px solid #D4D4D4;
+    }
+
+    .right > .xuanze {
+        width: 5%;
+        height: 66px;
+        float: left;
+        background-color: #F0EFF4;
+        margin-top: 230px;
+    }
+
+    .right > .xuanze > .tupian {
+        width: 5%;
+        height: 33px;
+    }
+
+    .right > .xuanze > .yinyue {
+        width: 5%;
+        height: 33px;
+    }
+
+    .right > .shezi {
+        width: 50%;
+        height: 900px;
+        float: left;
+    }
+
+    .right > .shezi > .zhuti1 {
+        width: 300px;
+        height: 390px;
+        border: 2px solid #D4D4D4;
+        float: left;
+        margin-top: 100px;
+        box-shadow: 0.3px 2px 3px 0px #D4D4D4;
+        border-radius: 12px;
+        display: none;
+    }
+
+    .right > .shezi > .zhuti1 > .biaoti {
+        height: 40px;
+        width: 300px;
+        padding-left: 20px;
+    }
+
+    .right > .shezi > .zhuti1> .neirong {
+        width: 300px;
+        height: 315px;
+        border: 1px solid #D4D4D4;
+        overflow: scroll;
+        box-shadow: 0.3px 2px 3px 0px #D4D4D4;
+    }
+    .right > .shezi > .zhuti1> .neirong>.music{
+        width: 300px;
+        height: 30px;
+        border-top: 1px solid #DDDDDD;
+    }
+    .right > .shezi > .zhuti1> .neirong>.music>.wenzi{
+        width: 250px;
+        float: left;
+        margin-top: 3px;
+        font-size: 12px;
+    }
+    .right > .shezi > .zhuti2 {
+        width: 300px;
+        height: 390px;
+        border: 2px solid #D4D4D4;
+        float: left;
+        margin-top: 100px;
+        box-shadow: 0.3px 2px 3px 0px #D4D4D4;
+        border-radius: 12px;
+    }
+
+    .right > .shezi > .zhuti2 > .biaoti {
+        height: 40px;
+        width: 300px;
+        padding-left: 20px;
+    }
+
+    .right > .shezi > .zhuti2 > .neirong {
+        width: 300px;
+        height: 315px;
+        border: 1px solid #D4D4D4;
+        overflow: scroll;
+        box-shadow: 0.3px 2px 3px 0px #D4D4D4;
+    }
+    .right > .shezi > .zhuti2 > .neirong>.tpzj{
+        display: inline-block;
+        position: relative;
+    }
+    .right > .shezi > .zhuti2 > .neirong>.tpzj:before{
+        content: '';
+        background:rgba(0,0,0,0) url("../image/danxuan2.png") no-repeat;
+        background-size: contain;
+        position: absolute;
+        top:10px;
+        right:10px;
+        width: 20px;
+        height: 20px;
+        -webkit-border-radius:20px;
+        -moz-border-radius:20px;
+        border-radius:20px;
+    }
+    .right > .shezi > .zhuti2 > .neirong>.tpzj:focus{
+        background-image: url("../image/danxuan.png");
+    }
+    .right > .shezi > .zhuti2 > .neirong>.tpzj.active:before{
+        background-image: url("../image/danxuan.png");
+    }
+    .right > .shezi > .zhuti2 > .neirong>.tpzj:after{
+        content: '';
+        float: left;
+    }
+</style>
+<body>
+<div class="bj">
+    <div class="left">
+        <div class="content1">
+            <img src="../image/tubiao.png">
+        </div>
+        <div class="content2">
+            <p>Vimo</p>
+        </div>
+        <div class="content3">
+            <div class="bj">
+                <div class="wenzi">
+                    <p style="color: white;margin-top: 0px;color: white; margin-left: 8px;font-size: 12px;">保存</p>
+                </div>
+            </div>
+        </div>
+        <div class="contenet4">
+            <p style="font-size: 12px;padding-left: 30%;">返回订单列表</p>
+        </div>
+    </div>
+    <div class="right">
+        <div class="shouji">
+            <div class="zhuti">
+                <div class="content1">
+                    <div class="tuxing1"></div>
+                    <div class="tuxing2"></div>
+                    <div class="tuxing3"></div>
+                </div>
+                <div class="content2">
+                   <div class="cover" id="cover">
+                       <img id="tupian1" style="width: 159px;" src="">
+                         <input type="text" class="in"  placeholder="输入标题">
+                       <div class="time">
+                         <p>创建于2016年11月25日</p>
+                       </div>
+                   </div>
+                    <div class="piccontent"></div>
+                    <div class="neirong">
+                        <img id="tupian2" style="width: 159px;" src="">
+                        <img id="tupian3" style="width: 159px;" src="">
+                        <!--<div><img style="width: 159px;" src="../image/covertupian2.png"></div>-->
+                    </div>
+                </div>
+                <div class="content3"></div>
+            </div>
+        </div>
+        <div class="xuanze">
+            <div class="tupian" id="tupian">t</div>
+            <div class="yinyue" id="yinyue">y</div>
+        </div>
+        <div class="shezi">
+            <div class="zhuti1">
+                <div class="biaoti">
+                    <p style="font-size: 12px;color: #CDCDCD;">音乐设置</p>
+                </div>
+                <div class="neirong">
+                    <div class="music">
+                        <p class="wenzi">单选1</p>
+                        <img  class="danxuan" style="width: 25px" src="../image/danxuan2.png" class="up">
+                    </div>
+                    <div class="music">
+                        <p class="wenzi">单选1</p>
+                        <img  class="danxuan" style="width: 25px"  src="../image/danxuan2.png" class="up">
+                    </div>
+                    <div class="music">
+                        <p class="wenzi">单选1</p>
+                        <img  class="danxuan" style="width: 25px" src="../image/danxuan2.png" class="up">
+                    </div>
+                    <div class="music">
+                        <p class="wenzi">单选1</p>
+                        <img  class="danxuan" style="width: 25px"  src="../image/danxuan2.png" class="up">
+                    </div>
+                    <div class="music">
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="zhuti2">
+                <div class="biaoti">
+                    <p style="font-size: 12px;color: #CDCDCD;">图片设置</p>
+                </div>
+                <div id="pics" class="neirong">
+                   <div class="tpzj" id="tpzj1" >
+                       <img style="width: 71px;" src="../image/covertupian2.png">
+                   </div>
+                    <div class="tpzj" id="tpzj2">
+                        <img style="width: 71px;" src="../image/covertupian2.png">
+                    </div>
+                    <div class="tpzj" id="tpzj3">
+                        <img style="width: 71px;" src="../image/covertupian2.png">
+                    </div>
+                    <div class="tpzj">
+                        <img style="width: 71px;" src="../image/covertupian2.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script type="text/javascript" src="../js/commen.js"></script>
+<script type="text/javascript" src="../js/getParam.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#yinyue").on("click", function () {
+            $(".zhuti1").show();
+            $(".zhuti2").hide();
+        });
+        $("#tupian").on("click", function () {
+            $(".zhuti1").hide();
+            $(".zhuti2").show();
+        });
+        var images = ['../image/danxuan.png','../image/danxuan2.png'];
+        $(".danxuan").on("click",function (e) {
+            var $target=$(e.target);
+            if($target.hasClass("up")){
+              /*  $(".danxuan").attr("src",images[0]);
+                $(".danxuan").removeClass("up");*/
+            }
+            else{
+                $(".danxuan").attr("src",images[1]);
+                $(".danxuan").removeClass("up");
+                $target.addClass("up");
+                $target.attr("src",images[0]);
+            }
+        });
+          $("#pics").on("click",".tpzj img",function(e){
+              var pic =  $(e.target).parent(".tpzj");
+              pic.toggleClass("active");
+              if(pic.hasClass("active")){
+                  $(".piccontent").append($("<img src=\""+e.target.src+"\"/>"));
+              }else{
+                  var pics = $(".piccontent").find("img");
+                  for(var i=0;i<pics.length;i++){
+                      if(pics[i].src==e.target.src){
+                          pics[i].remove();
+                      }
+                  }
+              }
+          });
+    });
+</script>
+</html>

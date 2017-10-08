@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta charset="UTF-8">
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <title>Title</title>
+</head>
+<style>
+    body{
+        margin: 0px;
+        padding: 0px;
+        /*font-family: "Microsoft YaHei UI", "Microsoft YaHei UI Light";*/
+        font-family: 微软雅黑;
+        background-color: white;
+    }
+.up{
+    position: relative;
+    z-index: 0;
+    padding:0 0 38px;
+}
+    .bg {
+        background: url(../images/sheyingshi/1.jpg);
+        height: 220px;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        text-align: center;
+    }
+
+    .bg-blur {
+        float: left;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        -webkit-filter: blur(3px);
+        -moz-filter: blur(3px);
+        -o-filter: blur(3px);
+        -ms-filter: blur(3px);
+        filter: blur(3px);
+        z-index: -1;
+    }
+    .con_up1 {
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        text-align: center;
+    }
+    .yuantu {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+
+    .p1 {
+        font-family: "微软雅黑";
+        color: black;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .con_up2{
+        width: 100%;
+        background-color: rgb(238,238,238);
+        position: absolute;
+        bottom: 0;
+
+    }
+    ul {
+        width: 100%;
+        line-height: 100%;
+        text-align: center;
+        float: left;
+        padding-left: 0%;
+        /*overflow: hidden;*/
+        margin: 0px;
+        padding-top: 3px;
+    }
+
+    .l2 {
+        width: 33.3%;
+        float: left;
+        overflow: visible;
+        text-align: center;
+        list-style: none;
+        padding: 5px;
+        position: relative;
+        display: inline-block;
+    }
+    .pp2 {
+        font-family: "微软雅黑";
+        font-size: 16px;
+        color: rgb(196,196,196);
+        border-bottom: 2px solid rgba(0,0,0,0);
+        padding-bottom: 4px;
+        margin: 0;
+    }
+    .content{
+       width: 100%;
+      text-align: center;
+        height: auto;
+        /*position: absolute;*/
+        background: white;
+        padding-top: 20px;
+        z-index: 1;
+        line-height: 13px;
+
+    }
+    .guanyu{
+        height: 40px;
+        font-size: 16px;
+        color: black;
+        font-weight: bold;
+    }
+    .yuanquan{
+        height:20px;
+        width:23px;
+        /*padding-top: 2px;*/
+        margin-bottom: -5px;
+    }
+    .pingjia{
+        height: 60px;
+        width: 100%;
+        padding-top: 10px;
+    }
+    h2 {
+        height: 2rem;
+        line-height: 2rem;
+        font-size: 16px;
+        /*font-weight: bold;*/
+        color: #222;
+        position: relative;
+        /*border-bottom: 1px solid #eee;*/
+    }
+    h2>font {
+        display: inline-block;
+        width: 20%;
+        height: 0.05rem;
+        background: #AAAAAA;
+        position: relative;
+        top: 0.95rem;
+        vertical-align: top;
+    }
+    h2>span {
+        display: inline-block;
+        margin: 0 auto;
+        color: rgb(158,158,158);
+        font-size: 15px;
+        font-weight: normal;
+    }
+    .font2{
+        font-size: 15px;
+        color: rgb(158,158,158);
+        /*margin-top: -10px;*/
+    }
+    .touxiang2{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .wujiaoxing{
+        width: 15px;
+        height:15px;
+        margin-left: -5px;
+        white-space:nowrap;
+    }
+    .gengduo{
+        border: 1px #cccccc solid;
+        border-radius: 25px;
+        width: 116px;
+        height: 37px;
+        font-size: 15px;
+        color: rgb(138,138,138);
+        font-weight: bold;
+    }
+    .change_p{
+        width: 60px;
+        color: black;
+        border-bottom: 2px solid black;
+        padding-bottom: 6px;
+        display:inline-block;
+    }
+    .Triangle{
+        width:0px;
+        height:0px;
+        border-top:14px solid  rgb(238,238,238);
+        border-left:10px solid transparent;
+        border-right:10px solid transparent;
+        z-index:30;
+        /*position: absolute;*/
+        margin: -6px auto;
+        position: absolute;
+        margin: 0 -10px;
+        left: 50%;
+
+    }
+
+</style>
+<body>
+<div class="mui-content">
+    <div class="up">
+        <div class="bg bg-blur">
+        </div>
+        <div class="con_up1">
+            <img src="../images/sheyingshi/摄影师头像.jpg" class="yuantu" />
+            <p class="p1">鲁西西</p>
+        </div>
+        <div class="con_up2">
+            <ul>
+                <li class="l2">
+                    <p class="pp2">服务</p>
+                </li>
+                <li class="l2">
+                    <p class="pp2 change_p" style="color: black; font-weight: bold;">简介</p>
+                    <div class="Triangle"></div>
+
+                </li>
+                <li class="l2">
+                    <p class="pp2">作品</p>
+                </li>
+            </ul>
+        </div>
+<div style="clear: both"></div>
+    </div>
+    <div class="content">
+        <div class="guanyu">关于TA</div>
+        <p class="font2">自由家庭摄影师<img class="yuanquan" src="../images/sheyingshi/yuanquan.png"></p>
+        <div style="width: 100%; height: 10px;"></div>
+        <p class="font2">#喜欢记录旅行中那些有意思的人和风景，</p>
+        <p class="font2">喜欢记录孩子成长与家庭之间爱的瞬间。#</p>
+        <div class="pingjia">
+            <h2>
+                <font>&nbsp;</font>
+                &nbsp;&nbsp;
+                <span >5条评价</span>
+                &nbsp;&nbsp;
+                <font >&nbsp;</font>
+            </h2>
+        </div>
+        <img class="touxiang2" src="../images/sheyingshi/fengjing.png">
+        <div style="width: 100%; height: 10px;"></div>
+        <p class="font2">静静</p>
+        <p class="font2">2016年8月8日</p>
+        <img class="wujiaoxing" src="../images/sheyingshi/wujiaoxing.png">
+        <img class="wujiaoxing" src="../images/sheyingshi/wujiaoxing.png">
+        <img class="wujiaoxing" src="../images/sheyingshi/wujiaoxing.png">
+        <img class="wujiaoxing" src="../images/sheyingshi/wujiaoxing.png">
+        <img class="wujiaoxing" src="../images/sheyingshi/wujiaoxing.png">
+        <div style="width: 100%; height: 15px;"></div>
+        <p class="font2">快速交付;态度亲和</p>
+        <div style="width: 100%; height: 20px;"></div>
+        <button class="gengduo">点击查看更多</button>
+        <div style="width: 100%; height: 30px;"></div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

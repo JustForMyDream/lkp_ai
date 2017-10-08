@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="lkp_pc:war">
+    <output-path>$PROJECT_DIR$/trunk/pc/target</output-path>
+    <root id="archive" name="pc.war">
+      <element id="artifact" artifact-name="lkp_pc:war exploded" />
+    </root>
+  </artifact>
+</component>

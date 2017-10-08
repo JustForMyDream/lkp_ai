@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单状态</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="../css/mui.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            background-color: #F2F2F2;
+            font-size: 14px;
+        }
+
+        .head {
+            width: 100%;
+            height: 50px;
+            background-color: #FFFFFF;
+        }
+
+        .head_left {
+            float: left;
+            padding-top: 13px;
+            padding-left: 16px;
+            width: 20%;
+        }
+
+        .head_center {
+            width: 0px;
+            white-space: nowrap;
+            margin: 0 auto;
+            font-size: 20px;
+            padding-top: 13px;
+            padding-right: 21%;
+        }
+
+        .themepic {
+            width: 100%;
+            height: 240px;
+        }
+
+        .state {
+            width: 100%;
+            height: 53px;
+            font-size: 14px;
+            color: #969494;
+            padding-left: 24.5px;
+            padding-top: 21.5px;
+            padding-bottom: 19.5px;
+        }
+
+        .state .title {
+            float: left;
+        }
+
+        .state p {
+            color: #FAC67C;
+            font-size: 14px;
+            float: left;
+            padding-left: 10px;
+        }
+
+        .content {
+            margin: 19px 11px 70px;
+            width: 94.1%;
+            line-height: 40px;
+            background-color: #FFFFFF;
+            color: #969494;
+            padding-left: 13px;
+            padding-top: 14px;
+            padding-bottom: 19px;
+
+        }
+
+        .orderBH {
+            float: left;
+            padding-left: 5px;
+        }
+
+        .orderDate {
+            float: left;
+            padding-left: 5px;
+        }
+
+        .shotDate {
+            float: left;
+            padding-left: 5px;
+        }
+
+        .shotAddress {
+            float: left;
+            width: 60%;
+            padding-left: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .orderinfo {
+            width: 100%;
+            height: auto;
+        }
+
+        .orderinfode {
+            clear: both;
+        }
+
+        .dingdanxinxi {
+            border: 1px solid #9C9C9C;
+            height: 44px;
+            width: 94%;
+            margin-left: 3%;
+            background-color: white;
+            line-height: 44px;
+            padding: 0px 5px;
+        }
+
+        .albumimg {
+            display: inline-block;
+            border: 1px solid #9C9C9C;
+            background-color: white;
+            width: 94%;
+            margin-left: 3%;
+            padding: 6px 1% 6px 0;
+        }
+
+        .albumimg img {
+            display: inline-block;
+            float: left;
+            height: auto;
+            width: 31%;
+            margin-left: 2%;
+        }
+        .bottom {
+            height: 64px;
+            position: fixed;
+            z-index: 2;
+            width: 100%;
+            background-color: #ffffff;
+            bottom: -1px;
+            padding: 14px 5px;
+            text-align: center;
+        }
+
+        .bottom > div {
+            text-align: center;
+            float: left;
+        }
+
+        .bottom .item-2 {
+            width: 29.33%;
+            margin: 0 2%;
+        }
+        .bottom .item-2 > button {
+            width: 100%;
+            color: black;
+            background-color: #ffe33e;
+            line-height: 24px;
+            border: 0;
+            box-shadow: 0 1.5px 1px 0 rgba(41, 51, 43, 0.43);
+        }
+    </style>
+</head>
+
+<body>
+<div class="head">
+    <header class="mui-bar mui-bar-nav" style="border-bottom: 1px solid #dcdcdc;color:black;background-color: white;">
+        <a class="mui-icon mui-action-back mui-icon-arrowleft" style="color:black;"></a>
+        <h1 class="mui-title" style="width: 80%">订单详情</h1>
+    </header>
+    <!--<div class="head_left">
+        <img src="../image/return.png" style="height: 20px;padding-top: 2px;">
+    </div>
+    <div class="head_center">
+        订单详情
+    </div>-->
+</div>
+<div class="themepic">
+    <!-- <img src="">-->
+</div>
+<div class="state" style="display: none">
+    <div class="title">订单状态 :</div>
+    <!--<p>待拍摄</p>-->
+</div>
+<div class="content" id="contentfirst">
+    <div>
+        <div style="float: left">订单编号 :</div>
+        <div class="orderBH">
+
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div>
+        <div style="float: left">客户姓名 :</div>
+        <div class="username" style="float: left;padding-left: 5px;">
+
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div>
+        <div style="float: left">联系电话 :</div>
+        <div class="phone" style="float: left;padding-left: 5px;">
+
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div>
+        <div style="float: left">下单时间 :</div>
+        <div class="orderDate">
+
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div>
+        <div style="float: left">拍摄时间 :</div>
+        <div class="shotDate">
+
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div>
+        <div style="float: left">拍摄地址 :</div>
+        <div class="shotAddress">
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div class="orderinfo">
+
+</div>
+<div class="albumdetail">
+
+</div>
+<div id="middlePopover" class="mui-popover" style="width: 210px;text-align: center;padding: 10px;font-size: 15px;">
+
+</div>
+<!--<div class="dtbottom" style="display: none">
+    上传照片
+</div>-->
+<div class="bottom mui-row" style="display: none">
+    <div class="item-2" id="uploadyuanpian">
+        <button>原片上传</button>
+    </div>
+    <div class="item-2" id="uploadjingxiu">
+        <button>精修上传</button>
+    </div>
+    <div class="item-2" id="uploadyingji">
+        <button>上传影集</button>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/getParam.js"></script>
+<script type="text/javascript" src="../js/date.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    /*mui.init();*/
+    var id = GetQuery("id");
+    $(function () {
+        $.ajax({
+            url: "../userPort/getOrderInfoById",
+            data: {id: id},
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+                  (data);
+                var img = JSON.parse(data.itemProductid.itemCover);
+                var imgpath = img[0].path;
+                var State = data.itemState;
+                var itemOrderid = data.itemOrderid;
+                var createTime = data.created;
+                var itemOrdertime = data.itemOrdertime;
+                $(".state").show();
+//                if (State == "WAITE_TO_PAY" || State == "PAYED_WAITE_SET_PHOTOGRAPHER" || State == "WAITE_TO_UPLOADIMG" || State == "CANCELED") {
+//                    $("#contentfirst").show();
+//                } else {
+//                    secondzths();
+//                    secondxc(data.orderproductimgEntities);
+//                }
+                $(".themepic").append('<img src="' + imgpre + imgpath + '" style="width:100% ;height:100% ;">');
+                $(".state").append("<p>" + zhuangtai(State) + "</p>");
+                if(State=="WAITE_TO_UPLOADIMG"){
+                    /*$(".bottom.mui-row").show().on("tap",function(){
+                        mui.alert("请电脑登陆http://www.91lkp.com/pc进行上传","通知");
+                    });*/
+                    $(".bottom.mui-row").show();
+                    $("#uploadyuanpian").on('tap',function () {
+                        window.location.href ="../PICTUREPAY/OrderPicture?id="+id;
+                    });
+                    $("#uploadjingxiu").on('tap',function () {
+                        window.location.href ="../PICTUREPAY/OrderTrimPicture?id="+id;
+                    });
+                    $("#uploadyingji").on('tap',function () {
+                        window.location.href ="../PICTUREPAY/photographer?orderid="+id;
+                    });
+                }
+                $(".username").append(data.itemName);
+                $(".phone").append(data.itemPhone);
+                $(".orderBH").append(itemOrderid + "");
+                $(".orderDate").append(new Date(createTime).format("yyyy-MM-dd hh:mm") + "");
+                $(".shotDate").append(new Date(itemOrdertime).format("yyyy-MM-dd ") + xingqi(itemOrdertime) +
+                        new Date(itemOrdertime).format("hh") + "点");
+                $(".shotAddress").append("<a href='#middlePopover' style='color:#969494'>" + data.itemPosition + " " + data.itemDetailposition + "</a>");
+                $("#middlePopover").append(data.itemPosition + " " + data.itemDetailposition);
+                $(".mui-icon.mui-action-back.mui-icon-arrowleft").on('tap', function () {
+                    window.location.href = "ordercenter.html";
+                });
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    });
+    function secondzths() {
+        $("#contentfirst").hide();
+        var html = '';
+        html += '<div class="dingdanxinxi" id="dingdanxinxidj">订单信息<span class="mui-icon mui-icon-arrowright" style="float: right;    padding: 10px 0px;"></span></div>\
+                            <div class="content" id="contentsecond" style="display: none"><div>\
+                            <div style="float: left">订单编号 :</div>\
+                    <div class="orderBH"></div>\
+                </div>\
+                    <div style="clear:both;"></div><div>\
+                        <div style="float: left">下单时间 :</div>\
+                        <div class="orderDate"></div>\
+                    </div>\
+                    <div style="clear:both;"></div>\
+                    <div>\
+                        <div style="float: left">拍摄时间 :</div>\
+                        <div class="shotDate">\
+                        </div>\
+                    </div>\
+                    <div style="clear:both;"></div>\
+                    <div>\
+                        <div style="float: left">拍摄地址 :</div>\
+                        <div class="shotAddress">\
+                        </div>\
+                    </div>\
+                </div>';
+        $(".orderinfo").append(html);
+        $("#dingdanxinxidj").on('click', function () {
+            if($("#contentsecond").is(":hidden")){
+                $("#contentsecond").slideDown("slow");
+                $("#dingdanxinxidj>span").removeClass("mui-icon-arrowright");
+                $("#dingdanxinxidj>span").addClass("mui-icon-arrowdown");
+            }else{
+                $("#contentsecond").slideUp("slow");
+                $("#dingdanxinxidj>span").removeClass("mui-icon-arrowdown");
+                $("#dingdanxinxidj>span").addClass("mui-icon-arrowright");
+
+            }
+        })
+    }
+    function secondxc(data) {
+        var html = '';
+        html += '<div class="dingdanxinxi" id="zhaopin" style="margin-top: 10px;">照&nbsp;&nbsp;&nbsp;&nbsp;片<span class="mui-icon mui-icon-arrowright" style="float: right;    padding: 10px 0px;"></span></div>\
+                <div class="albumimg">';
+        for (var i in data) {
+            if (i < 3) {
+                html += '<img src="' + imgpre + JSON.parse(data[i].itemImgurl)[0].path + '">';
+            }
+        }
+        html += '</div>';
+        $(".albumdetail").append(html);
+        $("#zhaopin").on('click', function () {
+            window.location.href = "albumdetail.html?id=" + id;
+        })
+    }
+    function zhuangtai(zt) {
+        var fhzt = "";
+        switch (zt) {
+            case "WAITE_TO_PAY":
+                fhzt = "待支付";
+                break;
+            case "PAYED_WAITE_SET_PHOTOGRAPHER":
+                fhzt = "待分配摄影师";
+                break;
+            case "WAITE_TO_UPLOADIMG":
+                fhzt = "待上传图片";
+                break;
+            case "WAITE_TO_CONFIRM":
+                fhzt = "待用户确认";
+                break;
+            case "FINISHED":
+                fhzt = "用户已确认";
+                break;
+            case "CANCELED":
+                fhzt = "已取消";
+                break;
+            case "WAITE_TO_MAIL":
+                fhzt = "待邮寄";
+                break;
+        }
+        return fhzt;
+    }
+    function xingqi(time) {
+        var str = "";
+        var week = new Date(time).getDay();
+        if (week == 0) {
+            str = "周天";
+        } else if (week == 1) {
+            str = "周一";
+        } else if (week == 2) {
+            str = "周二";
+        } else if (week == 3) {
+            str = "周三";
+        } else if (week == 4) {
+            str = "周四";
+        } else if (week == 5) {
+            str = "周五";
+        } else if (week == 6) {
+            str = "周六";
+        }
+        return str;
+    }
+</script>
+</html>

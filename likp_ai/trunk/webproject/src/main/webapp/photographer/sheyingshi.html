@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta charset="UTF-8">
+    <link href="../css/mui.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <title>摄影师</title>
+    <style>
+        body {
+            background-color: white;
+            font-family: "Microsoft YaHei UI", "Microsoft YaHei UI Light";
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+
+        }
+
+        .head-left {
+            /*float: left;*/
+            /*margin-left: 10px;*/
+            float: left;
+            padding-top: 9px;
+            padding-left: 0px;
+            width: 20%;
+        }
+
+        .head {
+            width: 100%;
+            height: 44px;
+            background-color: #FFFFFF;
+        }
+
+        .head_center {
+            width: 0px;
+            white-space: nowrap;
+            margin: 0 auto;
+            font-size: 15px;
+            font-weight: bold;
+            padding-top: 13px;
+            padding-right: 21%;
+        }
+
+        .space {
+            width: 100%;
+            height: 10px;
+            background-color: rgb(246, 246, 242);
+        }
+
+        .content {
+            width: 100%;
+            height: 120px;
+        }
+
+        .content-left {
+            width: 25%;
+            height: 80px;
+            padding: 20px 10px 20px;
+            /*padding-left:10px;*/
+            float: left;
+            display: inline-block;
+        }
+
+        .img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+        }
+
+        .content-center {
+            width: 30%;
+            height: 120px;
+            padding-top: 20px;
+            padding-left: 10px;
+            display: inline-block;
+
+        }
+
+        .content-right {
+            width: 30%;
+            height: 80px;
+            padding-top: 20px;
+            /*display:block;*/
+            float: right;
+        }
+
+        .font1 {
+            font-size: 15px;
+            margin-top: 6px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .font2 {
+            color: rgb(188, 188, 188);
+            font-size: 12px;
+            margin-top: -6px;
+        }
+
+        .font3 {
+            font-size: 12px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .wujiaoxing {
+            width: 15px;
+            height: 15px;
+            margin-left: -5px;
+            white-space: nowrap;
+        }
+
+        .line {
+            width: 30%;
+            margin-left: 10%;
+            height: 1px;
+            margin-top: 30px;
+            background-color: rgb(188, 188, 188);
+        }
+
+        .tuijian {
+            width: 100%;
+            height: 48px;
+            /*padding-top:15px;*/
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .tuijian-left {
+            height: 1px;
+            width: 20%;
+            background-color: rgb(188, 188, 188);
+            float: left;
+            margin-top: 36px;
+        }
+
+        .tuijian-center {
+            float: left;
+            padding-top: 29px;
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+
+        .tuijian-right {
+            height: 1px;
+            width: 20%;
+            background-color: rgb(188, 188, 188);
+            float: left;
+            margin-top: 36px;
+            /*float: left;*/
+            /*height: 1px;*/
+            /*width: 25%;*/
+            /*background-color: rgb(188,188,188);*/
+            /*padding-top: 36px;*/
+        }
+
+        h2 {
+            height: 2rem;
+            line-height: 2rem;
+            font-size: 16px;
+            font-weight: bold;
+            color: #222;
+            position: relative;
+            /*border-bottom: 1px solid #eee;*/
+        }
+
+        h2 > font {
+            display: inline-block;
+            width: 20%;
+            height: 0.05rem;
+            background: #AAAAAA;
+            position: relative;
+            top: 0.95rem;
+            vertical-align: top;
+        }
+
+        h2 > span {
+            display: inline-block;
+            margin: 0 auto;
+            font-weight: bold;
+            color: #000000;
+            font-size: 12px;
+        }
+
+        .bottom {
+            width: 100%;
+            height: 155px;
+            padding-left: 0px;
+            /*margin-top: 20px;*/
+        }
+
+        .bottom-content {
+            width: 30%;
+            height: 120px;
+            padding-top: 10px;
+            text-align: center;
+            /*display: inline-block;*/
+            float: left;
+            padding-left: 2.5%;
+        }
+
+        .mui-scroll-wrapper {
+            bottom: 30%;
+        }
+
+        body, html {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="head">
+    <header class="mui-bar mui-bar-nav mui-action-back"
+            style="border-bottom: none; box-shadow: none;background-color: white;">
+        <div class="head-left"><img class="mui-action-back" src="../images/sheyingshi/fanhui.png"></div>
+        <h1 class="mui-title" style="width: 80%;font-size: 15px;font-weight: bold">摄影师</h1>
+    </header>
+</div>
+<!--<div id="pullrefresh" class="mui-content mui-scroll-wrapper">-->
+<!--<div class="mui-scroll">-->
+<!--<div style="height: 61px;"></div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div style="height: 64%"></div>-->
+<div class="syslist">
+
+</div>
+<div class="tuijian" style="display: none">
+    <h2>
+        <font>&nbsp;</font>
+        &nbsp;&nbsp;
+        <span>相关摄影师推荐</span>
+        &nbsp;&nbsp;
+        <font>&nbsp;</font>
+    </h2>
+</div>
+<div class="bottom">
+</div>
+<div class="mui-backdrop">
+    <div class="item-wrapper">
+        <div class="item" id="load">
+            <div class="ball">
+                <div></div>
+                <div></div>
+            </div>
+            <div id="txt" style="margin-top: 10px;">loading...</div>
+        </div>
+    </div>
+</div>
+<div class="mui-off-canvas-backdrop"></div>
+<script src="../js/mui.min.js"></script>
+<script src="../js/server.js"></script>
+<script src="../js/jquery-2.1.4.min.js"></script>
+<script>
+    var htmlStr = (data) => {
+        var html = ''
+        for (var i in data) {
+            var touxiang = ''
+            if (data[i].itemHeadimg) {
+                touxiang = imgpre + JSON.parse(data[i].itemHeadimg)[0].path
+            } else {
+                touxiang = data[i].itemOpenid.headimgurl
+            }
+            var syslx = ''
+            if (data[i].itemSyshdlx) {
+                syslx = data[i].itemSyshdlx
+            }
+            html += '<div class="space"></div>\
+                <div class="content" data-hr = ' + data[i].id + '>\
+                <div class="content-left"><img class="img" src="' + touxiang + '"></div>\
+                <div class="content-center">\
+                <p class="font1">' + data[i].itemName + '</p>\
+                <p class="font2">' + syslx + '</p>\
+                <p class="font2">' + data[i].itemOpenid.province + data[i].itemOpenid.city + '</p>\
+            </div>\
+            <div class="content-right">\
+                <img class="wujiaoxing" src="../images/sheyingshi/star-full.svg">\
+                <img class="wujiaoxing" src="../images/sheyingshi/star-full.svg">\
+                <img class="wujiaoxing" src="../images/sheyingshi/star-full.svg">\
+                <img class="wujiaoxing" src="../images/sheyingshi/star-full.svg">\
+                <img class="wujiaoxing" src="../images/sheyingshi/star-full.svg">\
+            </div>\
+            </div>\
+            </div>'
+        }
+        return html
+    }
+    var htmlStr2 = (data) => {
+        var html = ''
+        for (var i in data) {
+            var touxiang = ''
+            if (data[i][1].itemHeadimg) {
+                touxiang = imgpre + JSON.parse(data[i][1].itemHeadimg)[0].path
+            } else {
+                touxiang = "../images/photographer.svg"
+            }
+            html += ' <a href="../MainPage/SysInfor?id=' + data[i][1].id + '">\
+                <div class="bottom-content">\
+                <img class="img" src="' + touxiang + '">\
+                <div class="font3">' + data[i][1].itemName + '</div>\
+                <img class="wujiaoxing" src="../images/sheyingshi/star-full.svg">\
+                <img class="wujiaoxing" src="../images/sheyingshi/star-full.svg">\
+                <img class="wujiaoxing" src="../images/sheyingshi/star-full.svg">\
+                <img class="wujiaoxing" src="../images/sheyingshi/star-full.svg">\
+                <img class="wujiaoxing" src="../images/sheyingshi/star-full.svg">\
+                </div>\
+                </a>'
+            if (i == 3) {
+                break
+            }
+        }
+        return html
+    }
+    //    mui.init({
+    //        pullRefresh: {
+    //            container: '#pullrefresh',
+    //            up: {
+    //                contentrefresh: '正在加载...',
+    //                callback: pullupRefresh
+    //            }
+    //        }
+    //    });
+    mui.ready(function () {
+//        mui('#pullrefresh').pullRefresh().pullupLoading();
+        $.ajax({
+            url: "../sysPort/GetAllSysAll",
+            data: {},
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                $('.syslist').append(htmlStr(data))
+                $(".content").on("tap", (function () {
+                    window.location.href = "../MainPage/SysInfor?id=" + $(this).attr("data-hr")
+                }))
+                $(".mui-backdrop").hide();
+                $.ajax({
+                    url: "../homePage/GetAllSys",
+                    type: "post",
+                    dataType: "json",
+                    success: function (data) {
+                        $(".tuijian").show();
+                        $('.bottom').append(htmlStr2(data))
+                    }
+                })
+            }
+        })
+
+    });
+    //是否加载完;页数
+    //    var isLoading = false, countYs = 1
+    //    function pullupRefresh() {
+    //        $.ajax({
+    //            url: "../sysPort/GetSysFY",
+    //            data: {
+    //                page: countYs++,
+    //                pagesize: 4
+    //            },
+    //            type: "post",
+    //            dataType: "json",
+    //            success: function (data) {
+    //                if (data.length < 4) {
+    //                    isLoading = true
+    //                }
+    //                $('.mui-pull-bottom-pocket').before(htmlStr(data))
+    //                $(".content").on("tap", (function () {
+    //                    window.location.href = "../MainPage/SysInfor?id=" + $(this).attr("data-hr")
+    //                }))
+    //                mui('#pullrefresh').pullRefresh().endPullupToRefresh(isLoading)
+    //            }
+    //        })
+    //    }
+</script>
+</body>
+</html>

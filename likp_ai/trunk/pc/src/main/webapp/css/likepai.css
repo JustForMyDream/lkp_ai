@@ -1,0 +1,52 @@
+.navbar {
+    background-color: rgba(27, 27, 27, 0.4);
+    border: 0;
+    border-radius: 0;
+}
+
+.navbar-brand {
+    padding: 4px 15px;
+}
+
+.nav-pills>li>a{
+    font-size: 18px;
+    color: #777;
+    border-radius: 0;
+}
+.nav-pills>li>a:hover,.nav-pills>li>a:focus{
+    color: #E9928E;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #E9928E;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus{
+    color: #E9928E;
+    background-color: inherit;
+}
+.breadcrumb>.active {
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: "微软雅黑";
+}
+.table>thead>tr>th {
+    border-bottom: 0 solid #ddd;
+}
+th,td {
+    text-align: center;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+    vertical-align: middle;
+}
+.panel-default{
+    border:0;
+}
+.banner {
+    height: 200px;
+    background-image: url("../image/indexbackground.jpg");
+    background-size: 100%;
+    background-position: center bottom;
+}
+.content{
+    height: 100%;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>立可拍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="../css/mui.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+    <style type="text/css">
+        .title {
+            width: 100%;
+            max-height: 400px;
+            overflow: hidden;
+        }
+
+        .theme {
+            background-color: #ffffff;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+        }
+
+        .introduceImg {
+            width: 100%;
+        }
+
+        .introduceText {
+            padding-top: 10px;
+            margin-bottom: 24px;
+
+        }
+
+        .introduceText p{
+            text-indent: 13px;
+            color: black;
+            margin: 0px;
+        }
+
+        .introduceText span{
+            text-indent: 13px;
+            float: right;
+            padding-right: 17px;
+            color: #8f8f94;
+            font-size: 12px;
+        }
+
+        .bottomOrder {
+            border-top: 1px solid #E8E8E8;
+            width: 106%;
+            height: 70px;
+            background: white;
+            margin-left: -10px;
+            padding-top: 10px;
+        }
+
+        .bottomOrder .price {
+            width: 136px;
+            height: 30px;
+            font-size: 20px;
+            color: #FEB43F;
+            display: inline;
+            padding-left: 20px;
+            padding-top: 10px;
+            float: left;
+            display: inline;
+        }
+        .bottomOrder .price p{
+            font-size: 25px;
+            display: inline;
+            color: #FEB43F;
+        }
+
+        .bottomOrder .button {
+            display: inline;
+            float: right;
+            border:1px solid #F6B348;
+            border-radius: 5px;
+            padding: 10px 16px;
+            margin-right: 27px;
+            background-color: #F6B348;
+            -webkit-box-shadow:  0.3px 2px 3px 0px #A3A7A4;
+            -moz-box-shadow:  0.3px 2px 3px 0px #A3A7A4;
+            box-shadow: 0.3px 2px 3px 0px #A3A7A4;
+        }
+        .bottomOrder .button span{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+
+    </div>
+    <div class="theme">
+
+    </div>
+</body>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script type="text/javascript" src="../js/commen.js"></script>
+<script type="text/javascript" src="../js/getParam.js"></script>
+<script>
+    window.onload = function () {
+        mainLoad();
+    };
+
+    function mainLoad() {
+            $.ajax({
+                url: "../common/index/productMainDetail?id="+GetQuery("id"),
+                data: {},
+                type: "post",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    var img = JSON.parse(data[0].itemCpfm);
+                    var titleimgpath = img[0].path;
+                    $(".title").append("<img style='width: 100%' src=" + imgpre + titleimgpath + ">");
+                        var productEntitySet = data[0].productEntitySet;
+                        for(var i in productEntitySet){
+                            var itemZpfm = JSON.parse(productEntitySet[i].tlkProductshowEntities[0].itemZpfm);
+                            var themeimgpath = itemZpfm[0].path;
+                            var itemZpms = productEntitySet[i].tlkProductshowEntities[0].itemZpms;
+                            var splitStr=itemZpms.split("\n"); //字符分割
+                            var currentStr;
+                            var itemPrice = productEntitySet[i].itemPrice;
+                            var html="<div class='introduceImg'><img style='width: 100%' src=" + imgpre + themeimgpath + "></div>" +
+                            "<div class='introduceText'><p>";
+                            if (splitStr[0]) {
+                                currentStr = splitStr[0];
+                            } else {
+                                currentStr = "暂无描述";
+                            }
+                            html+=""+currentStr+"</p><span>";
+                            if (splitStr[1]) {
+                                currentStr = splitStr[1];
+                            } else {
+                                currentStr = "暂无描述";
+                            }
+                            html+=""+currentStr + "</span></div>";
+                            $(".theme").append(html);
+                            $(".theme").append(' <div class="bottomOrder">\
+                                    <div class="price"><p>'+itemPrice+'</p>/套</div>\
+                                    <div class="button" id="bt'+i+'"><span>下单约拍</span></div>\
+                                    </div>');
+                            $("#bt" + i).data("id",data[0].productEntitySet[i].id);
+                            $("#bt" + i).on('tap',function () {
+                                window.location.href = "detail.html?id="+$(this).data("id");
+                            });
+                        }
+
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    }
+</script>
+</html>

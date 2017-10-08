@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>立可拍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="../css/mui.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+
+
+    <style>
+        .bottom1_wid {
+            line-height: 40px;
+            float: left;
+            width: 50%;
+            height: 40px;
+            text-align: center;
+        }
+
+        .bottom1 {
+            background-color: rgb(207, 204, 207);
+        }
+
+        .bottom2 {
+
+        }
+
+        .bottom {
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+        }
+
+        .mui-control-content {
+            /*min-height: 215px;*/
+        }
+
+        .mui-control-content .mui-loading {
+            margin-top: 50px;
+        }
+
+        .ordermain1 {
+            border-radius: 15px;
+            text-align: center;
+            padding: 6px;
+            width: 28%;
+            height: 73px;
+            overflow: hidden;
+        }
+
+        .ordermain2 {
+            width: 42%;
+        }
+
+        .ordermain3 {
+            margin-top: 10px;
+            color: RGB(255, 152, 0);
+            width: 30%;
+            text-align: right;
+            padding-right: 14px;
+            font-size: 13px;
+        }
+
+        .ordermain {
+            width: 100%;
+            margin-top: 10px;
+            background-color: white;
+            height: 80px;
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+            color: rgb(235, 185, 125);
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-progress-bar {
+            background-color: rgb(235, 185, 125);
+        }
+
+        .mui-slider .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-group .mui-slider-item {
+            border-bottom: 0;
+        }
+
+        .ordermainimg {
+            height: auto;
+            border-radius: 5px;
+            max-width: 85px;
+        }
+
+        html,
+        body {
+            background-color: #FFFFFF;
+            width: 100%;
+        }
+
+        p {
+            text-indent: 22px;
+        }
+
+        .mui-off-canvas-left {
+            color: #fff;
+        }
+
+        .title {
+            margin: 35px 15px 10px;
+        }
+
+        .title + .content {
+            margin: 10px 15px 35px;
+            color: #bbb;
+            text-indent: 1em;
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        input {
+            color: #000;
+        }
+
+        .scorll {
+            width: 100%;
+        }
+
+        .mui-control-item {
+            width: 25%;
+        }
+
+        .mui-card-media img {
+            width: 100%;
+        }
+
+        /*.mui-slider .mui-slider-group .mui-slider-item img {*/
+        /*height: 40%;*/
+        /*}*/
+
+        .screen {
+            height: 100%;
+        }
+
+        .tip img {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+        .screen .mui-table-view {
+            /*margin-top:120%;*/
+            background-color: #EFEFF4;
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+        }
+
+        span.mui-icon {
+            font-size: 20px;
+            color: black;
+            margin-left: 0px;
+            padding-right: 10px;
+        }
+
+        table {
+            width: 100%;
+            height: 200px;
+        }
+
+        tr {
+            width: 50%;
+            margin-left: 15px;
+        }
+
+        a {
+            color: #000000;
+        }
+
+        .bg {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+            color: rgb(235, 185, 125);
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-progress-bar {
+            background-color: rgb(235, 185, 125);
+        }
+
+        html, body {
+            height: 100%
+        }
+    </style>
+</head>
+
+<body>
+<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+    <!--侧滑菜单部分-->
+    <aside id="offCanvasSide" class="mui-off-canvas-left">
+
+    </aside>
+    <!--主界面部分-->
+    <div class="mui-inner-wrap">
+        <header class="mui-bar mui-bar-nav">
+            <a href="#offCanvasSide" class=" mui-action-menu mui-pull-left">
+                <img src="../images/MainInterface/list2.svg" class="liebiao">
+            </a>
+            <!--<h1 class="mui-title" style="font-size: 18px">我的收藏 <span style="float: right;font-size: 14px;padding: 0px 5px;" id="qingkong">清空</span></h1>-->
+            <h1 class="mui-title">我的收藏</h1>
+            <!--<span style="float: right;font-size: 14px;padding: 0px 5px;" id="qingkong">清空</span>-->
+            <a class="mui-pull-right titleright" style="color:black; margin-top: 10px;font-size: 15px;" id="qingkong">清空</a>
+        </header>
+        <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+            <div id="slider" class="mui-slider screen">
+                <img src="../images/jiazaizhong.gif" style="width: 100%;margin-top: 100px"/>
+                <!--标题-->
+                <!--<div class="xxlist">-->
+                <!--<div class="xxlist1">-->
+                <!--<span class="xxlist11 left">系统通知</span>-->
+                <!--<span class="xxlist12 right">2016-12-01 12:00</span>-->
+                <!--</div>-->
+                <!--<div class="xxlist2">爱要立可拍丢三落四打发第三方卡地方撒卡萨丁飞机速度发快捷快递放假了萨科技打发时间款式</div>-->
+                <!--<div style="width: 100%;height: 25px">-->
+                <!--<span style="font-size: 12px;background-color: rgb(254,44,45);color: white;padding: 0px 2px;float: right">未读</span>-->
+                <!--</div>-->
+
+                <!--</div>-->
+
+
+            </div>
+        </div>
+        <div class="mui-off-canvas-backdrop"></div>
+    </div>
+</div>
+<!--加载中-->
+<div class="mui-backdrop">
+    <div class="item-wrapper">
+        <div class="item" id="load">
+            <div class="ball">
+                <div></div>
+                <div></div>
+            </div>
+            <div id="txt" style="margin-top: 10px;">loading...</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script type="text/javascript" src="../js/slider.js"></script>
+<script type="text/javascript" src="../js/getParam.js"></script>
+
+<script>
+    var id=5;
+    mui.init();
+    addSlide(id);
+    $(function () {
+        $("#qingkong").on('tap',function () {
+            mui.toast("亲，请等待加载完哦！");
+        });
+        mainLoad();
+    });
+    function mainLoad() {
+        $.ajax({
+            url: "../userPort/Collection/getCollectionList",
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+                $("#slider").html('');
+                if (data.errorCode == "200") {
+                    var ht = '';
+                    var shoucang = data.shoucang;
+                    if (shoucang.length == 0) {
+                        $("#slider").append('<div style="text-align: center;margin-top: 20px">暂无记录</div>');
+                        $("#qingkong").off('tap');
+                        $("#qingkong").on('tap',function () {
+                            mui.toast("亲，没有列表可清空哦！");
+                        });
+                    } else {
+                        $("#qingkong").off('tap');
+                        qingkong();
+
+                        for (var i in shoucang) {
+                            ht += '<div class="ordermain" data-id="' + shoucang[i].id + '">\
+                        <div class="ordermain1 left"><img src="' + imgpre + JSON.parse(shoucang[i].itemCover)[0].path + '" class="ordermainimg"></div>\
+                        <div class="ordermain2 left">\
+                        <div class="font15" style="line-height: 30px;margin-top: 5px;color: black">' + shoucang[i].itemName + '</div>\
+                        <div class="font15" style="color: rgb(157,157,157)">¥' + shoucang[i].itemPrice + '</div>\
+                        </div>\
+                        </div>';
+                        }
+                        $("#slider").append(ht);
+                        $(".ordermain").on('tap', function () {
+                            window.location.href = "detail.html?id=" + $(this).attr("data-id");
+                        })
+                    }
+                } else {
+                    $("#qingkong").off('tap');
+                    $("#qingkong").on('tap',function () {
+                        mui.toast("亲，没有列表可清空哦！");
+                    });
+                    mui.toast(data.errorMsg);
+                }
+                $(".mui-backdrop").hide();
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    }
+    function qingkong() {
+        $("#qingkong").on('tap',function () {
+            var btnArray = ['否', '是'];
+            mui.confirm('亲，收藏后就没了哦，请确认？', '清空收藏', btnArray, function(e) {
+                if (e.index == 1) {
+//                    info.innerText = '你刚确认MUI是个好框架';
+                    mui.toast("清空收藏列表中...");
+                    $.ajax({
+                        url: "../userPort/Collection/deleteAllCollectionByUserbh",
+                        type: "post",
+                        dataType: "json",
+                        timeout: "10000",
+                        success: function (data) {
+                            if(data.errorCode == "200"){
+                                mui.toast(data.errorMsg);
+                                $("#slider").html('');
+                                $("#slider").append('<div style="text-align: center;margin-top: 20px">暂无记录</div>');
+                                $("#qingkong").off('tap');
+                                $("#qingkong").on('tap',function () {
+                                    mui.toast("亲，没有列表可清空哦！");
+                                });
+                            }else{
+                                mui.toast(data.errorMsg);
+                            }
+                        },
+                        error: function (e) {
+                            mui.toast(e);
+                        }
+                    });
+                } else {
+                }
+            })
+        });
+    }
+</script>
+</body>
+
+</html>

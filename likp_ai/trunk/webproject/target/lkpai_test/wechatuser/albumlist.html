@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>立可拍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="../css/mui.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+
+
+    <style>
+        html,
+        body {
+            background-color: #FFFFFF;
+            width: 100%;
+        }
+
+        p {
+            text-indent: 22px;
+        }
+
+        span.mui-icon {
+            font-size: 14px;
+            color: #007aff;
+            margin-left: -15px;
+            padding-right: 10px;
+        }
+
+        .mui-off-canvas-left {
+            color: #fff;
+        }
+
+        .title {
+            margin: 35px 15px 10px;
+        }
+
+        .title + .content {
+            margin: 10px 15px 35px;
+            color: #bbb;
+            text-indent: 1em;
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        input {
+            color: #000;
+        }
+
+        .scorll {
+            width: 100%;
+        }
+
+        .mui-control-item {
+            width: 25%;
+        }
+
+        .mui-card {
+            margin-bottom: 48px;
+            background-color: #f8f8f8;
+        }
+
+        .cp_title {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .mui-card-media {
+            padding: 10px;
+        }
+
+        .mui-card-media img {
+            width: 100%;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .mui-slider .mui-slider-group .mui-slider-item img {
+            height: 40%;
+        }
+
+        .screen {
+            height: 100%;
+        }
+
+        .tip {
+            padding-left: 10px;
+        }
+
+        .tip img {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+        .screen .mui-table-view {
+            /*margin-top:120%;*/
+            background-color: #EFEFF4;
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+        }
+
+        span.mui-icon {
+            font-size: 20px;
+            color: #007aff;
+            margin-left: 0px;
+            padding-right: 10px;
+        }
+
+        table {
+            width: 100%;
+            height: 200px;
+        }
+
+        tr {
+            width: 50%;
+            margin-left: 15px;
+        }
+
+        .banner {
+            float: left;
+            margin-top: -10px;
+        }
+
+        .cen {
+            margin-top: 25px;
+        }
+
+        .right {
+            float: right;
+        }
+
+        a {
+            color: #000000;
+        }
+
+        /*a:hover{
+            color: #000000;
+        }*/
+        /*.mui-scroll{
+            background-color: #FFFFFF;
+        }*/
+        .bg {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+            color: rgb(235, 185, 125);
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-progress-bar {
+            background-color: rgb(235, 185, 125);
+        }
+
+        .mui-col-xs-2 {
+            width: 20%;
+        }
+
+        span.mui-icon {
+            color: black;
+        }
+
+        .xxlist {
+            width: 100%;
+            background-color: white;
+            margin-top: 10px;
+            padding: 0px 12px;
+        }
+
+        .xxlist1 {
+            height: 35px;
+            line-height: 35px;
+            width: 100%;
+            border-bottom: 1px solid rgb(237, 237, 237);
+        }
+
+        .xxlist11 {
+            font-weight: bold;
+            font-size: 16px;
+
+        }
+
+        .xxlist12 {
+            color: rgb(143, 143, 143);
+            font-size: 13px;
+        }
+
+        .xxlist2 {
+            line-height: 25px;
+            padding: 4px 2px;
+            font-size: 14px;
+            color: rgb(143, 143, 143);
+        }
+
+        .imgli img {
+            width: 100%;
+            height: auto;
+            max-width: 160px;
+        }
+
+        .imgli {
+            text-align: center;
+            height: auto;
+            width: 46%;
+            float: left;
+            margin-left: 4%;
+        }
+
+        .allimg {
+            height: auto;
+            width: 100%;
+            padding-right: 4%;
+        }
+
+        .bimg {
+            height: 110px;
+            overflow: hidden;
+        }
+        .bimg > img{
+            border-radius: 4px;
+        }
+
+        .fon1 {
+            font-size: 15px;
+            float: left;
+            padding-left: 5px;
+            color: rgb(36,36,36);
+        }
+
+        .fon2 {
+            margin-bottom: 5px;
+            font-size: 12px;
+            float: left;
+            padding-left: 5px;
+            color: rgb(126,126,126);
+        }
+    </style>
+</head>
+
+<body>
+<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+    <!--侧滑菜单部分-->
+    <aside id="offCanvasSide" class="mui-off-canvas-left">
+
+    </aside>
+    <!--主界面部分-->
+    <div class="mui-inner-wrap">
+        <header class="mui-bar mui-bar-nav">
+            <a href="#offCanvasSide" class="mui-action-menu mui-pull-left">
+                <img src="../images/MainInterface/list2.svg" class="liebiao">
+            </a>
+            <!--<h1 class="mui-title" style="width: 75%;font-size: 17px">订单相册</h1>-->
+            <!--<h1 class="mui-title" style="font-size: 18px">订单相册</h1>-->
+            <h1 class="mui-title">订单相册</h1>
+            <!--<p class="mui-action-back mui-btn mui-btn-link mui-pull-right" style="color: rgb(151,151,151);font-size: 13px">编辑</p>-->
+        </header>
+        <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+            <div id="slider" class="mui-slider screen" style="    background-color: white;">
+                <div class="allimg" style="margin-top: 20.4px">
+                    <div id="jiazaizhong">
+                        <img src="../images/jiazaizhong.gif" style="width: 100%;margin-top: 100px"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mui-off-canvas-backdrop"></div>
+    </div>
+</div>
+<!--加载中-->
+<div class="mui-backdrop">
+    <div class="item-wrapper">
+        <div class="item" id="load">
+            <div class="ball">
+                <div></div>
+                <div></div>
+            </div>
+            <div id="txt" style="margin-top: 10px;">loading...</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script type="text/javascript" src="../js/slider.js"></script>
+<script type="text/javascript" src="../js/getParam.js"></script>
+
+<script>
+    var id=2;
+    mui.init();
+    addSlide(id);
+    $(function () {
+        $.ajax({
+            url: "../userPort/album/albumList",
+            type: "post",
+            dataType: "json",
+            timeout: "10000",
+            success: function (data) {
+                  (data);
+                if (data.errorCode == "200") {
+                    var orderlist = data.orderlist;
+                    if (orderlist.length == 0) {
+                        $(".allimg").html('<div style="text-align: center;margin-top: 10px">暂无记录</div>');
+                    } else {
+                        var ht = '';
+                        for (var i in orderlist) {
+                            ht += '<div class="imgli">\
+                            <div class="bimg" data-id="' + orderlist[i].id + '"><img src="' + jiazaitupu(orderlist[i].orderproductimgEntities) + '"></div>\
+                            <div class="fon1">' + orderlist[i].itemProductid.itemName + '</div><div style="clear: both"></div>\
+                            <div class="fon2">' + orderlist[i].orderproductimgEntities.length + '</div><div style="clear: both"></div>\
+                            </div>';
+                        }
+                        $(".allimg").html(ht);
+                        $(".bimg").on('tap',function () {
+                            window.location.href = "albumdetail.html?id="+$(this).attr("data-id");
+                        });
+                    }
+                } else {
+                    $(".allimg").html('<div style="text-align: center;margin-top: 10px">' + data.errorMsg + '</div>');
+                }
+                $(".mui-backdrop").hide();
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    });
+
+    function jiazaitupu(tplist) {
+        if (tplist.length == 0) {
+            return "http://placehold.it/300x200?text=暂无图片";
+        } else {
+            return imgpre + JSON.parse(tplist[0].itemImgurl)[0].path;
+        }
+    }
+
+
+
+
+
+</script>
+</body>
+
+</html>

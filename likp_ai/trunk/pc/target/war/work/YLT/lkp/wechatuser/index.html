@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>立可拍</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="../css/mui.min.css" rel="stylesheet">
+    <link href="../css/base.css" rel="stylesheet">
+
+
+    <style>
+        html,
+        body {
+            background-color: #FFFFFF;
+            width: 100%;
+        }
+
+        p {
+            text-indent: 22px;
+        }
+
+        span.mui-icon {
+            font-size: 14px;
+            color: #007aff;
+            margin-left: -15px;
+            padding-right: 10px;
+        }
+
+        .mui-off-canvas-left {
+            color: #fff;
+        }
+
+        .title {
+            margin: 35px 15px 10px;
+        }
+
+        .title + .content {
+            margin: 10px 15px 35px;
+            color: #bbb;
+            text-indent: 1em;
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        input {
+            color: #000;
+        }
+
+        .scorll {
+            width: 100%;
+        }
+
+        .mui-control-item {
+            width: 33%;
+        }
+
+        .mui-card {
+            margin-bottom: 48px;
+            background-color: #f8f8f8;
+        }
+
+        .cp_title {
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .mui-card-media {
+            padding: 10px;
+        }
+
+        .mui-card-media img {
+            width: 100%;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .mui-slider .mui-slider-group .mui-slider-item img {
+            height: 40%;
+        }
+
+        .screen {
+            height: 100%;
+            background-color: #F8F6F2;
+        }
+
+        .tip {
+            padding-left: 10px;
+        }
+
+        .tip img {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+        .screen .mui-table-view {
+            /*margin-top:120%;*/
+            background-color: #EFEFF4;
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+        }
+
+        span.mui-icon {
+            font-size: 20px;
+            color: #007aff;
+            margin-left: 0px;
+            padding-right: 10px;
+        }
+
+        table {
+            width: 100%;
+            height: 200px;
+        }
+
+        tr {
+            width: 50%;
+            margin-left: 15px;
+        }
+
+        .banner {
+            float: left;
+            margin-top: -10px;
+        }
+
+        .cen {
+            margin-top: 25px;
+        }
+
+        .right {
+            float: right;
+        }
+
+        a {
+            color: #000000;
+        }
+
+        /*a:hover{
+            color: #000000;
+        }*/
+        /*.mui-scroll{
+            background-color: #FFFFFF;
+        }*/
+        .bg {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+            color: rgb(235, 185, 125);
+            /*height: 29px;*/
+            /*margin: 0 auto;*/
+            /*margin-top: 6px;*/
+            /*text-align: center;*/
+            /*line-height: 26px;*/
+        }
+
+        .mui-segmented-control.mui-segmented-control-inverted ~ .mui-slider-progress-bar {
+            background-color: rgb(235, 185, 125);
+        }
+
+        .mui-col-xs-2 {
+            width: 33.3%;
+        }
+
+        span.mui-icon {
+            color: black;
+        }
+
+        /*.mui-modal.mui-active {*/
+        /*opacity: 0.5;*/
+        /*}*/
+        .inttop {
+            float: left;
+            width: 50%;
+            border-bottom: 1px solid rgb(224, 222, 222);
+            height: 125px;
+        }
+
+        html, body {
+            height: 100%
+        }
+
+        .inttop1 {
+            height: 45px;
+        }
+
+        .inttop2 {
+            height: 60px;
+        }
+
+        .intbtn {
+            width: 100%;
+            text-align: center;
+            padding: 2px 0px;
+        }
+
+        .intbtnd {
+            margin-top: 10px;
+            background-color: rgb(247, 247, 247);
+            margin-left: 5%;
+            margin-right: 5%;
+            width: 40%;
+            height: 25px;
+            line-height: 25px;
+            float: left;
+            text-align: center;
+            font-size: 12px;
+            color: black;
+        }
+
+        .inttop1_1 {
+            height: 100%;
+            width: 30%;
+
+        }
+
+        .inttop1_2 {
+            line-height: 45px;
+            width: 50%;
+            height: 100%;
+        }
+
+        .inttop1_3 {
+            width: 20%;
+            height: 100%;
+        }
+
+        .inttop1_3 img {
+            height: 50%;
+            margin-top: 25%;
+            text-align: center;
+        }
+
+        .inttop1_1 img {
+            margin-top: 5px;
+            height: 80%;
+            margin-left: 10px;
+            text-align: center;
+            width: auto;
+        }
+
+        .hezuo {
+            border-bottom: 1px solid rgb(224, 222, 222);
+            height: 50px;
+            line-height: 50px;
+            padding: 0px 10px;
+        }
+
+        .hezuoimg1 {
+            height: 60%;
+            width: auto;
+            margin-right: 5px;
+            margin-top: 11px;
+        }
+
+        .hezuoimg2 {
+            float: right;
+            height: 45%;
+            width: auto;
+            margin-top: 15px;
+        }
+
+        .hezuobtm {
+            height: 100px;
+            width: auto;
+            border-bottom: 1px solid rgb(224, 222, 222);
+        }
+
+        .hezuobtm1 {
+            padding-top: 12px;
+            height: 100%;
+            width: 25%;
+            float: left;
+            text-align: center;
+            border-right: 1px solid rgb(224, 222, 222);
+        }
+
+        .hezuobtm1 img {
+            height: 40px;
+            width: auto;
+            margin-bottom: 6px;
+        }
+
+        .hezuobtm1 div {
+            font-size: 15px;
+        }
+
+        .mui-control-item span {
+            border-radius: 4px;
+            padding: 3px 20px;
+        }
+
+        .mui-control-item.mui-active span {
+            border: 1px solid #FDC56D;
+            background-color: #ffe33e;
+            color: black;
+        }
+
+        #detail0, #detail1, #detail2 {
+            width: 94%;
+            height: 510px;
+            background-color: #FFFFFF;
+            margin: 8px auto;
+            border: 1px solid #E1DFDD;
+            padding: 5px 5px;
+            -webkit-box-shadow: 0px 0px 10px 2px #E1DFDD;
+            -moz-box-shadow: 0px 0px 10px 2px #E1DFDD;
+            box-shadow: 0px 0px 10px 2px #E1DFDD;
+        }
+
+        .xiaotitle0, .xiaotitle1, .xiaotitle2 {
+            color: #7c7c7c;
+            text-align: center;
+            line-height: 25px;
+            margin: 40px 0px;
+        }
+
+        .xiaotitle0 span {
+            /*font-size: 24px;*/
+            /*font-weight: bolder;*/
+        }
+
+        .xiaotitle1 span {
+            /*font-size: 30px;*/
+            /*font-weight: bolder;*/
+        }
+
+        .xiaotitle2 span {
+            /*font-size: 30px;*/
+            /*font-weight: bolder;*/
+        }
+
+        .centerimg0, .centerimg1, .centerimg2 {
+            max-height: 350px;
+            overflow: hidden;
+        }
+
+        .bottomtext0, .bottomtext1, .bottomtext2 {
+            text-align: right;
+            margin-top: 25px;
+            color: #7c7c7c;
+            padding: 0px 8px;
+        }
+
+        .mui-table-view:before {
+            background-color: #dcdcdc;
+        }
+
+        .mui-navigate-right:after, .mui-push-left:after, .mui-push-right:after {
+            display: none;
+        }
+        #offCanvasWrapper{
+            z-index: 1;
+        }
+        /*新手指导图片定位*/
+.xinshouzhidao
+{
+    position: absolute;
+    background:rgba(0,0,0,0.6);
+    z-index: 2;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    /*margin-top: auto;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+}
+
+#zuoshangjiao,#youshangjiao
+{
+    margin-top:2%;
+    float: left;
+    width: 45%;
+    height: 134px;
+}
+        #zuoshangjiao{
+            margin-left:2%;
+        }
+        #youshangjiao{
+        margin-left: 8%;
+        }
+        #zuoyou,#zhenzhidaole,#faxian
+        {
+            float:right;
+        }
+        #zuoyou{
+            position: absolute;
+            display: block;
+            margin-top:-40px;
+            top:50%;
+            width: 98%;
+            height: 80px;
+
+        }
+        #zhenzhidaole{
+            position: absolute;
+            top:70%;
+            left: 35%;
+            display: block;
+            width:33%;
+            height: 40px;
+        }
+        #faxian{
+            /*margin-top:21%;*/
+            /*margin-right:16%;*/
+            /*margin-bottom: 80%;*/
+            display: block;
+            width:80%;
+            height: 24px;
+            bottom: 10px;
+            left: 10px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body style="height: 100%" id="bodys">
+
+
+<div class="xinshouzhidao" style="display: none;">
+    <img  id="zuoshangjiao" src="../images/zuoshangjiao.png" style="">
+    <img id="youshangjiao" src="../images/youshangjiao.png" style="">
+    <img id="zuoyou" src="../images/zuoyou.png">
+    <img id="zhenzhidaole" src="../images/zhenzhidaole.png"  onclick="zhidao()">
+    <img id="faxian" src="../images/faxian.png">
+</div>
+
+<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+    <!--侧滑菜单部分-->
+    <aside id="offCanvasSide" class="mui-off-canvas-left">
+    </aside>
+    <!--主界面部分-->
+    <div class="mui-inner-wrap">
+        <header class="mui-bar mui-bar-nav" style="background-color: #F8F6F2;border: 0">
+            <a href="#offCanvasSide" class="mui-action-menu mui-pull-left">
+                <img src="../images/MainInterface/list.svg" class="liebiao">
+            </a>
+            <h1 class="mui-title" style="line-height: 60px;width: 86%">
+                <img
+                        id="xiangji" style="float: right; margin-top: 12px;
+    height: 23px;" src="../images/yingji.png"></h1>
+
+        </header>
+        <div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper" style="background-color: white;">
+            <div id="slider" class="mui-slider screen">
+                <!--标题-->
+                <div id="sliderSegmentedControl"
+                     class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                    <div class="scorll" style="color: rgb(133,131,131);">
+                        <a class="mui-control-item mui-active" id="title0" href="#product1">
+                        </a>
+                        <a class="mui-control-item" id="title1" href="#product2">
+                        </a>
+                        <a class="mui-control-item" id="title2" href="#product3">
+                        </a>
+                    </div>
+                </div>
+                <div class="mui-slider-group">
+                    <div id="product1" class="mui-slider-item mui-control-content mui-active" style="border-top: 0px;">
+                        <div id="scroll1" class="mui-scroll-wrapper">
+                            <div class="mui-scroll">
+                                <div id="detail0">
+                                    <div class="xiaotitle0">
+                                    </div>
+                                    <div class="centerimg0">
+                                    </div>
+                                    <div class="bottomtext0">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="product2" class="mui-slider-item mui-control-content" style="border-top: 0px;">
+                        <div class="mui-scroll-wrapper">
+                            <div class="mui-scroll">
+                                <div id="detail1">
+                                    <div class="xiaotitle1">
+                                    </div>
+                                    <div class="centerimg1">
+                                    </div>
+                                    <div class="bottomtext1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="product3" class="mui-slider-item mui-control-content" style="border-top: 0px;">
+                        <div class="mui-scroll-wrapper">
+                            <div class="mui-scroll">
+                                <div id="detail2">
+                                    <div class="xiaotitle2">
+                                    </div>
+                                    <div class="centerimg2">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mui-table-view">
+                    <div class="mui-table-view-cell">
+                        <a class="mui-navigate-right" href="#modal" style="background-color: rgb(248,246,242)">
+                            <img src="../images/pin@3x.png"
+                                 style="width:23px;margin-right: 13px;vertical-align: middle;display: inline">
+                            <div style="display: inline;font-size: 16px;vertical-align: middle;color: #5C5B59;">发现</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal" class="mui-modal" style="background-color: rgba(0,0,0,0);">
+            <a href="#modal">
+                <div style="width: 100%" id="kongbai">
+                </div>
+            </a>
+            <div style="height: auto;width: 100%;background-color: white;" id="neirong">
+                <div class="intto" style="height:411px;width:100%;border-top: 1px solid rgb(224,222,222);">
+                    <div class="inttop" style="border-right: 1px solid rgb(224,222,222);">
+                        <div class="inttop1">
+                            <div class="left inttop1_1"><img src="../images/jingqu@2x.png"></div>
+                            <div class="left inttop1_2">景区</div>
+                            <div class="left inttop1_3"><img src="../images/youjiantou.png"></div>
+                        </div>
+                        <div class="inttop2">
+                            <div class="intbtnd" id="renwujianqu">人文景区</div>
+                            <div class="intbtnd">自然景区</div>
+                            <div class="intbtnd">线路</div>
+                        </div>
+                    </div>
+                    <div class="inttop">
+                        <div class="inttop1">
+                            <div class="left inttop1_1"><img src="../images/jiequ@2x.png"></div>
+                            <div class="left inttop1_2">街区</div>
+                            <div class="left inttop1_3"><img src="../images/youjiantou.png"></div>
+                        </div>
+                        <div class="inttop2">
+                            <div class="intbtnd">小区</div>
+                            <div class="intbtnd">街道</div>
+                            <div class="intbtnd">主题公园</div>
+                        </div>
+                    </div>
+                    <div class="inttop" style="border-right: 1px solid rgb(224,222,222);">
+                        <div class="inttop1">
+                            <div class="left inttop1_1"><img src="../images/changguan@2x.png"></div>
+                            <div class="left inttop1_2">场馆</div>
+                            <div class="left inttop1_3"><img src="../images/youjiantou.png"></div>
+                        </div>
+                        <div class="inttop2">
+                            <div class="intbtnd">酒店</div>
+                            <div class="intbtnd">咖啡馆</div>
+                            <div class="intbtnd">主题公园</div>
+                        </div>
+                    </div>
+                    <div class="inttop">
+                        <div class="inttop1">
+                            <div class="left inttop1_1"><img src="../images/qita@2x.png"></div>
+                            <div class="left inttop1_2">服务站</div>
+                            <div class="left inttop1_3"><img src="../images/youjiantou.png"></div>
+                        </div>
+                        <div class="inttop2">
+                            <div class="intbtnd">玉林品上.汤舍</div>
+                            <div class="intbtnd">安仁古镇.时代印象</div>
+                            <div class="intbtnd">其他</div>
+                        </div>
+                    </div>
+                    <div style="height: 10px;border-bottom: 1px solid rgb(224,222,222);clear: both;background-color:  rgb(244,244,244)"></div>
+                    <div class="hezuo">
+                        <img src="../images/pingtai@2x.png" class="hezuoimg1 left">
+                        <div style="float: left">合作平台</div>
+                        <img src="../images/27@3x.png" class="right hezuoimg2">
+                    </div>
+                    <div class="hezuobtm">
+                        <div class="hezuobtm1">
+                            <img src="../images/yijia@2x.png">
+                            <div>一佳造型</div>
+                        </div>
+                        <div class="hezuobtm1">
+                            <img src="../images/sheyingzhidu@2x.png">
+                            <div>摄影之都</div>
+                        </div>
+                        <div class="hezuobtm1">
+                            <img src="../images/jiatingriji@2x.png">
+                            <div>家庭日记</div>
+                        </div>
+                        <div class="hezuobtm1">
+                            <img src="../images/zhushang@2x.png">
+                            <div>助商腾飞</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="mui-off-canvas-backdrop"></div>
+    </div>
+</div>
+<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="../js/mui.min.js"></script>
+<script type="text/javascript" src="../js/server.js"></script>
+<script type="text/javascript" src="../js/slider.js"></script>
+<script type="text/javascript" src="../js/getParam.js"></script>
+<script>
+    var id = 0;
+    addSlide(id);
+    window.onload = function () {
+        NewGuide();
+        mainLoad();
+    }
+    mui.init();
+    //    弹出框高度自动
+    var modalHeight = $("#modal").height();
+    var neirongHeight = $("#neirong").height();
+    $("#kongbai").height(modalHeight - neirongHeight);
+    $("#renwujianqu").on('tap', function () {
+        window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx41ae02856c6d39a6&redirect_uri=http%3a%2f%2fwww.91lkp.com%2flikepai%2fuserlogin%2f1%2f1&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
+    });
+    $("#xiangji").on('tap', function () {
+        window.location.href = "../YINGJI/set";
+    });
+
+    function NewGuide() {
+        var html = "";
+        $.ajax({
+            url: "../userPort/NewGuide",
+            data: {},
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                if(data.errorCode=='200'){
+                    var itemIsguide = data.isguide;
+                    if (itemIsguide == "" || itemIsguide=="0" || itemIsguide=="null" || itemIsguide==null) {
+                        $(".xinshouzhidao").show();
+                    }else{
+                        $(".xinshouzhidao").hide();
+                    }
+                }
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    }
+
+    function zhidao() {
+        $(".xinshouzhidao").hide();
+        $.ajax({
+            url: "../userPort/UpdateGuide",
+            data: {},
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    }
+
+    function mainLoad() {
+        var html = "";
+        $.ajax({
+            url: "../common/index/productMain",
+            data: {},
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                console.log(data);
+                if (data.length == 0) {
+                    html = '<div class="mui-card">\
+								<h3 class="cp_title">暂无信息</h3>\
+							</div>';
+                }
+                $("#title2").append("<span>更多</span>");
+                for (var i in data) {
+                    if (i >= 2) {
+                        continue;
+                    }
+                    console.log(i);
+                    var img = JSON.parse(data[i].itemCpfm);
+                    var imgpath = img[0].path;
+                    console.log(imgpath);
+                    var name = data[i].itemName;
+                    var itemZtms = data[i].itemZtms;
+                    var splitStr = itemZtms.split("\n"); //字符分割
+                    $("#detail" + i).append(html);
+                    $("#detail" + i).data("id", data[i].id);
+                    $("#title" + i).append("<span>" + name + "</span>");
+//                    $(".xiaotitle"+i).append("<span>"+name+"</span>");
+                    $(".xiaotitle" + i).append("<span>世间最值得留存、珍藏和传承的是美好的情感记录，<br>我们端起相机，为你，为父母，为家庭，<br>记录爱与陪伴本来的模样。</span>");
+                    $(".centerimg" + i).append("<img src=" + imgpre + imgpath + ">");
+
+                    if (splitStr != null && splitStr.length > 0) {
+                        for (var j = 0; j < splitStr.length; j++) {
+                            if (splitStr[j]) {
+//                                $(".bottomtext"+i).append('<p style="font-size: 12px;color: #000000;">'+splitStr[j]+'</p>');
+                            }
+                        }
+                    }
+                    else {
+//                        $(".bottomtext"+i).append("暂无描述");
+                    }
+                    $(".bottomtext" + i).append('<p style="font-size: 12px;color: #7c7c7c;">从前总相信你们一切都好，如今我能待在你们身边就好。<br>——立可拍2016.12.08&nbsp;&nbsp;</p>');
+                    $("#detail" + i).on('tap', function () {
+                        /* console.log($(this).data("id"));*/
+                        window.location.href = "mainProductList.html?id=" + $(this).data("id");
+                    });
+                    document.getElementById('slider').addEventListener('slide', function (e) {
+                        if (e.detail.slideNumber === 2) {
+                            window.location.href = "gengduo.html";
+                        }
+                    });
+                }
+            },
+            error: function (e) {
+                mui.toast(e);
+            }
+        });
+    }
+</script>
+</body>
+
+</html>

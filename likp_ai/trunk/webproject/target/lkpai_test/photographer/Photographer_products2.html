@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>立可拍</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style>
+			.mui-content {
+				clear: all;
+			}
+			
+			header {
+				background-color: white;
+				height: 40px;
+				width: 100%;
+			}
+			
+			.moddil {
+				width: 100%;
+				height: auto;
+			}
+			
+			.not_mas {
+				width: 100%;
+				text-align: center;
+				position: absolute;
+			}
+			
+			.not_mas p {
+				font-family: "微软雅黑";
+				font-size: 15px;
+				margin-top: 0px;
+			}
+			
+			.mui-icon-plus {
+				font-size: 120px;
+				color: #AAAAAA;
+			}
+			
+			.mm1 {
+				width: 100%;
+				clear: both;
+				padding-top: 5px;
+				display: inline-block;
+				height: auto;
+				background-color: white;
+			}
+			
+			.mm1 img {
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+			}
+			
+			.mm1_p {
+				font-family: "微软雅黑";
+				font-size: 15px;
+				padding-top: 30px;
+				padding-left: 25px;
+				color: black;
+			}
+			
+			.mm1_1 {
+				float: left;
+				width: 30%;
+			}
+			
+			.mm1_2 {
+				float: right;
+				width: 70%;
+			}
+			
+			.mm2_p {
+				margin-top: -75px;
+				margin-right: 10px;
+				float: right;
+				font-family: "微软雅黑";
+				font-size: 14px;
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav">
+			<a><span class="mui-icon mui-icon-bars"></span></a>
+			<h1 class="mui-title">产品管理</h1>
+		</header>
+		<div class="mui-content">
+			<div class="moddil">
+
+			</div>
+			<div style="clear: both;"></div>
+			<div class="not_mas">
+				<a id="icon-plus"><span class="mui-icon mui-icon-plus"></span></a>
+			</div>
+		</div>
+		<script type="text/javascript" src="../js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/server.js"></script>
+		<script type="text/javascript">
+			window.onload = function () {
+				mainLoad();
+			}
+			function mainLoad() {
+				$.ajax({
+					url: "../product/SelectSysCp",
+					type: "post",
+					dataType: "json",
+					timeout: "10000",
+					success: function (data) {
+						$("#slider").html('');
+						if (data.errorCode == "200") {
+							var ht = '';
+							var allcp = data.allCp;
+							var all = JSON.parse(allcp)
+							  (all)
+							for (var i in all) {
+								ht +='<div class="mm1">\
+											<div class="mm1_1"><img src="' + imgpre +  JSON.parse(all[i].itemCover)[0].path + '" />\
+											</div>\
+											<div class="mm1_2">\
+											<p class="mm1_p">'+all[i].itemName+'<br /><br />￥'+all[i].itemPrice+'</p>\
+									<p class="mm2_p">'+all[i].itemCpzt+'</p>\
+											</div>\
+											</div>';
+								}
+								$(".moddil").append(ht);
+
+													} else {
+						mui.toast(data.errorMsg);
+						}
+
+					},
+
+				});
+			}
+			mui.init()
+		</script>
+	</body>
+
+</html>
